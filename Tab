@@ -1,0 +1,113 @@
+(function ($) {
+
+    var defaults = {
+        tabId: 'notice',
+        titleNum: 5,
+        contentNum: 4
+    };
+
+    var opts = {};
+    var data0 = {
+        "title0": "标题一",
+        "title1": "标题二",
+        "title2": "标题三",
+        "title3": "标题四",
+        "title4": "标题五"
+    };
+    var data = {
+        "content0": "00aaa",
+        "content1": "00bbb",
+        "content2": "00cccc",
+        "content3": "00dddd",
+        "content4": "00eeee"
+    };
+    var data1 = {
+        "content0": "11hahaha",
+        "content1": "11ada",
+        "content2": "11hahsadaaha",
+        "content3": "11haadahaha"
+    };
+    var data2 = {
+        "content0": "2你好啊",
+        "content1": "2滚蛋，Daiso",
+        "content2": "22放屁，我是高富帅",
+        "content3": "22约么？"
+    };
+    $.Tab = function (options) {
+        if (!(this instanceof $.Tab)) {
+            return new $.Tab(options);
+        }
+        opts = $.extend({}, defaults, options);
+    };
+
+
+    var _htmlTitle = function (opts) {
+        var i = 0;
+        var li = [];
+        var len = opts.titleNum;
+        if (len) {
+            for (; i < len; i++) {
+                li.push('<li><a href="#">' + data0['title' + i] + '</a></li>')
+            }
+        }
+        var html = '<div id="notice-tit" class="notice-tit"><ul>' + li.join('') + '</ul></div><div id="notice-con" class="notice-con">';
+        $('#' + opts.tabId).append(html);
+        _clickEvent();
+    };
+
+    var arr = [];
+    var _tabContent = function (opts, data, index) {
+
+        $('.mod').hide();
+        $('.mod').eq(index).show();
+        if (arr.join('').indexOf(index) >= 0) {
+
+            return
+        }
+        arr.push(index);
+
+        var i = 0;
+        var li = [];
+        var len = opts.contentNum;
+        if (len) {
+            for (; i < len; i++) {
+                li.push('<li><a href="#">' + data['content' + i] + '</a></li>')
+            }
+        }
+        var html = '<div class="mod" data-index=' + index + ' style="display:block"><ul>' + li.join('') + '</ul></div></div>';
+        $('#notice-con').append(html);
+
+    };
+
+
+    var _clickEvent = function () {
+        $('#notice-tit').on('click', 'a', function () {
+
+            var index = $(this).parent().index();
+            $(this).parent().siblings().removeClass('select');
+            $(this).parent().addClass('select');
+
+
+            switch (index) {
+                case 0:
+                    _tabContent(opts, data, 0);
+                    break;
+                case 1:
+                    _tabContent(opts, data1, 1);
+                    break;
+                case 2:
+                    _tabContent(opts, data2, 2);
+                    break;
+                default :
+                    _tabContent(opts, data, 3);
+            }
+        })
+    };
+    $.Tab.prototype = {
+        init: function () {
+            _htmlTitle(opts);
+            _tabContent(opts, data, 0)
+        }
+    };
+})($);
+
