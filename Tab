@@ -3,36 +3,13 @@
     var defaults = {
         tabId: 'notice',
         titleNum: 5,
-        contentNum: 4
+        contentNum: 2
     };
 
     var opts = {};
-    var data0 = {
-        "title0": "标题一",
-        "title1": "标题二",
-        "title2": "标题三",
-        "title3": "标题四",
-        "title4": "标题五"
-    };
-    var data = {
-        "content0": "00aaa",
-        "content1": "00bbb",
-        "content2": "00cccc",
-        "content3": "00dddd",
-        "content4": "00eeee"
-    };
-    var data1 = {
-        "content0": "11hahaha",
-        "content1": "11ada",
-        "content2": "11hahsadaaha",
-        "content3": "11haadahaha"
-    };
-    var data2 = {
-        "content0": "2你好啊",
-        "content1": "2滚蛋，Daiso",
-        "content2": "22放屁，我是高富帅",
-        "content3": "22约么？"
-    };
+    var arr = [];
+
+
     $.Tab = function (options) {
         if (!(this instanceof $.Tab)) {
             return new $.Tab(options);
@@ -41,7 +18,7 @@
     };
 
 
-    var _htmlTitle = function (opts) {
+    var _title = function (opts) {
         var i = 0;
         var li = [];
         var len = opts.titleNum;
@@ -52,19 +29,15 @@
         }
         var html = '<div id="notice-tit" class="notice-tit"><ul>' + li.join('') + '</ul></div><div id="notice-con" class="notice-con">';
         $('#' + opts.tabId).append(html);
-        _clickEvent();
     };
 
-    var arr = [];
-    var _tabContent = function (opts, data, index) {
+    var _content = function (opts, data, index) {
 
         $('.mod').hide();
         $('.mod').eq(index).show();
-        if (arr.join('').indexOf(index) >= 0) {
+        if (arr.join('').indexOf(index) >= 0)return;
 
-            return
-        }
-        arr.push(index);
+        arr[arr.length] = (index);
 
         var i = 0;
         var li = [];
@@ -80,34 +53,25 @@
     };
 
 
-    var _clickEvent = function () {
+    var _clickEvent = function (fn) {
         $('#notice-tit').on('click', 'a', function () {
-
+           fn($(this).parent().index());
             var index = $(this).parent().index();
             $(this).parent().siblings().removeClass('select');
             $(this).parent().addClass('select');
 
 
-            switch (index) {
-                case 0:
-                    _tabContent(opts, data, 0);
-                    break;
-                case 1:
-                    _tabContent(opts, data1, 1);
-                    break;
-                case 2:
-                    _tabContent(opts, data2, 2);
-                    break;
-                default :
-                    _tabContent(opts, data, 3);
-            }
+            _content(opts, data, index);
         })
     };
+
+
     $.Tab.prototype = {
         init: function () {
-            _htmlTitle(opts);
-            _tabContent(opts, data, 0)
-        }
+            _title(opts);
+            _content(opts, data, 0)
+        },
+        clickEvent:_clickEvent
     };
 })($);
 
