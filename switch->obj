@@ -62,3 +62,22 @@
      $.isFunction(action) && action();
      })
      */
+
+
+switch(true) {
+  case (typeof color === 'string' && color === 'black'):
+    printBlackBackground();
+    break;
+  case (typeof color === 'string' && color === 'red'):
+    printRedBackground();
+    break;
+  case (typeof color === 'string' && color === 'blue'):
+    printBlueBackground();
+    break;
+  case (typeof color === 'string' && color === 'green'):
+    printGreenBackground();
+    break;
+  case (typeof color === 'string' && color === 'yellow'):
+    printYellowBackground();
+    break;
+}
