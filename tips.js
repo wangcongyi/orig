@@ -1,5 +1,5 @@
 
-// 获取 .element:before的color值
+// 鑾峰彇浼被鏍峰紡值
 
 var color = window.getComputedStyle(document.querySelector('.element'), ':before').getPropertyValue('color');
 
