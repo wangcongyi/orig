@@ -38,3 +38,25 @@ function removeEvent(obj,ev,fn){
     }
 }
 
+var num = 1;
+$(btn2).click(function () {
+    num == 8 && (num = 0);
+    $(Ul).animate({
+        left: -450 * num
+    }, 1000);
+    num++;
+});
+$(btn1).click(function () {
+    if(num==1){
+        $(Ul).animate({
+            left:-450*7
+        },1000);
+        num = 8
+    }else{
+        $(Ul).animate({
+            left:Ul.offsetLeft+450
+        },1000);
+        num --;
+    }
+
+});
