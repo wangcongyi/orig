@@ -1,0 +1,77 @@
+(function ($) {
+
+    var defaults = {
+        tabId: 'notice',
+        titleNum: 5,
+        contentNum: 2
+    };
+
+    var opts = {};
+    var arr = [];
+
+
+    $.Tab = function (options) {
+        if (!(this instanceof $.Tab)) {
+            return new $.Tab(options);
+        }
+        opts = $.extend({}, defaults, options);
+    };
+
+
+    var _title = function (opts) {
+        var i = 0;
+        var li = [];
+        var len = opts.titleNum;
+        if (len) {
+            for (; i < len; i++) {
+                li.push('<li><a href="#">' + data0['title' + i] + '</a></li>')
+            }
+        }
+        var html = '<div id="notice-tit" class="notice-tit"><ul>' + li.join('') + '</ul></div><div id="notice-con" class="notice-con">';
+        $('#' + opts.tabId).append(html);
+    };
+
+    var _content = function (opts, data, index) {
+
+        $('.mod').hide();
+        $('.mod').eq(index).show();
+        if (arr.join('').indexOf(index) >= 0)return;
+
+        arr[arr.length] = (index);
+
+        var i = 0;
+        var li = [];
+        var len = opts.contentNum;
+        if (len) {
+            for (; i < len; i++) {
+                li.push('<li><a href="#">' + data['content' + i] + '</a></li>')
+            }
+        }
+        var html = '<div class="mod" data-index=' + index + ' style="display:block"><ul>' + li.join('') + '</ul></div></div>';
+        $('#notice-con').append(html);
+
+    };
+
+
+    var _clickEvent = function (fn) {
+        $('#notice-tit').on('click', 'a', function () {
+           fn($(this).parent().index());
+            var index = $(this).parent().index();
+            $(this).parent().siblings().removeClass('select');
+            $(this).parent().addClass('select');
+
+
+            _content(opts, data, index);
+        })
+    };
+
+
+    $.Tab.prototype = {
+        init: function () {
+            _title(opts);
+            _content(opts, data, 0)
+        },
+        clickEvent:_clickEvent
+    };
+})($);
+
