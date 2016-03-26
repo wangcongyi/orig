@@ -126,3 +126,18 @@ function a4() {
  $.isFunction(action) && action();
  })
  */
+
+
+
+
+
+
+
+//    if (obj) {
+//        if (obj.a) {
+//            if (obj.a.b.length > 0) {
+//                b = obj.a.b
+//            }
+//        }
+//    }
+//b = obj && obj.a && obj.a.b && obj.a.b.c;
