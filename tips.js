@@ -141,3 +141,8 @@ function a4() {
 //        }
 //    }
 //b = obj && obj.a && obj.a.b && obj.a.b.c;
+
+
+
+//   QQ在线咨询~~~~其实真简单    一个链接+qq号就OK了~~~~
+//   http://wpa.qq.com/msgrd?v=3&uin=  “QQ号”  &site=qq&menu=yes
