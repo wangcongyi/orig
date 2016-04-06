@@ -146,3 +146,35 @@ function a4() {
 
 //   QQ在线咨询~~~~其实真简单    一个链接+qq号就OK了~~~~
 //   http://wpa.qq.com/msgrd?v=3&uin=  “QQ号”  &site=qq&menu=yes
+
+
+
+
+
+
+
+
+/*
+*    attr & prop
+*
+*
+* */
+//var str0 = '<div class="reading"><div class="re-text">相关阅读</div><div class="re-ul"><li><a uuid="C7033408C56000015CF883D0D800B6A0" href="sfsdf" target="_blank" class="reader">fsdf</a></li><li><a uuid="C7033408C57000019CBC1B20A1A5AFB0" href="sdfsdf" target="_blank" class="reader">fsdf</a></li><li><a uuid="C7033408C5700001E6311E2019C088A0" href="fsd" target="_blank" class="reader">fsdfsd</a></li></div></div>';
+//
+//console.log(getUuid(str0,"uuid1"));
+//console.log(getUuid(str0,"uuid"));
+//alert(getUuid(str0,"uuid"));
+//alert(getUuid(str0,"class"));
+/**
+ * @description  获取标签所有熟悉值
+ * @param str
+ * @param sign
+ * @returns {Array}
+ */
+//function getUuid(str,sign){
+//    var arr = [];
+//    str.replace(new RegExp(sign+"=\"\\w+","gi"),function($0){
+//        arr.push($0.replace(new RegExp(sign+"=\"","gi"),""));
+//    });
+//    return arr;
+//};
