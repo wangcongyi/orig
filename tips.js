@@ -178,3 +178,24 @@ function a4() {
 //    });
 //    return arr;
 //};
+
+/*
+*    获取 字符串中的数字  不使用正则
+*
+* */
+//var str = 'sdaddf444sfsfdsf8485sdfsdfdsfds18526dfdsfdsfdsf2dfsdf58';
+//  [444,8485,18526,2,58]
+//var s;
+//var r = [];
+//for (var i = 0, l = str.length; i < l; ++i) {
+//    if (typeof s === 'undefined' && str[i] >= '0' && str[i] <= '9') {
+//        s = i;
+//    }
+//    if (typeof s !== 'undefined' && (str[i] < '0' || str[i] > '9')) {
+//        r.push(str.substr(s, i - s));
+//        s = undefined;
+//    }
+//}
+//if (typeof s !== 'undefined') {
+//    r.push(str.substr(s))
+//}
