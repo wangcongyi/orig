@@ -36,11 +36,15 @@ console.log(p1==p2) //false   比较两个对象的堆内存中的地址是否�
 ```javascript
 var a = {}; // a保存了一个空对象的实例
 var b = a;  // a和b都指向了这个空对象
-a.name = 'jozo';
-console.log(a.name); // 'jozo'
-console.log(b.name); // 'jozo'
+a.name = 'king';
+console.log(a.name); // 'king'
+console.log(b.name); // 'king'
 b.age = 22;
 console.log(b.age);// 22
 console.log(a.age);// 22
-console.log(a == b);// true
+console.log(a == b);// true  
+var obja = {v:'a'}      //为obja分配栈内存obja 堆内存{v:'a'}
+var objb = obja         //为objb分配栈内存objb 引用堆内存德尔值{v:'a'}
+objb.v = 'b'       //通过objb访问堆内存的值 修改为"b" 由于obja和objb引用的是堆内存同一个对象值 obja={v:'b'}
+var objb = {v:'c'}     //修改了整个对象 在对内存中创建一个新的对象值{v:'c'} 
 ```
