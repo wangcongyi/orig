@@ -10,7 +10,7 @@ var color = window.getComputedStyle(document.querySelector('.element'), ':before
 
 var a = 10;
 var b;
-a == 10 && (fn1() & fn2());
+a == 10 && fn1() & fn2();
 
 //  a == undefined || (b = 234);
 //  console.log(b);
@@ -199,3 +199,29 @@ function a4() {
 //if (typeof s !== 'undefined') {
 //    r.push(str.substr(s))
 //}
+
+
+/**
+ * @description
+ * @param {Function} fn     传人的回调函数
+ * @param {Number}   times  次数
+ * @param {Number}   delay  间隔时间
+ * @returns {Function}
+ */
+//function f(fn, times, delay) {
+//    var t, n = 0;
+//    return function (str) {
+//        t = setInterval(function () {
+//            if (n == times - 1) {
+//                clearInterval(t);
+//                t = null;
+//                n = null;
+//            }
+//            fn(str);
+//            n++;
+//        }, delay)
+//    }
+//}
+//
+//var a = f(alert, 6, 1000);
+//a('你好');
