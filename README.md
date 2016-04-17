@@ -1,3 +1,3 @@
 # test
 it's my first time at Github
-## 工作中的  一些代码片段
+## tips.js 为工作中的  一些代码片段
