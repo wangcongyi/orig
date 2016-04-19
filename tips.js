@@ -247,3 +247,22 @@
 //for (; i < data.length; i++) {
 //    new F(data[i].type, data[i].content)
 //}
+
+/**
+ *    hover 延时事件发生  如果用户快速经过 就不处罚hover
+ *    代码可以待改进
+ */
+
+//$('img').hover(function () {
+// var self = $(this);
+// clearTimeout(t1);
+// t2 = setTimeout(function () {
+//  self.animate({width: 1000}, 500, 'linear')
+// }, 1000)
+//}, function () {
+// var self = $(this);
+// clearTimeout(t2);
+// t1 = setTimeout(function () {
+//  self.animate({width: 500}, 500, 'linear')
+// }, 1000)
+//})
