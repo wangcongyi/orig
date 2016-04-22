@@ -1,10 +1,19 @@
-#javascript DOM �������Ⱦ
+#javascript DOM 浏览器渲染
 ```javascript
-1.����HTML,����DOM tree    
-2.������ʽ�����DOM tree ���� Render tree  
-3.��Render tree �����ڵ���㲼����Ϣ  
-4.���������Render tree   
+1.解析HTML,生成DOM tree    
+2.解析样式并结合DOM tree 生成 Render tree  
+3.对Render tree 各个节点计算布局信息  
+4.浏览器绘制Render tree   
 ```
 
-to be continue
 
+#如何开发不会导致重排
+>重新渲染 就需要重新生成布局和重新绘制 前者较重排 后者叫重绘.   
+>重绘不一定重排 比如改变页面元素的颜色 就只会触发重绘。   
+>不会触发重排是因为布局没有改变 但是重排一定会重绘 比如改变原元素的位置。
+
+1.样式表越简单 重排和重绘就越快。  
+2.重绘和重排的DOM元素层级越高，成本就越高。  
+3.table元素重排和重绘成要高于div  
+4.尽量不要把读操作和写操作放在一个语句中。  
+5.display:none 不影响重绘重排  

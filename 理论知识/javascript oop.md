@@ -1,7 +1,7 @@
-#javascript ÃæÏò¶ÔÏó±à³Ì
+#javascript é¢å‘å¯¹è±¡ç¼–ç¨‹
 ```javascript
 function Aaa() {}
-    //    Aaa.prototype.constructor = Aaa;    //³ÌĞò×Ô¶¯Éú³É´Ë¾ä»°
+    //    Aaa.prototype.constructor = Aaa;    //ç¨‹åºè‡ªåŠ¨ç”Ÿæˆæ­¤å¥è¯
     var a = new Aaa();
     console.log(a.constructor.prototype === Aaa.prototype);
     console.log(a.__proto__ === Aaa.prototype);
