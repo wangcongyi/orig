@@ -313,3 +313,30 @@
 //};
 //var m = new MarryState();
 //m.change('jump').goes().change('shoot').goes();
+
+
+
+
+/**
+ *  @description     jq去封装一个插件  长按功能
+ * @param delay      长按时间去触发方法
+ * @param callback    方法
+ * @returns {jQuery}  return this
+ */
+//(function ($) {
+// $.fn.longPress = function (delay,callback) {
+//  var d = delay || 1000;
+//  var t = null;
+//  var f = false;
+//  $(this).on('mousedown', function () {
+//   t = setTimeout(function () {
+//    f = true;
+//    callback.call(this);
+//   }, d);
+//  });
+//  $(this).on('mouseup', function () {
+//   !f && clearTimeout(t)
+//  });
+//  return this
+// }
+//})(jQuery);
