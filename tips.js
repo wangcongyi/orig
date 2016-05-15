@@ -315,8 +315,6 @@
 //m.change('jump').goes().change('shoot').goes();
 
 
-
-
 /**
  *  @description     jq去封装一个插件  长按功能
  * @param delay      长按时间去触发方法
@@ -340,3 +338,37 @@
 //  return this
 // }
 //})(jQuery);
+
+
+/**
+ * @description     替换全部
+ * @usage   比如a->哈哈  b->呵呵  str是需要替换的字符串  obj是对应的替换关系
+ * @param str
+ * @param obj
+ * @returns {string}
+ */
+//function replaceAll(str, obj) {
+/////////////////////  String.prototype.replaceAll = function(){
+//              var arr = this.split('');
+// }
+//    var arr = str.split('');
+//    for (var i = 0; i < str.length; i++) {
+//        for (var j in obj) {
+//            if (arr[i] == j) {
+//                arr[i] = obj[j]
+//            }
+//        }
+//    }
+//    return arr.join('')
+//}
+
+
+
+
+
+
+
+
+
+
+
