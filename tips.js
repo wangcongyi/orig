@@ -364,9 +364,40 @@
 
 
 
-
-
-
+/*
+*     在伪元素上加点击事情
+*     :after之类的伪元素  不是真正DOM  无法添加事件
+*     但是 可以模拟出来
+*     主要思想根据鼠标点击的坐标来进行排断
+* */
+/////////// style
+/*
+*   #mything {
+ width: 100px;
+ height: 100px;
+ position: relative;
+ background: blue;
+ }
+ #mything:after {
+ content: "x";
+ font-size: 10px;
+ position: absolute;
+ top: 0;
+ right: 0;
+ background: red;
+ width: 10px;
+ height: 10px;
+ }
+* */
+/////////javascript
+/*
+* $('#mything').click(function(e) {
+ if (e.clientX > $(this).offset().left + 90 &&
+ e.clientY < $(this).offset().top + 10) {
+ // do something
+ }
+ });
+* */
 
 
 
