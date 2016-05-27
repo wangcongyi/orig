@@ -363,16 +363,15 @@
 //}
 
 
-
 /*
-*     在伪元素上加点击事情
-*     :after之类的伪元素  不是真正DOM  无法添加事件
-*     但是 可以模拟出来
-*     主要思想根据鼠标点击的坐标来进行排断
-* */
+ *     在伪元素上加点击事情
+ *     :after之类的伪元素  不是真正DOM  无法添加事件
+ *     但是 可以模拟出来
+ *     主要思想根据鼠标点击的坐标来进行排断
+ * */
 /////////// style
 /*
-*   #mything {
+ *   #mything {
  width: 100px;
  height: 100px;
  position: relative;
@@ -388,18 +387,27 @@
  width: 10px;
  height: 10px;
  }
-* */
+ * */
 /////////javascript
 /*
-* $('#mything').click(function(e) {
+ * $('#mything').click(function(e) {
  if (e.clientX > $(this).offset().left + 90 &&
  e.clientY < $(this).offset().top + 10) {
  // do something
  }
  });
-* */
+ * */
+////////////////////////////////
+//postMessage 一个小坑
+//在使用a链接打开新页面的时候  新页面不会马上触发message事件  必须在父页面用定时间包一层
 
-
-
-
+/*$(document).on('ready', function () {
+ $('thead').on('click','a',function(){
+ var newWindow = window.open('http://www.c.com/demo.html','title');
+ setTimeout(function(){
+ newWindow.postMessage('hello','http://www.c.com/demo.html');
+ },0);
+ })
+ })
+ */
 
