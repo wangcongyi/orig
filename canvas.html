@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        html, body {
+            margin: 20px;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<input id="btn1" type="file" value="请选择图片"/>
+<canvas id="c1"></canvas>
+<canvas id="c2"></canvas>
+<canvas id="c3" style="position: absolute; border: 1px solid #cccccc;margin:50px;"></canvas>
+<input id="btn2" type="button" value="上传"/>
+<script>
+    document.querySelector('#btn1').onchange = function () {
+        var file = this.files[0];
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function (e) {
+            var d = e.target.result;
+            var image = new Image();
+            var c1 = document.getElementById('c1'),
+                    $1 = c1.getContext('2d'), w, h;
+            var c3 = document.getElementById('c3'),
+                    $3 = c3.getContext('2d'),
+                    dx = c3.width = 200,
+                    dy = c3.height = 200;
+            var c2 = document.getElementById('c2'),
+                    $2 = c2.getContext('2d');
+            var t = c1.getBoundingClientRect().top;
+            var l = c1.getBoundingClientRect().left;
+            image.src = d;
+            image.onload = function () {
+                w = c1.width = c2.width = image.width;
+                h = c1.height = c2.height = image.height;
+                $1.drawImage(image, 0, 0);
+                c2.style.position = 'absolute';
+                c2.style.top = t + 'px';
+                c2.style.left = l + 'px';
+                cutArea(10, 10);
+            };
+            function cutArea(x, y) {
+                $2.clearRect(0, 0, w, h);
+                $2.setLineDash([4, 2]);
+                $2.strokeRect(x, y, dx, dy);
+                $3.clearRect(0, 0, dx, dy);
+                $3.drawImage(image, x, y, dx, dy, 0, 0, dx, dy)
+            }
+
+            c2.onmousedown = function (e) {
+                cutArea(e.clientX - dx / 2 - l, e.clientY - dy / 2 - t);
+                document.onmousemove = function (e) {
+                    if (e.clientX < l + dx / 2) {
+                        if (e.clientY < t + dy / 2) {
+                            return false
+                        } else if (e.clientY > t + h - dy / 2) {
+                            return false
+                        } else {
+                            cutArea(0, e.clientY - dy / 2 - t)
+                        }
+                    } else if (e.clientX > l + w - dx / 2) {
+                        if (e.clientY > t + h - dy / 2) {
+                            return false
+                        } else if (e.clientY < t + dy / 2) {
+                            return false
+                        } else {
+                            cutArea(w - dx, e.clientY - dy / 2 - t)
+                        }
+                    } else if (e.clientY < t + dy / 2) {
+                        cutArea(e.clientX - dx / 2 - l, 0)
+                    } else if (e.clientY > t + h - dy / 2) {
+                        cutArea(e.clientX - dx / 2 - l, h - dy)
+                    } else {
+                        cutArea(e.clientX - dx / 2 - l, e.clientY - dy / 2 - t);
+                    }
+                };
+                document.onmouseup = function () {
+                    document.onmousemove = null;
+                    document.onmouseup = null
+                };
+                return false
+            };
+        }
+    }
+    document.querySelector('#btn2').addEventListener('click', function (e) {
+        e.preventDefault();
+    }, false);
+</script>
+</body>
+</html>
