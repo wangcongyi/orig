@@ -400,7 +400,7 @@
 ////////////////////////////////
 //postMessage 一个小坑
 //在使用a链接打开新页面的时候  新页面不会马上触发message事件  必须在父页面用定时间包一层
-
+//次日更新  在知乎上问了贺老师~~~https://www.zhihu.com/question/46816341
 /*$(document).on('ready', function () {
  $('thead').on('click','a',function(){
  var newWindow = window.open('http://www.c.com/demo.html','title');
