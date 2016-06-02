@@ -1,4 +1,4 @@
-#javascript 面向对象编程
+# javascript 面向对象编程
 ```javascript
 function Aaa() {}
     //    Aaa.prototype.constructor = Aaa;    //程序自动生成此句话

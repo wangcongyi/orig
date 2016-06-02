@@ -1,13 +1,13 @@
-#javascript变量与内存  
-##javascript变量有两种不同的数据类型
+# javascript变量与内存
+## javascript变量有两种不同的数据类型
 1、基本类型  undefined、boolean、number、string、null.  
 2、引用类型  array、object、function.
-###基本类型的变量存放在栈内存中 
-###引用类型的变量的地址(指针)存放在栈内存中 具体的值存放在堆内存中！important
+### 基本类型的变量存放在栈内存中
+### 引用类型的变量的地址(指针)存放在栈内存中 具体的值存放在堆内存中！important
 
 
 
-###基本类型的值是不可变的
+### 基本类型的值是不可变的
 任何方法都无法改变一个基本类型的值，比如一个字符串  
 ```javascript
 var name = 'king';
@@ -17,7 +17,7 @@ console.log(name)  //  king
 // 并且我们不能给基本累心添加属性和方法
 ```
 
-###引用类型的值是可变的 引用类型的比较是引用的比较 
+### 引用类型的值是可变的 引用类型的比较是引用的比较
 ```javascript  
 var p = {};
 p.name = 'king';
@@ -32,7 +32,7 @@ var p2 = {};
 console.log(p1==p2) //false   比较两个对象的堆内存中的地址是否相同 很明显不同
 ```
 
-###引用类型的赋值
+### 引用类型的赋值
 ```javascript
 var a = {}; // a保存了一个空对象的实例
 var b = a;  // a和b都指向了这个空对象

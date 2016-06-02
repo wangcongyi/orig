@@ -1,4 +1,4 @@
-#javascript Event
+# javascript Event
 ## 事件函数执行顺序
 ```javascript
 捕获阶段的处理函数最先执行，
