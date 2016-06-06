@@ -502,3 +502,38 @@ document.querySelector('#btn2').addEventListener('click', function (e) {
  e.preventDefault();
 }, false);
 */
+
+//////////////////////
+//页面重构的时候 可以使用伪类元素的背景图  但是宽高不受限制
+//.logo:after{
+// /*content: url("path.png");*/
+// /*display: inline-block;*/
+// /*width: 26px;*/
+// /*height: 26px;*/
+//***********************************
+// background-image: url("path.png");
+// background-size: 10px 20px;// background-size: 100%
+// display: inline-block;
+// width: 26px;
+// height: 26px;
+// content:"";
+//}
+/////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
