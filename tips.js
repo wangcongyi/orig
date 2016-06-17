@@ -402,106 +402,106 @@
 //在使用a链接打开新页面的时候  新页面不会马上触发message事件  必须在父页面用定时间包一层
 //次日更新  在知乎上问了贺老师~~~https://www.zhihu.com/question/46816341
 /*
-$(document).on('ready', function () {
-    $('thead').on('click', 'a', function () {
-        var newWindow = window.open('http://www.c.com/demo.html', 'title');
-        setTimeout(function () {
-            newWindow.postMessage('hello', 'http://www.c.com/demo.html');
-        }, 0);
-    })
-})
-*/
+ $(document).on('ready', function () {
+ $('thead').on('click', 'a', function () {
+ var newWindow = window.open('http://www.c.com/demo.html', 'title');
+ setTimeout(function () {
+ newWindow.postMessage('hello', 'http://www.c.com/demo.html');
+ }, 0);
+ })
+ })
+ */
 //////////////////////////////////////////////////////
 //使用canvas开发了一个截图功能
 /*
-document.querySelector('#btn1').onchange = function () {
+ document.querySelector('#btn1').onchange = function () {
  var file = this.files[0];
  var reader = new FileReader();
  reader.readAsDataURL(file);
  reader.onload = function (e) {
-  var d = e.target.result;
-  var image = new Image();
-  var c1 = document.getElementById('c1'),
-      $1 = c1.getContext('2d'), w, h;
-  var c3 = document.getElementById('c3'),
-      $3 = c3.getContext('2d'),
-      dx = c3.width = 200,
-      dy = c3.height = 200;
-  var c2 = document.getElementById('c2'),
-      $2 = c2.getContext('2d');
-  var t, l;
-  image.src = d;
-  image.onload = function () {
-   w = c1.width = c2.width = image.width;
-   h = c1.height = c2.height = image.height;
-   $1.drawImage(image, 0, 0,w,h);
-   c2.style.position = 'absolute';
-   t = c1.getBoundingClientRect().top;
-   l = c1.getBoundingClientRect().left;
-   c2.style.top = t + 'px';
-   c2.style.left = l + 'px';
-   cutArea(10, 10);
-  };
-  function cutArea(x, y) {
-   $2.clearRect(0, 0, w, h);
-   $2.setLineDash([4, 2]);
-   $2.strokeRect(x, y, dx, dy);
-   $3.clearRect(0, 0, dx, dy);
-   $3.drawImage(image, x, y, dx, dy, 0, 0, dx, dy)
-  }
-
-  function mouseMove(e) {
-   var x = e.clientX || e.changedTouches[0].pageX;
-   var y = e.clientY || e.changedTouches[0].pageY;
-   e.preventDefault();
-   if (x < l + dx / 2) {
-    if (y < t + dy / 2) {
-     cutArea(0, 0)
-    } else if (y > t + h - dy / 2) {
-     cutArea(0, h - dy)
-    } else {
-     cutArea(0, y - dy / 2 - t)
-    }
-   } else if (x > l + w - dx / 2) {
-    if (y < t + dy / 2) {
-     cutArea(w - dx, 0)
-    } else if (y > h + t - dy / 2) {
-     cutArea(w - dx, h - dy)
-    } else {
-     cutArea(w - dx, y - dy / 2 - t)
-    }
-   } else if (y < t + dy / 2) {
-    cutArea(x - dx / 2 - l, 0)
-   } else if (y > t + h - dy / 2) {
-    cutArea(x - dx / 2 - l, h - dy)
-   } else {
-    cutArea(x - dx / 2 - l, y - dy / 2 - t)
-   }
-  }
-
-  function removeEvent() {
-   document.removeEventListener('mousemove', mouseMove);
-   document.removeEventListener('touchmove', mouseMove);
-   document.removeEventListener('mouseup', removeEvent);
-   document.removeEventListener('touchend', removeEvent)
-  }
-
-  function startMove(e) {
-   e.preventDefault();
-   document.addEventListener('mousemove', mouseMove);
-   document.addEventListener('touchmove', mouseMove);
-   document.addEventListener('mouseup', removeEvent);
-   document.addEventListener('touchend', removeEvent)
-  }
-
-  c2.addEventListener('mousedown', startMove);
-  c2.addEventListener('touchstart', startMove);
+ var d = e.target.result;
+ var image = new Image();
+ var c1 = document.getElementById('c1'),
+ $1 = c1.getContext('2d'), w, h;
+ var c3 = document.getElementById('c3'),
+ $3 = c3.getContext('2d'),
+ dx = c3.width = 200,
+ dy = c3.height = 200;
+ var c2 = document.getElementById('c2'),
+ $2 = c2.getContext('2d');
+ var t, l;
+ image.src = d;
+ image.onload = function () {
+ w = c1.width = c2.width = image.width;
+ h = c1.height = c2.height = image.height;
+ $1.drawImage(image, 0, 0,w,h);
+ c2.style.position = 'absolute';
+ t = c1.getBoundingClientRect().top;
+ l = c1.getBoundingClientRect().left;
+ c2.style.top = t + 'px';
+ c2.style.left = l + 'px';
+ cutArea(10, 10);
  };
-};
-document.querySelector('#btn2').addEventListener('click', function (e) {
+ function cutArea(x, y) {
+ $2.clearRect(0, 0, w, h);
+ $2.setLineDash([4, 2]);
+ $2.strokeRect(x, y, dx, dy);
+ $3.clearRect(0, 0, dx, dy);
+ $3.drawImage(image, x, y, dx, dy, 0, 0, dx, dy)
+ }
+
+ function mouseMove(e) {
+ var x = e.clientX || e.changedTouches[0].pageX;
+ var y = e.clientY || e.changedTouches[0].pageY;
  e.preventDefault();
-}, false);
-*/
+ if (x < l + dx / 2) {
+ if (y < t + dy / 2) {
+ cutArea(0, 0)
+ } else if (y > t + h - dy / 2) {
+ cutArea(0, h - dy)
+ } else {
+ cutArea(0, y - dy / 2 - t)
+ }
+ } else if (x > l + w - dx / 2) {
+ if (y < t + dy / 2) {
+ cutArea(w - dx, 0)
+ } else if (y > h + t - dy / 2) {
+ cutArea(w - dx, h - dy)
+ } else {
+ cutArea(w - dx, y - dy / 2 - t)
+ }
+ } else if (y < t + dy / 2) {
+ cutArea(x - dx / 2 - l, 0)
+ } else if (y > t + h - dy / 2) {
+ cutArea(x - dx / 2 - l, h - dy)
+ } else {
+ cutArea(x - dx / 2 - l, y - dy / 2 - t)
+ }
+ }
+
+ function removeEvent() {
+ document.removeEventListener('mousemove', mouseMove);
+ document.removeEventListener('touchmove', mouseMove);
+ document.removeEventListener('mouseup', removeEvent);
+ document.removeEventListener('touchend', removeEvent)
+ }
+
+ function startMove(e) {
+ e.preventDefault();
+ document.addEventListener('mousemove', mouseMove);
+ document.addEventListener('touchmove', mouseMove);
+ document.addEventListener('mouseup', removeEvent);
+ document.addEventListener('touchend', removeEvent)
+ }
+
+ c2.addEventListener('mousedown', startMove);
+ c2.addEventListener('touchstart', startMove);
+ };
+ };
+ document.querySelector('#btn2').addEventListener('click', function (e) {
+ e.preventDefault();
+ }, false);
+ */
 
 //////////////////////
 //页面重构的时候 可以使用伪类元素的背景图  但是宽高不受限制
@@ -520,6 +520,20 @@ document.querySelector('#btn2').addEventListener('click', function (e) {
 //}
 /////////////////////////////
 
+////////////////
+//  input type = file 的时候  如果重新选择上一次的文件 是不会再次触发change事件的
+//  要想保证类型为file的input在每次选择文件后都触发change事件只需要在执行完需要的逻辑后把它的value属性设置为某个值，比如空字符串就可以了。
+/*
+ *   btn.onchange = function () {
+ *   div.innerHTML = '';
+ *   var image = new Image();
+ *   image.src = this.files[0].name;
+ *   div.appendChild(image);
+ *   var C = new Cropper(image);
+ *   div.style.display = 'block';
+ *   this.value = '';    ~！！！！！！！！！！！！！！！！！    
+ *
+ * */
 
 
 
