@@ -599,7 +599,20 @@
  module.exports = Student;
  * */
 
-
+/////////////////////////////////////
+/**
+ * @description 超简化的模板
+ * @param source
+ * @param words
+ * @returns {void|string|XML|*}
+ */
+// function changeDOM(source,words){
+//     words = words.split(',');
+//     return source.replace(/\d+/g,function(i){
+//         return words[i]
+//     });
+// }
+// console.log(changeDOM('<0><1></1></0>','div,span'))
 
 
 
