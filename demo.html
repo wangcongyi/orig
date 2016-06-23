@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .mask {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            background-color: #373737;
+            background-color: rgba(55, 55, 55, .6);
+            height: 100%;
+            display: none;
+            z-index: 1000;
+        }
+
+        .content {
+            width:520px;
+            position: relative;
+            background-color: #fff;
+            border: 0;
+            border-radius: 6px;
+            background-clip: padding-box;
+            z-index: 1000;
+            display: none;
+            margin: 0 auto;
+            top: 100px;
+            padding-bottom: 24px;
+        }
+
+        #app > div {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+
+        #app > div:hover {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div class="education">
+        <div class="title">
+            教育经历
+        </div>
+        <div class="info">
+            <span class="time">TIME</span>
+            <span class="school">SCHOOL</span>
+            <span class="unit">UNIT</span>
+            <span class="degree">DEGREE</span>
+            <div class="other">OTHER</div>
+        </div>
+    </div>
+    <div>This is DIV TWO</div>
+    <div>This is DIV THREE</div>
+    <div>This is DIV FOUR</div>
+    <div>This is DIV FIVE</div>
+</div>
+<div class="mask"></div>
+<div class="content"></div>
+<script>
+    function Pop(div) {
+        this.d = document.querySelectorAll(div + '>div');
+        this.content = document.querySelector('.content');
+        this.mask = document.querySelector('.mask');
+    }
+    Pop.prototype = {
+        init: function () {
+            this._click()
+        },
+        _click: function () {
+            var self = this;
+            var dom = null;
+            var i = 0, len = this.d.length;
+            for (i; i < len; i++) {
+                this.d[i].addEventListener('click', function (e) {
+                    dom = this;
+                    var data = self._data(dom);
+                    self._show(data)
+                }, false)
+            }
+            document.addEventListener('click', function (e) {
+                if (e.target.classList.contains('mask')) {
+                    var data = self._data(self.content);
+                    self._hide(dom, data);
+                }
+            });
+        },
+        _show: function (text) {
+            this.mask.style.display = 'block';
+            this.content.innerHTML = this._temp('<0><2 class="time" value="' + text.time + '"><2 class="time" value="' + text.school + '"><2 class="time" value="' + text.unit + '"><2 class="time" value="' + text.degree + '"></0>', 'div,span,input');
+            this.content.style.display = 'block';
+        },
+        _hide: function (dom, data) {
+            this.mask.style.display = 'none';
+            this.content.style.display = 'none';
+            dom.innerHTML = this._temp('<0 class="title">教育经历</0><0 class="info"><1>' + data.time + '</1><1>' + data.school + '</1><1>' + data.unit + '</1><1>' + data.degree + '</1><0>asdsads</0></0>', 'div,span,input');
+        },
+        _temp: function (source, words) {
+            words = words.split(',');
+            return source.replace(/\d+/g, function (i) {
+                return words[i]
+            })
+        },
+        _data: function (dom) {
+            var d, t;
+            // console.log(dom.className);
+
+            switch (dom.className) {
+                case 'education':
+                    d = dom.querySelectorAll('span');
+                    t = 'textContent';
+                    break;
+                case 'content':
+                    d = dom.querySelectorAll('input');
+                    t = 'value';
+                    break;
+                default:
+                    console.log('Wrong way');
+            }
+            return {
+                time: d[0][t],
+                school: d[1][t],
+                unit: d[2][t],
+                degree: d[2][t]
+            }
+        }
+    };
+
+    var p = new Pop('#app');
+    p.init();
+
+</script>
+</body>
+</html>
