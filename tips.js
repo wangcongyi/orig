@@ -2,7 +2,7 @@
 
 //var color = window.getComputedStyle(document.querySelector('.element'), ':before').getPropertyValue('color');
 //
-//
+///////////////////////////////////////////
 //var a = 10;
 //var b;
 //a == 10 && fn1() & fn2();
@@ -15,8 +15,18 @@
 //function fn2() {
 //    console.log(2)
 //}
+//////////////////////////
+// var s = 12;
 //
-//
+// if (s == 122) {
+//     console.log('OK')
+// } else {
+//     console.log('1');
+//     console.log('2')
+// }
+// s == 1223 ? console.log('OK') : console.log(32) & console.log(34)
+
+////////////////////////////////
 //function addEvent(obj, ev, fn) {
 //    obj['bind' + ev] = obj['bind' + ev] || {};
 //    obj['bind' + ev]['bind' + fn] = obj['bind' + ev]['bind' + fn] || function () {
