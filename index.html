@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta name="wap-font-scale" content="no"/>
+    <meta name="renderer" content="webkit"/>
+    <meta name="applicable-device" content="mobile"/>
+    <script src="./js/flexible_css.js"></script>
+    <script src="./js/flexible.debug.js"></script>
+    <link rel="stylesheet" href="./css/index.css">
+    <title>App</title>
+    <style>
+        @font-face {
+            font-family: iconfont;
+            src: url('./font/iconfont.eot');
+            src: url('./font/iconfont.eot?#iefix') format('embedded-opentype'),
+            url('./font/iconfont.svg#iconfont') format('svg'),
+            url('./font/iconfont.woff') format('woff'),
+            url('./font/iconfont.ttf') format('truetype');
+        }
+
+        a {
+            color: #999;
+            font-size: 100%
+        }
+
+        a, a:link, a:active, a:visited {
+            text-decoration: none;
+        }
+
+        h1 {
+            font-size: .40625rem;
+            float: left;
+            color: #333;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 0.125rem;
+        }
+
+        time {
+            float: right;
+        }
+
+        .font {
+            font-family: iconfont;
+            font-style: normal;
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-stroke-width: 0.2px;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .slider {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            margin: 0 auto;
+            background: #fff;
+        }
+
+        .slider:after {
+            content: '';
+            display: block;
+            width: 100%;
+            padding-top: 50%;
+        }
+
+        .slider ul {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slider li {
+            list-style: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slider:first-child {
+            z-index: 1;
+        }
+
+        .slider img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 0;
+        }
+
+        .slider .pager {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            z-index: 51;
+            text-align: center;
+            width: 200px;
+            margin-left: -100px;
+        }
+
+        .slider .pager span {
+            background: rgba(255, 255, 255, 0.2);
+            width: 0.18rem;
+            height: 0.18rem;
+            display: inline-block;
+            margin: 0 5px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .slider .pager span:hover, .slider .pager span.active {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        nav {
+            font-size: 0;
+            text-align: center;
+            margin-bottom: .2rem;
+        }
+
+        nav a, footer a {
+            display: inline-block;
+            text-align: center;
+            font-size: .40625rem;
+            width: 24.9%;
+        }
+
+
+        nav a i {
+            width: 1.25rem;
+            height: 1.25rem;
+            font-size: 1rem;
+            color: #fff;
+            display: block;
+            margin: 0 auto;
+            background-color: #3db6ba;
+            border-radius: 50%;
+            line-height: 1.25rem;
+        }
+
+        .warp {
+            padding: 0 0.3125rem 0.32rem 0.3125rem;
+            background-color: #f0f0f0;
+            margin-bottom: 1.44rem;
+            overflow: hidden;
+        }
+
+        .warp section{
+            margin-bottom: .5rem;
+        }
+        .warp section,.warp section .shadow {
+            position: relative;
+            z-index: 1;
+        }
+        .warp section:before,.warp section:after,.warp section .shadow:before,.warp section .shadow:after {
+            width: 212px;
+            height: 205px;
+            display: inline-block;
+            position: absolute;
+            bottom: -50px;
+            z-index: -1;
+        }
+        .warp section:before,.warp section .shadow:before{
+            content: url("shadow_01.png");
+            left: -23px;
+        }
+        .warp section:after,.warp section .shadow:after {
+            content: url("shadow_02.png");
+            right: 85px;
+        }
+
+
+
+
+        .warp section .title {
+            padding: .546875rem 0;
+            margin-bottom: .21875rem;
+        }
+
+        .warp section .title > a {
+            font-size: .4rem;
+            float: right;
+        }
+
+        .warp section .imgWrap {
+            border-radius: 0.125rem;
+            background-color: #fff;
+            padding: 0.25rem;
+            font-size: 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .warp section .imgWrap > a {
+            display: inline-block;
+            width: 49.2%;
+            position: relative;
+            margin: 0 .125rem .125rem 0;
+        }
+
+        .warp section .imgWrap > a:nth-child(even) {
+            margin: 0;
+        }
+
+        .warp section .imgWrap span {
+            color: #fff;
+            font-size: .40625rem;
+            text-shadow: 1px 1px rgba(102, 102, 102, 0.8);
+            position: absolute;
+            display: block;
+            text-align: center;
+            width: 100%;
+            top: 50%;
+            margin-top: -.25rem;
+        }
+
+        .warp section .imgHot {
+            width: 100%;
+            border-radius: 0.125rem;
+            background-color: #fff;
+            margin-bottom: .46875rem;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden
+        }
+
+
+
+
+        .warp section .imgHot > a {
+            display: inline-block;
+            width: 100%;
+            position: relative;
+            top: -0.22rem;
+        }
+
+        .warp section .imgHot h2 {
+            text-align: left;
+            font-size: .40625rem;
+            padding: .3125rem 0 .21875rem .2rem;
+            color: #333;
+        }
+
+        .warp section .imgHot p {
+            padding: 0 0 .2rem .2rem;
+            color: #666;
+        }
+
+        .warp section .hotPos {
+            border-radius: .125rem;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .warp section .hotPos li {
+            padding: .34375rem;
+        }
+        .warp section .hotPos li p:first-child{
+            color: #333;
+            font-size: .40625rem;
+        }
+        .warp section .hotPos li p:nth-of-type(2){
+            color: #333;
+        }
+        .warp section .hotPos li div:nth-of-type(2){
+            width: 67%;
+            overflow: hidden;
+        }
+        .warp section .hotPos span {
+            color: #ff6e6e;
+            float: right;
+        }
+
+        .warp section .hotPos div:not(:last-of-type) {
+            float: left;
+        }
+
+        .warp section .hotPos li:nth-of-type(2) {
+            border-bottom: 2px dashed #e5e5e5;
+            border-top: 2px dashed #e5e5e5;
+        }
+
+        .warp section .hotPos img {
+            width: 2.5rem;
+            border-radius: .125rem;
+            margin-right: .34375rem;
+            box-shadow: 0 0 1px #e5e5e5;
+        }
+
+        .warp section .hotPos li p:not(:last-child) {
+            padding-bottom: .15rem;
+        }
+
+        .warp section a aside {
+            color: #fff;
+            width: 100%;
+            border-radius: .125rem;
+            margin-bottom: .46875rem;
+        }
+
+        .warp section a:nth-of-type(1) aside {
+            background: url("./widget-2.jpg") no-repeat;
+            background-size: cover;
+        }
+
+        .warp section a:nth-of-type(2) aside {
+            background: url("./widget-2.jpg") no-repeat;
+            background-size: cover;
+        }
+
+        .warp section a:nth-of-type(3) aside {
+            background: url("./widget-2.jpg") no-repeat;
+            background-size: cover;
+        }
+
+        .warp section aside p {
+            padding: 0 0 .1rem .3125rem;
+        }
+
+        .warp section aside p:first-of-type {
+            font-size: .40625rem;
+            padding-top: .3125rem;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: rgb(255, 255, 255);
+            font-size: 0;
+            text-align: center;
+            z-index: 9;
+
+        }
+        footer a {
+            font-size: .3rem;
+        }
+        footer a i {
+            width: .859375rem;
+            height: .859375rem;
+            font-size: 1.2rem;
+            color: #fff;
+            display: block;
+            margin: 0 auto;
+        }
+
+        footer a:nth-of-type(1) i {
+            background: url("icon-1-2.png") no-repeat;
+            background-size: cover;
+        }
+
+        footer a:nth-of-type(2) i {
+            background: url("icon-2-1.png") no-repeat;
+            background-size: cover;
+        }
+
+        footer a:nth-of-type(3) i {
+            background: url("icon-3-1.png") no-repeat;
+            background-size: cover;
+        }
+
+        footer a:nth-of-type(4) i {
+            background: url("icon-4-1.png") no-repeat;
+            background-size: cover;
+        }
+
+        footer a:nth-of-type(5) i {
+            background: url("icon-5-1.png") no-repeat;
+            background-size: cover;
+        }
+
+
+        @media (-o-min-device-pixel-ratio: 5/4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi), (min-resolution: 1.25dppx) {
+            footer a:nth-of-type(1) i {
+                background: url("icon-1-2@2x.png") no-repeat;
+                background-size: cover;
+            }
+
+            footer a:nth-of-type(2) i {
+                background: url("icon-2-1@2x.png") no-repeat;
+                background-size: cover;
+            }
+
+            footer a:nth-of-type(3) i {
+                background: url("icon-3-1@2x.png") no-repeat;
+                background-size: cover;
+            }
+
+            footer a:nth-of-type(4) i {
+                background: url("icon-4-1@2x.png") no-repeat;
+                background-size: cover;
+            }
+
+            footer a:nth-of-type(5) i {
+                background: url("icon-5-1@2x.png") no-repeat;
+                background-size: cover;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+<header>
+    <section class="slider">
+        <ul class="slider-box">
+            <li>
+                <a href="">
+                    <img src="widget-2.jpg"/>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="widget-2.jpg"/>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="widget-2.jpg"/>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="widget-2.jpg"/>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="widget-2.jpg"/>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <img src="./image/paper-shadow.png">
+    <nav>
+        <a href=""><i class="font">&#xe600;</i>课堂</a>
+        <a href=""><i class="font">&#xe603;</i>实习</a>
+        <a href=""><i class="font">&#xe602;</i>体验</a>
+        <a href=""><i class="font">&#xe601;</i>社区</a>
+    </nav>
+</header>
+<div class="warp">
+    <section>
+        <div class="title">
+            <h1>刺猬精选</h1>
+            <a href="">more</a>
+        </div>
+        <div class="imgWrap">
+            <a href="">
+                <img src="1.jpg">
+                <span>#逻辑思维是#</span>
+            </a>
+            <a href="">
+                <img src="2.png">
+                <span>#逻辑思维是#</span>
+            </a>
+            <a href="">
+                <img src="3.png">
+                <span>#逻辑思维是#</span>
+            </a>
+            <a href="">
+                <img src="4.jpg">
+                <span>#逻撒旦撒旦辑思维是#</span>
+            </a>
+        </div>
+    </section>
+    <section>
+        <div class="title">
+            <h1>热门活动</h1>
+            <a href="">more</a>
+        </div>
+        <div class="shadow">
+            <div class="imgHot">
+                <a href="">
+                    <img src="5.jpg">
+                    <h2>六月 | 产品大伽伴你行,从小白到精英的蜕变</h2>
+                    <p>一个APP开始启动设计时,第一步应该用主要页面定下整页面按着统一的设计风格进行细致的设计美化。</p>
+                </a>
+            </div>
+        </div>
+        <div class="imgHot">
+            <a href="">
+                <img src="widget-2.jpg">
+                <h2>七月 | 产品大伽伴你行,从小白到精英的蜕变</h2>
+                <p>一个APP开始启动设计时,第一步应该用主要页面定下整页面按着统一的设计风格进行细致的设计美化。</p>
+            </a>
+        </div>
+    </section>
+    <section>
+        <div class="title">
+            <h1>热门职位</h1>
+            <a href="">More</a>
+        </div>
+        <div class="hotPos">
+            <ul>
+                <li>
+                    <a href="">
+                        <div>
+                            <img src="widget-2.jpg">
+                        </div>
+                        <div>
+                            <p>产品助理
+                                <span>200元/天</span>
+                            </p>
+                            <p>达摩科技</p>
+                            <p>深圳 | 3天/周
+                                <time>05月31日</time>
+                            </p>
+                            <p>移动互联网&bull;硬件/成长性(B轮)</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div>
+                            <img src="widget-2.jpg">
+                        </div>
+                        <div>
+                            <p>产品助理
+                                <span>200元/天</span>
+                            </p>
+                            <p>达摩科技</p>
+                            <p>深圳 | 3天/周
+                                <time>05月31日</time>
+                            </p>
+                            <p>移动互联网&bull;硬件/成长性(B轮)</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div>
+                            <img src="widget-2.jpg">
+                        </div>
+                        <div>
+                            <p>产品助理
+                                <span>200元/天</span>
+                            </p>
+                            <p>达摩科技</p>
+                            <p>深圳 | 3天/周
+                                <time>05月31日</time>
+                            </p>
+                            <p>移动互联网&bull;硬件/成长性(B轮)</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section>
+        <div class="title">
+            <h1>刺猬体验</h1>
+            <a href="">more</a>
+        </div>
+        <a href="">
+            <aside>
+                <p>深圳 | 东西穿越-六一特别活动</p>
+                <p>2016.06.01 &nbsp;&nbsp;6004人浏览</p>
+                <p>深圳 &bull; 西涌</p>
+            </aside>
+        </a>
+        <a href="">
+            <aside>
+                <p>深圳 | 东西穿越-六一特别活动</p>
+                <p>2016.06.01 &nbsp;&nbsp;6004人浏览</p>
+                <p>深圳 &bull; 西涌</p>
+            </aside>
+        </a>
+        <a href="">
+            <aside>
+                <p>深圳 | 东西穿越-六一特别活动</p>
+                <p>2016.06.01 &nbsp;&nbsp;6004人浏览</p>
+                <p>深圳 &bull; 西涌</p>
+            </aside>
+        </a>
+    </section>
+</div>
+<footer>
+    <a href=""><i></i>首页</a>
+    <a href=""><i></i>职位</a>
+    <a href=""><i></i>搜索</a>
+    <a href=""><i></i>个人</a>
+</footer>
+<script src="js/zepto.min.js"></script>
+<script src="js/swipeSlide.js"></script>
+<script>
+    $('.slider').swipeSlide()
+</script>
+</body>
+</html>
