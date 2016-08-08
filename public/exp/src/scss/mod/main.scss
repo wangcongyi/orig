@@ -1,0 +1,108 @@
+@charset "utf-8";
+// ======
+// ==== 大板块样式
+// ======
+
+// 文章列表
+@import "article.scss";
+// 评论列表
+@import "comment.scss";
+
+// 提示页面
+.widget-tips {
+	text-align: center;
+	padding: 7.7em;
+
+	& img {
+		display: block;
+		margin: 0 auto;
+	}
+
+	& p {
+		text-align: center;
+		color: nth($fontColor, 1);
+		height: 20px;
+		line-height: 20px;
+		margin: 23px 0 48px 0;
+		@include fontsize(18px);
+	}
+
+	& .btn {
+		width: 148px;
+		display: inline-block;
+		margin: 0 10px;
+	}
+}
+
+// 社区设置头像弹窗
+.widget-avatar {
+	// 头像
+	& .avatar {
+		text-align: center;
+
+		& img {
+			width: 120px;
+			border-radius: 50%;
+		}
+
+		& h2 {
+			font-size: 14px;
+			color: nth($fontColor, 1);
+			text-align: center;
+			font-weight: normal;
+			margin-top: 5px;
+			@include fontsize(14px);
+		}
+
+		& dt {
+			width: 120px;
+			height: 120px;
+			margin: 0 auto;
+			position: relative;
+		}
+	}
+
+	& .upload {
+		position: relative;
+		cursor: pointer;
+
+		&:hover {
+			// 头像背景层
+			& .hover {
+				display: block;
+			}
+		}
+	}
+
+	// 头像背景
+	& .hover {
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: none;
+	}
+
+	& .text-box {
+		margin-top: 20px;
+	}
+
+	& .submit-list {
+		text-align: center;
+		width: 100%;
+		margin-top: 20px;
+
+		& span {
+			display: inline-block;
+			margin: 0 10px;
+		}
+
+		& .btn {
+			width: 140px;
+		}
+	}
+}
+
+// 设置头像昵称
+.dialog-avatar.dialog .alert-wrap {
+	margin-top: -184px;
+}

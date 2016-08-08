@@ -1,0 +1,166 @@
+
+a {
+    color: #B3B3B3;
+}
+
+a.goto {
+    color: #3DCFD4;
+    font-size: 12px;
+    margin-right: 10px;
+}
+
+h1 {
+    font-size: 20px;
+    color: #333;
+}
+
+p {
+    font-size: 20px;
+    color: #666;
+    margin-top: 50px;
+}
+
+span {
+    font-size: 14px;
+    color: #999;
+}
+
+time {
+    font-size: 12px;
+    color: #c8c8c8;
+    position: absolute;
+    right: 0;
+    margin-top: -20px;
+}
+
+.wrap > span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-left: 390px;
+    margin-top: 67px;
+    color: #b7b7b7;
+    font-size: 12px;
+}
+
+.wrap .container {
+    background-color: #fff;
+    width: 1124px;
+    margin: 0 auto;
+    position: relative;
+    margin-top: 20px;
+}
+
+.wrap .container ul {
+    width: 251px;
+    height: 100%;
+    background-color: #f5f5f5;
+    text-align: left;
+    position: relative;
+    z-index: 2;
+}
+
+.wrap .container ul li {
+    padding: 24px 0 24px 45px;
+    border-bottom: 2px solid #dedede;
+    border-left: 3px solid #f5f5f5;
+    cursor: pointer;
+}
+
+.wrap .container ul li a {
+    line-height: 2;
+}
+
+.wrap .container ul li a:hover {
+    color: #3DCFD4;
+}
+
+.wrap .container ul li a:after {
+    content: '\A';
+    white-space: pre;
+}
+
+.wrap .container ul li:hover {
+    background-color: #fff;
+}
+
+.wrap .container ul li.liActive {
+    border-left: 3px solid #3DCFD4;
+    background-color: #fff;
+}
+
+.wrap .container > div {
+    position: absolute;
+    top: 0;
+    left: 251px;
+    width: 78%;
+    overflow: hidden;
+    text-align: left;
+}
+
+
+
+.wrap .container .company img {
+    float: left;
+    width: 80px;
+    height: 80px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.wrap .container .company {
+    float: left;
+    margin-top: 50px;
+    width: 45%;
+    padding-left: 30px;
+}
+
+.wrap .container .comdet {
+    float: right;
+    width: 55%;
+    margin-top: 65px;
+    padding-left: 20px;
+}
+
+.wrap .container .comdet p {
+    margin-left: 75px;
+    margin-top: 10px;
+    font-size: 16px;
+    color: #666;
+    word-spacing: 10px;
+}
+
+.wrap .container .comdet p:nth-of-type(1):after {
+    content: attr(data-title);
+    color: #CDCDCD;
+    font-size: 14px;
+    margin-left: 20px;
+}
+
+.wrap .container .comdet .ok:after {
+    content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAATCAYAAABPwleqAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTMyIDc5LjE1OTI4NCwgMjAxNi8wNC8xOS0xMzoxMzo0MCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUuNSAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MUI5RUFDQzk1NDcwMTFFNkE3NUFDOTI2NzE3N0M5MTkiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MUI5RUFDQ0E1NDcwMTFFNkE3NUFDOTI2NzE3N0M5MTkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoxQjlFQUNDNzU0NzAxMUU2QTc1QUM5MjY3MTc3QzkxOSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoxQjlFQUNDODU0NzAxMUU2QTc1QUM5MjY3MTc3QzkxOSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pv6S0XwAAAGjSURBVHjalJRPKERRFIe9x0zDRo2FkkZKKIqFEjXEwsKCWMiCxtZIMVspylLRZEE2JgoLCwsbhZqspMzCsFGSBdGkRv41mec7uqPnecbz6nvnzj3nd+47994zmmEYOXZPSyzuwizBWLS+JmkXo1nFiAowXbAOl1AOQVgjyeM3sf/ktA3bDnVQBZVwBt0EX5CsmPE2NMIVxOEcDkUsS0dhA47EiejVpgw3phqaoAN6RfzAwGf9pGwPiXIxSZ3XGxT+Q6hh8iGdl6ndgUhidyAAdzKnO1ytFJOCY7gFj1nsyiKU07iGEPsyATLtNosTBOmwCrUm4QhmH6YRzZlypuUldcjOvavJThhQq/lgAWIIpywfJMer6yqLlwCxRTAPBxBRgc021UisR8RP0CAzUg+MMxxWQQF+v9iIKySBiEOwZfYgWMS0qvtt98h1nZQblqlhCFHEwbFJH+x91qy23gsrOPr+EPqVsAyd8dWSOCRBAnahB+ezpbeX1e0qwXfzo5/lrNVuj0JY0Q8zsAmDCFO//hmoJNIos9J26pIEEd1b4z4EGAAY0p9w+nibUgAAAABJRU5ErkJggg==');
+    vertical-align: sub;
+    margin: 0 5px;
+}
+
+.wrap .container .comdet .no:after {
+    content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAATCAYAAABPwleqAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTMyIDc5LjE1OTI4NCwgMjAxNi8wNC8xOS0xMzoxMzo0MCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUuNSAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MkE1NkJFNDY1NDcwMTFFNjk4MzVCMDlBNUY2MTU1QTgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MkE1NkJFNDc1NDcwMTFFNjk4MzVCMDlBNUY2MTU1QTgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoyQTU2QkU0NDU0NzAxMUU2OTgzNUIwOUE1RjYxNTVBOCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoyQTU2QkU0NTU0NzAxMUU2OTgzNUIwOUE1RjYxNTVBOCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PkhezSIAAAGhSURBVHjalJRPKERRFIfNYzRs1FgoaaSEhbIxiZJYWFgQC1nQ2BopZitFWSqSBdmYKCwsLGwUSlZvLGywUZIF0aRG/jWZ5zs6o+d5xnj1vXPnnvM795177xmPZVk5bk8sFvNilmA0GAwm3GI8TjGiQkwnrMMlVEAY1kjy+E1smmYrtg3qoBqq4Ay6CL4gWQnjbWiAKziFczgSsSx9CBtgihPRq0sZ+ZgaaIR26BHxA4OA85MyPSTKxSQMXm9Q9A+hB1MAqbx07VmIJHYHQnAnc0aWq5VhknAMt+Czi70ZhHIa1xBhX8ZBpvPt4jhBBqxCrU04jNmHKUSztpwpeUkdsnPvOtkB/bpaABbgBOGk44PkeA1Ds/gJEFsMc3AAUQ1scqlGYn0ifoJ6mZF6YIzhkAaF+P3iIq6UBCKOwJbdg2AR06L32+2R6zohNyxdwyCiaBbHJn2w91mzbr0fVnD0/iFsVmE5OuurJXFIgjjsQjfOZ0dvL+vtKsV386Of5ax1t0dgXumDadiEAYTJX/8MNIk0yoy0nV6SMKJ7Z9yHAAMAFT2haA7ZFjUAAAAASUVORK5CYII=');
+    vertical-align: sub;
+    margin: 0 5px;
+}
+
+.wrap .container .notice {
+    padding: 6px 0;
+    overflow: hidden;
+}
+
+.wrap .container .notice div {
+    background-color: #f5f5f5;
+    height: 126px;
+    float: left;
+}
+
+.wrap .container .notice div:nth-of-type(2) {
+      margin: 0 8px;
+}

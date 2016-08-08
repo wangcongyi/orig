@@ -1,0 +1,83 @@
+img.ava {
+    left: 5px;
+    bottom: -10px;
+}
+
+h1 {
+    font-size: 20px;
+    font-weight: normal;
+    color: #333;
+}
+
+p {
+    font-size: 16px;
+    color: #666;
+    padding-right: 138px;
+    margin-top: 8px;
+}
+
+span {
+    font-size: 14px;
+    color: #999;
+}
+
+time {
+    font-size: 12px;
+    color: #c8c8c8;
+    position: absolute;
+    right: 0;
+    margin-top: -20px;
+}
+
+.wrap .container {
+    background-color: #fff;
+    width: 1124px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.wrap .container ul:first-of-type {
+    width: 251px;
+    height: 100%;
+    background-color: #f5f5f5;
+    text-align: left;
+    position: absolute;
+    z-index: 2;
+}
+
+.wrap .container ul:first-of-type li {
+    padding: 24px 0 24px 18px;
+    border-bottom: 2px solid #dedede;
+    border-left: 3px solid #f5f5f5;
+    cursor: pointer;
+}
+
+.wrap .container ul:first-of-type li:hover {
+    background-color: #fff;
+}
+
+.wrap .container ul:first-of-type li.liActive {
+    border-left: 3px solid #3DCFD4;
+    background-color: #fff;
+}
+
+.wrap .container ul:nth-of-type(2) {
+    position: relative;
+    top: 0;
+    left: 122px;
+    padding-top: 52px;
+}
+
+.wrap .container ul:nth-of-type(2) li {
+    position: relative;
+    display: inline-block;
+    margin-right: 15px;
+    margin-bottom: 35px;
+}
+
+.wrap .container ul li img {
+    max-width: 357px;
+    height: 217px;
+}
+
+

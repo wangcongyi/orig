@@ -1,0 +1,172 @@
+@charset "utf-8";
+// ======
+// ==== 侧边栏样式
+// ======
+
+// 栏目标题
+.widget-title {
+	position: relative;
+
+	& .title {
+		border-bottom: 1px solid nth($borderColor, 1);
+		padding: 12px 20px;
+		color: nth($fontColor, 1);
+		display: block;
+		@include fontsize(16px);
+	}
+
+	& .more {
+		position: absolute;
+		right: 20px;
+		top: 14px;
+		color: nth($fontColor, 3);
+		letter-spacing: 1.5px;
+		font-family: initial;
+
+		&:hover {
+			color: nth($color1, 1);
+		}
+	}
+}
+
+// 分类栏目
+.widget-sort {
+	// 图片/描述
+	& .info {
+		padding: 30px 30px 24px;
+		display: block;
+		text-align: center;
+
+		& .pic {
+			display: block;
+			margin: 0 auto 20px;
+			overflow: hidden;
+
+			& img {
+				width: 134px;
+				height: 134px;
+				border-radius: 50%;
+			}
+		}
+
+		& .content {
+			color: nth($fontColor, 3);
+		}
+	}
+
+	// 状态
+	& .status {
+		border-top: 1px solid nth($borderColor, 1);
+		overflow: hidden;
+		padding: 8px 0;
+		margin-right: -1px;
+
+		& dl {
+			float: left;
+			width: 50%;
+			text-align: center;
+			padding: 3px 0;
+			border-right: 1px solid nth($borderColor, 1);
+
+			& dt {
+				color: nth($fontColor, 3);
+			}
+
+			& dd {
+				@include fontsize(18px);
+			}
+		}
+	}
+}
+
+// 文章栏目
+.widget-single-list {
+	padding: 8px 0;
+
+	& .info {
+		overflow: hidden;
+		padding: 4px 20px;
+
+		& .title {
+			color: nth($fontColor, 2);
+			display: block;
+			text-align: justify;
+
+			&:hover {
+				color: nth($color1, 1);
+			}
+		}
+
+		& .time {
+			color: nth($fontColor, 3);
+			display: block;
+			text-align: right;
+			margin-top: 6px;
+			@include fontsize(12px);
+		}
+	}
+}
+
+// 作者栏目
+.widget-author {
+	// 图片/描述
+	& .info {
+		position: relative;
+		overflow: hidden;
+		padding: 30px;
+
+		& .item {
+			margin-left: 95px;
+			min-height: 80px;
+		}
+
+		& .pic {
+			float: left;
+			width: 80px;
+			position: absolute;
+			left: 30px;
+			top: 30px;
+
+			& img {
+				width: 80px;
+				height: 80px;
+				border-radius: 50%;
+			}
+		}
+
+		& .name {
+			font-weight: normal;
+			@include fontsize(22px);
+		}
+
+		& .content {
+			color: nth($fontColor, 3);
+			text-align: justify;
+			word-break: break-all;
+		}
+	}
+
+	// 状态
+	& .status {
+		border-top: 1px solid nth($borderColor, 1);
+		overflow: hidden;
+		padding: 8px 0;
+		margin-right: -1px;
+
+		& dl {
+			float: left;
+			width: 33.3333%;
+			text-align: center;
+			padding: 3px 0;
+			border-right: 1px solid nth($borderColor, 1);
+
+			& dt {
+				color: nth($fontColor, 3);
+			}
+
+			& dd {
+				@include fontsize(18px);
+			}
+		}
+	}
+}

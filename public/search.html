@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta name="wap-font-scale" content="no"/>
+    <meta name="renderer" content="webkit"/>
+    <meta name="applicable-device" content="mobile"/>
+    <script src="./js/flexible_css.js"></script>
+    <script src="./js/flexible.debug.js"></script>
+    <link rel="stylesheet" href="css/search.css">
+    <title>搜索</title>
+</head>
+<body>
+<header>
+    <div class="select">
+        <span>职位</span>
+    </div>
+    <input type="text" autofocus required>
+    <i></i>
+</header>
+<div class="warp">
+    <nav>
+        <a>地区选择</a>
+        <a>职位筛选</a>
+        <a>更多选择</a>
+    </nav>
+    <section>
+        <h1>萌萌哒</h1>
+    </section>
+    <section>
+        <h1>学历要求2</h1>
+    </section>
+    <section>
+        <h1>学历要求</h1>
+        <input id="inf" type="radio" name="edu" value="不限">
+        <label for="inf">不限</label>
+
+        <input id="da" type="radio" name="edu" value="大专">
+        <label for="da">大专</label>
+
+        <input id="bk" type="radio" name="edu" value="本科">
+        <label for="bk">本科</label>
+
+        <input id="ba" type="radio" name="edu">
+        <label for="ba">硕士</label>
+
+        <input id="doc" type="radio" name="edu">
+        <label for="doc">博士</label>
+
+        <h1>薪酬</h1>
+
+        <input id="mInf" type="radio" name="mon">
+        <label for="mInf">不限</label>
+
+        <input id="m1" type="radio" name="mon">
+        <label for="m1">&#60;60&#47;天</label>
+
+        <input id="m2" type="radio" name="mon">
+        <label for="m2">60-100&#47;天</label>
+
+        <input id="m3" type="radio" name="mon">
+        <label for="m3">&#62;100&#47;天</label>
+
+        <input id="m4" type="radio" name="mon">
+        <label for="m4">&#60;2K&#47;月</label>
+
+        <input id="m5" type="radio" name="mon">
+        <label for="m5">3-5K&#47;月</label>
+
+        <input id="m6" type="radio" name="mon">
+        <label for="m6">&#62;5K&#47;月</label>
+
+        <h1>工作天数(每周)</h1>
+
+        <input id="d1" type="radio" name="day">
+        <label for="d1">不限</label>
+
+        <input id="d2" type="radio" name="day">
+        <label for="d2">至少一天</label>
+
+        <input id="d3" type="radio" name="day">
+        <label for="d3">至少二天</label>
+
+        <input id="d4" type="radio" name="day">
+        <label for="d4">至少三天</label>
+
+        <input id="d5" type="radio" name="day">
+        <label for="d5">至少四天</label>
+
+        <input id="d6" type="radio" name="day">
+        <label for="d6">至少五天</label>
+
+        <h1>发布时间</h1>
+
+        <input id="t1" type="radio" name="time">
+        <label for="t1">不限</label>
+
+        <input id="t2" type="radio" name="time">
+        <label for="t2">一周以内</label>
+
+        <input id="t3" type="radio" name="time">
+        <label for="t3">二周以内</label>
+
+        <input id="t4" type="radio" name="time">
+        <label for="t4">一月以内</label>
+
+        <h1>发布时间</h1>
+
+        <input id="o1" type="radio" name="op">
+        <label for="o1">不限</label>
+
+        <input id="o2" type="radio" name="op">
+        <label for="o2">可转正</label>
+
+        <input id="o3" type="radio" name="op">
+        <label for="o3">不可转正</label>
+
+        <input id="o4" type="radio" name="op">
+        <label for="o4">面议</label>
+    </section>
+</div>
+<footer>
+    <a href="index.html"><i></i>首页</a>
+    <a href="job.html"><i></i>职位</a>
+    <a href="search.html"><i></i>搜索</a>
+    <a href="comdets.html"><i></i>个人</a>
+</footer>
+<div class="selDiv">
+    <div>职位</div>
+    <div>文章</div>
+</div>
+
+<script src="js/zepto.min.js"></script>
+<script>
+    (function () {
+        var $section = $('section'), $selDiv = $('.selDiv'), $select = $('.select');
+        $('nav').on('click', 'a', function (e) {
+            e.preventDefault();
+            $('nav a').css('color', '#999');
+            $(this).css('color', '#34b9be');
+            $section.css('display', 'none');
+            $section.eq($(this).index()).css('display', 'block');
+        });
+
+        $select.on('click', function (e) {
+            e.preventDefault();
+            $selDiv.fadeIn();
+        });
+        $('.selDiv div').on('click', function (e) {
+            e.preventDefault();
+            var $span = $select.find('span'), text = $(this).text(), $warp = $('.warp');
+            if (text === $span.text()) {
+                $selDiv.fadeOut();
+                return false
+            }
+            $span.text(text);
+            $selDiv.fadeOut();
+            text === '\u6587\u7ae0' ? $warp.fadeOut() : $warp.fadeIn()
+        });
+
+        $('header').find('i').on('click', function () {
+            var $input = $('header').find('input');
+            if ($input.val().trim() === '') {
+                $input.focus();
+                return
+            }
+        })
+    })();
+</script>
+</body>
+</html>

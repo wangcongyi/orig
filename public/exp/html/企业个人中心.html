@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="{文章摘要150字}"/>
+    <title>{文章标题}-{分类名称}-刺猬体验</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta name="applicable-device" content="pc"/>
+    <meta name="wap-font-scale" content="no"/>
+    <meta name="renderer" content="webkit"/>
+    <meta name="viewport" content="width=1124"/>
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="msapplication-TileImage" content="../../../public/images/apple-touch-144.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../../public/images/apple-touch-57.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../../public/images/apple-touch-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../../public/images/apple-touch-144.png"/>
+    <meta name="image" content="../../../public/images/ciweishixi.png"/>
+    <link rel="shortcut icon" href="../../../favicon.ico"/>
+    <link rel="stylesheet" href="../css/reset.css"/>
+    <link rel="stylesheet" href="../css/common.css"/>
+    <link rel="stylesheet" href="../css/企业个人中心.css"/>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="../../../public/ie.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="header">
+    <nav>
+        <img src="../images/toplogo.png">
+        <span>换一种活法</span>
+        <a href="" class="navActive">求职</a>
+        <a href="">体验</a>
+        <a href="">学院</a>
+        <a href="">社区</a>
+        <a href="" class="other">用户中心</a>
+        <a href="" class="other">退出</a>
+    </nav>
+</div>
+<div class="wrap">
+    <span>当前位置 : <a href="">个人中心</a> &#62; <a href="">订单管理</a></span>
+    <div class="container">
+        <ul>
+            <li class="liActive">
+                <h1>简历管理</h1>
+                <a>简历列表</a>
+                <a>待处理简历</a>
+            </li>
+            <li>
+                <h1>职位管理</h1>
+                <a>有效职位</a>
+                <a>已下线职位</a>
+                <a>发布新职位</a>
+            </li>
+            <li>
+                <h1>体验活动管理</h1>
+                <a>体验活动列表</a>
+                <a>进行中活动</a>
+                <a>发布新体验活动</a>
+                <a>体验活动订单</a>
+            </li>
+            <li>
+                <h1>账号与安全</h1>
+                <a>企业信息</a>
+                <a>企业标签</a>
+                <a>账号设置</a>
+                <a>修改密码</a>
+            </li>
+            <li>
+                <h1>我参与的活动</h1>
+                <a>活动列表</a>
+            </li>
+            <li>
+                <h1>消息管理</h1>
+                <a>系统消息</a>
+                <a>订单消息</a>
+                <a>活动消息</a>
+                <a>社区消息</a>
+            </li>
+        </ul>
+        <div>
+            <div style="overflow: hidden">
+                <div class="company">
+                    <img src="../cache/avatar.png">
+                    <p>深圳实习吧息科技有有公司</p>
+                </div>
+                <div class="comdet">
+                    <img class="ava" src="../cache/avatar.png">
+                    <p data-title="第d三方似懂非懂">曾小贤先生</p>
+                    <p>
+                        <span class="ok">15986657414</span>
+                        <span class="ok">280731718@qq.com</span>
+                    </p>
+                </div>
+            </div>
+            <div class="notice">
+                <div>待处理简历</div>
+                <div>
+                    <h4>要相信,您渴望的人才一直在</h4>
+                </div>
+                <div>sadasds</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../../../public/jquery.min.js"></script>
+<script src="../src/js/common.js"></script>
+<script>
+
+    var ul = $('.container').find('ul')[0];
+
+    $(ul).on('click', 'li', function () {
+        $(ul).find('li').removeClass('liActive');
+        $(this).addClass('liActive');
+        return false
+    });
+
+    $('span.no').length > 0 && $('<a class="goto">去验证</a>').insertAfter($('span.no'))
+
+
+</script>
+</body>
+</html>
