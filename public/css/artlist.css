@@ -125,7 +125,6 @@ section p {
     font-size: .34375rem;
     color: #666;
     padding: .2rem .375rem .4rem .3125rem;
-    text-align: justify;
 }
 
 section a > span:nth-of-type(1) {

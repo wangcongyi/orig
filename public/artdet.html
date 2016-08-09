@@ -71,32 +71,25 @@
 </div>
 
 <script src="js/zepto.min.js"></script>
+
+
 <script>
-    var dpr = document.documentElement.getAttribute('data-dpr');
-    document.body.style.fontSize = 12 * dpr + 'px';
-
-
     (function () {
         $('#praise').on('tap', function () {
             if ($(this).hasClass('praise'))return;
             var num = +$(this).text() + 1;
             $(this).addClass('praise').text(num)
         });
-
-
         var self, r, who, ra = true, input = $('#reply').find('input');
-
         $('#rep').on('tap', rb);
-
-
         function rb() {
-            var html = '';
+            var val = input.val().trim();
+            var v = input.val().replace(new RegExp(r, 'gi'), '');
+            if (val == '' || v == '') {
+                return
+            }
             if (ra) {
-                var val = input.val().trim();
-                if (val == '') {
-                    return
-                }
-                html = '<div class="leftD">\
+                var oHtml = '<div class="leftD">\
                         <img src="image/icon-1-2@2x.png">\
                     </div>\
                     <div class="rightD">\
@@ -104,15 +97,10 @@
                         <time>4小时前</time>\
                         <p>' + val + '</p>\
                     </div>';
-                $('#comment').append(html);
+                $('#comment').append(oHtml);
                 scroll($(document).height(), 500)
             } else {
-                var v = input.val().replace(new RegExp(r, 'gi'), '');
-                if (v == '') {
-                    return
-                }
-
-                html = '<li>\
+                var html = '<li>\
                             <div class="leftD">\
                                 <img src="image/icon-1-2@2x.png">\
                             </div>\

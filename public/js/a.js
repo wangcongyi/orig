@@ -13,7 +13,7 @@ if ($loadList.length > 0) {
         scrollArea: window,
         loadDownFn: function (load) {
             var xhr = new XMLHttpRequest();
-            xhr.open('GET', './articl_list.json',true);
+            xhr.open('GET', './articl_list.json', true);
             xhr.responseType = 'json';
             xhr.onload = function () {
                 loadHtml(this.response);

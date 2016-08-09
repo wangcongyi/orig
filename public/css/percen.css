@@ -14,10 +14,18 @@ td {
     color: #aaa;
 }
 
+body {
+    background-color: #f0f0f0;
+}
+
+header, nav, table, ul, footer {
+    background-color: #fff;
+}
+
 header {
-    border-bottom: 2px solid #f0f0f0;
     padding: .3rem;
     padding-bottom: .5rem;
+    margin-bottom: 2px;
 }
 
 table {
@@ -42,14 +50,7 @@ img {
 
 nav {
     text-align: center;
-}
-
-nav:after, ul:after {
-    content: '';
-    width: 100%;
-    background: #f0f0f0;
-    display: inline-block;
-    padding: .5rem 0;
+    margin-bottom: 1rem;
 }
 
 nav a {
@@ -64,13 +65,12 @@ nav a, footer a {
 }
 
 ul > li {
-
-    border-bottom: 1px solid #f0f0f0;
     color: #666;
+    border-bottom: 1px solid #f0f0f0;
 }
 
 ul li a {
-    padding: .36rem 0;
+    padding: .5rem 0;
     display: inline-block;
     width: 100%;
     text-indent: .36rem;
@@ -102,7 +102,7 @@ ul li a:after {
 .file:after {
     content: '';
     position: absolute;
-    z-index: -1;
+    z-index: 1;
     border-width: 0;
     border-bottom: 1rem solid rgba(8, 106, 205, 0.6);
     border-right: .8rem solid rgba(0, 0, 0, 0);
@@ -112,7 +112,6 @@ ul li a:after {
 
 footer {
     width: 100%;
-    background: rgb(255, 255, 255);
     font-size: 0;
     text-align: center;
     position: fixed;
