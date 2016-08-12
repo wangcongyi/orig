@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="flexible_css.js"></script>
+    <script src="flexible.js"></script>
+    <style>
+        body{
+            text-align: center;
+        }
+        button {
+            outline: none;
+            border: none;
+            display: inline-block;
+            width: 1.2rem;
+            height: 1.2rem;
+            background-color: deepskyblue;
+            border-radius: 50%;
+            position: fixed;
+            bottom: 0;
+            margin-left: -.6rem;
+        }
+
+        a {
+            display: inline-block;
+            width: 1.2rem;
+            height: 1.2rem;
+            background-color: mediumvioletred;
+            border-radius: 50%;
+            position: absolute;
+            top:0;
+            left:0;
+            right: 0;
+            bottom: 0;
+            opacity: 0;
+            transform: scale(0) rotate(0deg);
+            transition: all .6s ease-out ;
+        }
+        button.active a{
+            transform: scale(1) rotate(360deg);
+            opacity: 1;
+        }
+        button.active a:nth-of-type(1){
+            top:-1.5rem;
+            left: -2.9rem;
+        }
+        button.active a:nth-of-type(2){
+            top:-3rem;
+            left: -1.8rem;
+        }
+        button.active a:nth-of-type(3){
+            top:-3.65rem;
+            left: 0;
+        }
+        button.active a:nth-of-type(4){
+            top:-3rem;
+            left: 1.8rem;
+        }
+        button.active a:nth-of-type(5){
+            top:-1.5rem;
+            left: 2.9rem;
+        }
+    </style>
+
+
+</head>
+<body>
+
+<button>
+    <a href="">11</a>
+    <a href="">22</a>
+    <a href="">33</a>
+    <a href="">44</a>
+    <a href="">55</a>
+</button>
+
+
+<script>
+
+
+
+    var btn = document.querySelector('button');
+    var a = btn.querySelectorAll('a');
+    btn.addEventListener('click', function (e) {
+        if(this.classList.contains('active')){
+            this.classList.remove('active');
+
+        }else{
+            this.classList.add('active');
+
+        }
+        e.preventDefault();
+
+    }, false)
+</script>
+
+</body>
+</html>
