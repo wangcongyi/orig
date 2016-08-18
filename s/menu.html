@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta name="wap-font-scale" content="no"/>
+    <meta name="renderer" content="webkit"/>
+    <meta name="applicable-device" content="mobile"/>
+    <script src="javascript/flexible.js"></script>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/sad.css">
+    <title>报名菜单</title>
+</head>
+<body>
+<header>
+    <h1>刺猬体验NO.18 <br>打工换宿 | 萨达撒大声地</h1>
+    <span>进行中</span>
+</header>
+<section>
+    <h1>体验目录</h1>
+    <em>X</em>
+    <p><i class="pos"><i></i></i>成都/北京/西安</p>
+    <ul>
+        <li data-num="1"><a href="">萨达萨达撒大声地</a></li>
+        <li data-num="2"><a href="">萨达萨达撒大声地</a></li>
+        <li data-num="3"><a href="">萨达萨达撒大声地</a></li>
+        <li data-num="4"><a href="">萨达萨达撒大声地</a></li>
+    </ul>
+    <h1><a href="">体验宣言</a></h1>
+</section>
+
+<section>
+    <h1>请选择您要报名的体验职位</h1>
+    <em>X</em>
+    <table>
+        <tbody>
+        <tr data-num="1" class="che">
+            <td>丽江志愿者</td>
+            <td><i class="pos other"><i></i></i>丽江</td>
+        </tr>
+        <tr data-num="2">
+            <td>丽江说深深深到底志愿者</td>
+            <td><i class="pos other"><i></i></i>丽江</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>全选</td>
+        </tr>
+        </tbody>
+    </table>
+    <button>投个简历</button>
+</section>
+
+<section>
+    <h1>请选择您要投的简历</h1>
+    <em>X</em>
+    <i class="icon1"><i></i></i>
+    <span>lec***@qq.com</span>
+    <i class="icon2"><i></i></i>
+    <span class="iphone">138***888</span>
+    <textarea placeholder="报名优势:说说自己的特点吧~~"></textarea>
+    <br>
+
+    <input type="radio" name="resume" id="resume1">
+    <label for="resume1">我的简历1</label>
+
+    <input type="radio" name="resume" id="resume2">
+    <label for="resume2">我的简历2</label>
+
+    <input type="radio" name="resume" id="resume">
+    <label for="resume">外文简历</label>
+
+
+    <input type="text" id="mobis-date" placeholder="请选择到岗时间">
+    <i class="time"></i>
+    <button>确认投递</button>
+</section>
+<footer>
+    <div>
+        <div class="heart"></div>
+        <span>12323</span>
+    </div>
+    <div>
+        <span class="typing-indicator">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+        <span>5333</span>
+    </div>
+    <div><i><i></i></i>目录</div>
+    <div>报名</div>
+</footer>
+<script src="javascript/zepto.min.js"></script>
+<script src="javascript/time.js"></script>
+<script>
+    $('#mobis-date').mobiscroll().date({
+        minDate: new Date(),
+        dateFormat: 'yy-mm-dd',
+        dateOrder: 'yymmdd',
+        theme: 'mobiscroll',
+        display: 'bottom',
+        mode: 'mixed'
+    });
+    var table = $('table');
+    var len = table.find('tr').length;
+    table.on('tap', 'tr', function (e) {
+        e.preventDefault();
+        if ($(this).index() == len - 1) {
+            table.find('tr').addClass('che')
+        }
+        $(this).toggleClass('che')
+    })
+
+
+</script>
+</body>
+</html>

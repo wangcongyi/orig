@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta name="wap-font-scale" content="no"/>
+    <meta name="renderer" content="webkit"/>
+    <meta name="applicable-device" content="mobile"/>
+    <script src="javascript/flexible.js"></script>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css">
+    <title>体验首页</title>
+</head>
+<body>
+<a href="actother.html">
+    <header>
+        <div>NO. <em>19</em>刺猬体验</div>
+        <h1>在上海ChinaJoy与二次元的邂逅,深扒漫Coser场照小记</h1>
+        <span>进行中</span>
+    </header>
+</a>
+<div class="wrap">
+    <a href="">
+        <em>体检报告 |</em>
+        分享刺猬体验馆的故事
+    </a>
+    <section>
+        <video width="100%" preload="auto">
+            <source src="http://www.runoob.com/try/demo_source/mov_bbb.mp4" type="video/mp4">
+            <source src="http://www.runoob.com/try/demo_source/mov_bbb.ogg" type="video/ogg">
+        </video>
+        <cite>刺猬体验的最深度体验巴拉巴拉</cite>
+        <address>武林梅 哈尔滨公共关系学院 艺术设计</address>
+        <main>谁能想到，十几年前的年撒旦撒大神大神大神大神大年撒旦撒大神大神大神大神大我们还在因为用几十块钱的键盘 玩游戏锁键而烦恼</main>
+    </section>
+    <section>
+        <video width="100%">
+            <source src="http://www.runoob.com/try/demo_source/mov_bbb.mp4" type="video/mp4">
+            <source src="http://www.runoob.com/try/demo_source/mov_bbb.ogg" type="video/ogg">
+        </video>
+        <cite>刺猬体验的最深度体验巴拉巴拉</cite>
+        <address>武林梅 哈尔滨公共关系学院 艺术设计</address>
+        <main>谁能想到，十几年前的年撒旦撒大神大神大神大神大年撒旦撒大神大神大神大神大我们还在因为用几十块钱的键盘 玩游戏锁键而烦恼</main>
+    </section>
+    <section>
+        <video width="100%">
+            <source src="http://www.runoob.com/try/demo_source/mov_bbb.mp4" type="video/mp4">
+            <source src="http://www.runoob.com/try/demo_source/mov_bbb.ogg" type="video/ogg">
+        </video>
+        <cite>刺猬体验的最深度体验巴拉巴拉</cite>
+        <address>武林梅 哈尔滨公共关系学院 艺术设计</address>
+        <main>谁能想到，十几年前的年撒旦撒大神大神大神大神大年撒旦撒大神大神大神大神大我们还在因为用几十块钱的键盘 玩游戏锁键而烦恼</main>
+    </section>
+    <section>
+        <video width="100%">
+            <source src="http://www.runoob.com/try/demo_source/mov_bbb.mp4" type="video/mp4">
+            <source src="http://www.runoob.com/try/demo_source/mov_bbb.ogg" type="video/ogg">
+        </video>
+        <cite>刺猬体验的最深度体验巴拉巴拉</cite>
+        <address>武林梅 哈尔滨公共关系学院 艺术设计</address>
+        <main>谁能想到，十几年前的年撒旦撒大神大神大神大神大年撒旦撒大神大神大神大神大我们还在因为用几十块钱的键盘 玩游戏锁键而烦恼</main>
+    </section>
+    <button>
+        <span>&#8801;</span>
+        <a href="active.html">我的</a>
+        <a href="video.html">视频</a>
+        <a href="report.html">心得</a>
+        <a href="active.html">活动</a>
+        <a href="index.html">首页</a>
+    </button>
+</div>
+<div class="mask"></div>
+<script>
+    var btn = document.querySelector('button');
+    var btnClass = btn.classList;
+    var mask = document.querySelector('.mask');
+    mask.style.width = document.body.clientWidth + 'px';
+    mask.style.height = document.body.clientHeight + 'px';
+    btn.addEventListener('touchstart', function (e) {
+        e.stopPropagation();
+        if (btnClass.contains('active')) {
+            btnClass.remove('active');
+            mask.style.display = 'none';
+        } else {
+            btnClass.add('active');
+            mask.style.display = 'block';
+        }
+    }, false);
+    mask.addEventListener('touchstart', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+    });
+
+</script>
+</body>
+</html>

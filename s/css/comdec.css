@@ -1,0 +1,167 @@
+header {
+    background: url("../cache/1.png");
+    height: 2.133rem;
+    width: 100%;
+    background-size: cover;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+header h1 {
+    font-size: .48rem;
+}
+
+header span {
+    font-size: .4rem;
+}
+
+section {
+    border-bottom: 1px solid #ddd;
+}
+
+section img {
+    max-width: 1.2rem;
+    max-height: 1.2rem;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    float: left;
+    margin-left: .3rem;
+    margin-right: .3rem;
+    margin-top: .4rem;
+}
+
+section main {
+    line-height: 1.7;
+    padding: 0 .3rem;
+}
+
+section span {
+    font-size: .43rem;
+    color: #666;
+    display: inline-block;
+    margin-top: .4rem;
+}
+
+section cite {
+    display: block;
+    margin-left: 1.71rem;
+    text-align: justify;
+    margin-bottom: .5rem;
+    padding-right: .5rem;
+}
+
+section .floor {
+    float: right;
+    margin-right: .5rem;
+}
+
+section address, section time {
+    font-size: .32rem;
+    color: #999;
+    margin-bottom: .4rem;
+    display: block;
+}
+
+section address:after {
+    content: '';
+    clear: both;
+}
+
+section h2 {
+    text-align: right;
+    margin-bottom: .1rem;
+}
+
+section div {
+    display: inline-block;
+    margin-right: .8rem;
+    position: relative;
+    vertical-align: super;
+}
+
+.typing-indicator {
+    background-color: #E6E7ED;
+    width: auto;
+    border-radius: 50%/100%;
+    padding: .11rem;
+    position: absolute;
+    margin-left: -.55rem;
+    margin-top: .52rem;
+}
+
+.typing-indicator span {
+    height: .0625rem;
+    width: .0625rem;
+    float: left;
+    margin: 0 1px;
+    background-color: #9E9EA1;
+    display: block;
+    border-radius: 50%;
+    opacity: 0.4;
+}
+
+.typing-indicator span:nth-of-type(1) {
+    animation: 1s blink infinite 0.3333s;
+}
+
+.typing-indicator span:nth-of-type(2) {
+    animation: 1s blink infinite 0.6666s;
+}
+
+.typing-indicator span:nth-of-type(3) {
+    animation: 1s blink infinite 0.9999s;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 1;
+    }
+}
+
+.heart {
+    position: absolute;
+    margin-top: .52rem;
+    margin-left: -.6rem;
+}
+
+.heart:before {
+    position: absolute;
+    content: "";
+    left: .14rem;
+    top: 0;
+    width: 0.15625rem;
+    height: .25rem;
+    background: #fc2e5a;
+    border-radius: 50px 50px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+.heart:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+    position: absolute;
+    content: "";
+    top: 0;
+    width: 0.15625rem;
+    height: .25rem;
+    background: #fc2e5a;
+    border-radius: 50px 50px 0 0;
+}
+
+.heart2 {
+    animation: pounding .5s linear infinite alternate;
+}
+
+@keyframes pounding {
+    0% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
