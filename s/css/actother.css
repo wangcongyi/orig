@@ -440,8 +440,8 @@ footer > div:last-of-type {
     text-align: center;
     position: relative;
     opacity:0;
-    /*display: none;*/
-
+    margin-left: .24rem;
+    z-index: 3;
 }
 
 .menu h1 {
@@ -535,3 +535,11 @@ i.pos > i {
     padding: .8rem 0 .6rem 0;
 }
 
+.mask{
+    background-color: rgba(0,0,0,.3);
+    position: absolute;
+    top:0;
+    left:0;
+    display: none;
+    z-index: 2;
+}

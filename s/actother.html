@@ -150,25 +150,36 @@
     </ul>
     <h1><a href="">体验宣言</a></h1>
 </section>
-
+<div class="mask"></div>
 <script src="javascript/zepto.min.js"></script>
 <script>
 
-var m = $('.menu');
+    var mask = $('.mask');
+    var dpr = document.getElementsByTagName('html')[0].getAttribute('data-dpr');
+    mask.css({
+        'width': document.body.clientWidth,
+        'height': document.body.clientHeight
+    });
+    var m = $('.menu');
     m.fadeIn();
     var t = m.height();
 
     m.fadeOut();
 
     $('#menu').on('click', function () {
-        var h = window.screen.height*2-t+$(window).scrollTop();
+        var h = window.screen.height * dpr - t + $(window).scrollTop();
         m.fadeIn();
-        m.css('position','absolute');
-        m.animate({"top": h})
+        m.css('position', 'absolute');
+        m.animate({"top": h});
+        mask.fadeIn();
+        document.addEventListener('touchmove', function (e) {
+            e.preventDefault()
+        }, false)
     });
-      m.find('em').on('click',function(){
-          $('.menu').fadeOut()
-      })
+    m.find('em').on('click', function () {
+        $('.menu').fadeOut();
+        mask.fadeOut()
+    })
 
 </script>
 </body>
