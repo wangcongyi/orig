@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+#div1{ width:200px; height:200px; background:red; position:absolute; display:none;}
+#div2{ width:30px; height:30px; background:yellow; position:absolute; right:0; bottom:0;}
+#div3{ width:100px; height:100px; background:blue; position:absolute; right:0; top:0;}
+</style>
+<script src="sea.js"></script>
+<script>
+
+//A开发
+
+seajs.use('./dist/main.js');
+
+</script>
+</head>
+
+<body>
+<input type="button" value="弹窗" id="input1">
+<div id="div1">
+	<div id="div2"></div>
+</div>
+<div id="div3"></div>
+</body>
+</html>
