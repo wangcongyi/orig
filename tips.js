@@ -646,8 +646,44 @@
 // }
 //////////////////////////////////////////////////////////////////
 
+//ajax-get-image-with-worker
+//    var i = new Image();
+//    var w = new Worker('./w.js');
+//    var url = './w.jpg';
+//    w.postMessage({method: "GET", url: url});
+//    w.addEventListener('message', function (e) {
+//        i.src = URL.createObjectURL(e.data);
+//        document.body.appendChild(i);
+//        i.onload = function () {
+//            URL.revokeObjectURL(i.src);
+//        }
+//    }, false);
 
 
+/*
+ *            w.js
+ *
+ * */
+
+//    self.addEventListener('message', function (e) {
+//        if (e.data.method == 'GET') {
+//            f(e.data.url)
+//        }
+//    }, false);
+//
+//
+//    function f(url) {
+//        var x = new XMLHttpRequest();
+//        x.open('GET', url, true);
+//        x.responseType = 'blob';
+//        x.onload = function () {
+//            self.postMessage(x.response)
+//        };
+//        x.send();
+//    }
+//   Cross-domain   no
+//   just play with ajax2 and worker
+/////////////////////////////////////////////////////////////////
 
 
 
