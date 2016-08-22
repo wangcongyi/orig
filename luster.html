@@ -5,37 +5,201 @@
     <title>Title</title>
     <style>
 
-        div{
-            width:100px;
-            height:100px;
-            border-radius: 50%;
-            background: radial-gradient(red,mediumvioletred);
-            position: relative;
+        /*div{*/
+            /*width:100px;*/
+            /*height:100px;*/
+            /*border-radius: 50%;*/
+            /*background: radial-gradient(red,mediumvioletred);*/
+            /*position: relative;*/
+        /*}*/
+        /*div:after{*/
+            /*content: '';*/
+            /*display: block;*/
+            /*position: absolute;*/
+            /*width: 7px;*/
+            /*height: 30px;*/
+            /*border-radius: 50%;*/
+            /*background-color: rgba(255, 255, 255, 0);*/
+            /*top: 0;*/
+            /*left: 0;*/
+            /*margin-left: 50px;*/
+            /*margin-top: 50px;*/
+            /*transform: rotate(-45deg);*/
+            /*box-shadow: 2px 0px 0 0px #fff;*/
+        /*}*/
+        @charset 'utf-8';
+
+        /*global*/
+        html {
+            min-height: 100%;
         }
-        div:after{
-            content: '';
-            display: block;
+        html,
+        body{
+            padding: 0;
+            margin: 0;
+        }
+
+        /*christmas ball*/
+        .christmas-ball {
             position: absolute;
-            width: 7px;
+            top: 50%;
+            left: 50%;
+            width: 240px;
+            height: 240px;
+            -webkit-border-radius: 120px;
+            -moz-border-radius: 120px;
+            border-radius: 120px;
+            margin: -120px 0 0 -120px;
+            -webkit-box-shadow: inset 0 0 24px #FFF;
+            -moz-box-shadow: inset 0 0 24px #FFF;
+            box-shadow: inset 0 0 24px #FFF;
+        }
+        .christmas-ball:before {
+            content: '\FEFF';
+            position: absolute;
+            top: auto;
+            bottom: -6px;
+            left: 5px;
+            width: 145px;
+            height: 13px;
+            -webkit-border-radius: 100%;
+            -moz-border-radius: 100%;
+            border-radius: 100%;
+            background-color: #ede5e5;
+            background-color: rgba(80,0,0,.1);
+            -webkit-filter: blur(1px);
+            z-index: -1;
+        }
+        .christmas-ball:after {
+            content: '\FEFF';
+            position: absolute;
+            left: 50%;
+            top: 3px;
+            width: 230px;
+            height: 230px;
+            -webkit-border-radius: 100%;
+            -moz-border-radius: 100%;
+            border-radius: 100%;
+            margin-left: -115px;
+            background-image: linear-gradient(270deg,rgba(255,255,255,.6) 0%,transparent 84%);
+            background-image: -webkit-gradient(linear,270deg,rgba(255,255,255,.6) 0%,transparent 84%); /*old Webkit fallback safari4+,Chrome*/
+            background-image: -webkit-linear-gradient(270deg,rgba(255,255,255,.6) 0%,transparent 84%);
+            background-image: -moz-linear-gradient(270deg,rgba(255,255,255,.6) 0%,transparent 84%);
+            background-image: -o-linear-gradient(270deg,rgba(255,255,255,.6) 0%,transparent 84%);
+            display: block;
+        }
+
+        /*socket*/
+        .socket-container {
+            position: absolute;
+            top: -49px;
+            width: 100%;
+            z-index: -1;
+        }
+        .socket {
+            position: relative;
+            margin: 0 auto;
+            background-color: #e0e0e0;
+        }
+        .socket-rectangle {
+            -webkit-border-radius: 6px 6px 0 0;
+            -moz-border-radius: 6px 6px 0 0;
+            border-radius: 6px 6px 0 0;
+        }
+        .socket-large{
+            width: 70px;
+            height: 12px;
+        }
+        .socket-small {
+            width: 50px;
+            height: 12px;
+        }
+        .socket-circle {
+            top: 4px;
+            width: 30px;
             height: 30px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0);
-            top: 0;
-            left: 0;
-            margin-left: 50px;
-            margin-top: 50px;
-            transform: rotate(-45deg);
-            box-shadow: 2px 0px 0 0px #fff;
+            -webkit-border-radius: 100%;
+            -moz-border-radius: 100%;
+            border-radius: 100%;
+        }
+        .socket-circle:after {
+            content: '\FEFF';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            -webkit-border-radius: 100%;
+            -moz-border-radius: 100%;
+            border-radius: 100%;
+            margin: -10px;
+            background-color: #fff;
+            display: block;
+        }
+
+        /*gloss*/
+        .gloss-container {
+            position: absolute;
+            right: 20px;
+            top: 40px;
+            z-index: 999;
+        }
+        .gloss {
+            position: relative;
+            margin: 0 auto 6px auto;
+            -webkit-border-radius: 100%;
+            -moz-border-radius: 100%;
+            border-radius: 100%;
+            background-color: #ffffff;
+            -webkit-box-shadow: 0 0 4px rgba(255, 255, 255, .75), 0 0 10px rgba(255, 255, 200, .75), 0 0 30px rgba(255, 255, 200, .75);
+            -moz-box-shadow: 0 0 4px rgba(255, 255, 255, .75), 0 0 10px rgba(255, 255, 200, .75), 0 0 30px rgba(255, 255, 200, .75);
+            box-shadow: 0 0 4px rgba(255, 255, 255, .75), 0 0 10px rgba(255, 255, 200, .75), 0 0 30px rgba(255, 255, 200, .75);
+        }
+        .gloss-large{
+            width: 36px;
+            height: 50px;
+            -webkit-transform: rotate(-11deg);
+            -moz-transform: rotate(-11deg);
+            -ms-transform: rotate(-11deg);
+            -o-transform: rotate(-11deg);
+            transform: rotate(-11deg);
+        }
+        .gloss-small{
+            width: 15px;
+            height: 19px;
+            -webkit-transform: rotate(-31deg) translateX(-10px) translateY(-8px);
+            -moz-transform: rotate(-23deg) translateX(-10px) translateY(-8px);
+            -ms-transform: rotate(-23deg) translateX(-10px) translateY(-8px);
+            -o-transform: rotate(-23deg) translateX(-10px) translateY(-8px);
+            transform: rotate(-23deg) translateX(-10px) translateY(-8px);
+        }
+
+        /*colors*/
+        .red {
+            background-color: rgb(205,0,0);
+            background-image: linear-gradient(45deg, rgb(100,0,0) 0%, rgb(205,0,0) 50%);
+            background-image: -webkit-gradient(linear,45deg, rgb(100,0,0) 0%, rgb(205,0,0) 50%); /*old Webkit fallback safari4+,Chrome*/
+            background-image: -webkit-linear-gradient(45deg, rgb(100,0,0) 0%, rgb(205,0,0) 50%);
+            background-image: -moz-linear-gradient(45deg, rgb(100,0,0) 0%, rgb(205,0,0) 50%);
+            background-image: -o-linear-gradient(45deg, rgb(100,0,0) 0%, rgb(205,0,0) 50%);
         }
 
     </style>
 </head>
 <body>
 
-<div>
-
+<div></div>
+<div class="christmas-ball red">
+    <div class="socket-container">
+        <div class="socket socket-circle"></div>
+        <div class="socket socket-rectangle socket-small"></div>
+        <div class="socket socket-rectangle socket-large"></div>
+    </div>
+    <div class="gloss-container">
+        <div class="gloss gloss-small"></div>
+        <div class="gloss gloss-large"></div>
+    </div>
 </div>
-
 
 </body>
 </html>
