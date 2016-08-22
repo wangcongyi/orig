@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta name="wap-font-scale" content="no"/>
+    <meta name="renderer" content="webkit"/>
+    <meta name="applicable-device" content="mobile"/>
+    <script src="javascript/flexible.js"></script>
+    <link rel="stylesheet" href="css/reset.css">
+    <title>体验视频</title>
+    <style>
+        header {
+            background: url("cache/1.png");
+            height: 2.133rem;
+            width: 100%;
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header h1 {
+            font-size: .48rem;
+        }
+
+        header span {
+            font-size: .27rem;
+        }
+
+        header span > span:before {
+            content: '\A';
+            white-space: pre;
+        }
+
+        .wrap {
+            background-color: #f0f0f0;
+            padding: .43rem .3rem .8rem;
+            text-align: center;
+        }
+
+        .wrap section {
+            border-radius: .125rem;
+            overflow: hidden;
+            margin-bottom: .4rem;
+            text-align: left;
+            background-color: #fff;
+        }
+
+        .wrap section img {
+            width: .9rem;
+            height: .9rem;
+            border-radius: 50%;
+            border: 1px solid #ccc;
+            vertical-align: middle;
+            margin-left: .27rem;
+        }
+
+        .wrap section span {
+            font-size: .4rem;
+            color: #333;
+            margin-left: .2rem;
+            padding: 0.27rem 0;
+            display: inline-block;
+        }
+
+        .wrap section span:nth-of-type(2) {
+            width: 300px;
+            vertical-align: middle;
+            font-size: .37rem;
+            color: #666;
+            margin-left: 1rem;
+        }
+
+        .slider {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            margin: 0 auto;
+            background: #fff;
+        }
+
+        .slider:after {
+            content: '';
+            display: block;
+            width: 100%;
+            padding-top: 2.5rem;
+        }
+
+        .slider ul {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 8.3rem;
+            height: 2.4rem;
+            padding: 5px;
+        }
+
+        .slider li {
+            list-style: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 8.3rem;
+            height: 100%;
+            border: 1px solid #3DB9BE;
+        }
+
+        .slider li:after {
+            content: '已结束';
+            width: .97rem;
+            background-color: #3DB9BE;
+            color: #fff;
+            height: 100%;
+            font-size: .5rem;
+            position: absolute;
+            right: 0;
+            top: 0;
+            text-align: center;
+            padding-top: .133rem;
+        }
+
+        .slider p:first-of-type {
+            font-size: .4rem;
+            color: #666;
+            margin: .5rem .5rem 0 .5rem;
+        }
+
+        .slider p:first-of-type span {
+            color: #3DB9BE;
+            margin-left: 1rem;
+        }
+
+        .slider p:nth-of-type(2) {
+            font-size: .48rem;
+            color: #999;
+            padding-left: .5rem;
+        }
+
+    </style>
+</head>
+<body>
+<header>
+    <h1>体验视频 |&nbsp;</h1>
+    <span>纪录刺猬体验官的故事<span>我们坚信 体验和实践是最具价值的成长方式</span></span>
+</header>
+<div class="wrap">
+    <section>
+        <video width="100%">
+            <source src="http://www.runoob.com/try/demo_source/mov_bbb.mp4" type="video/mp4">
+            <source src="http://www.runoob.com/try/demo_source/mov_bbb.ogg" type="video/ogg">
+        </video>
+        <img src="cache/ava.png" class="ava">
+        <span>曾小是的贤</span>
+        <span>到发啊实打实大地上三大撒旦撒岛枫</span>
+    </section>
+    <section>
+        <video width="100%">
+            <source src="http://www.runoob.com/try/demo_source/mov_bbb.mp4" type="video/mp4">
+            <source src="http://www.runoob.com/try/demo_source/mov_bbb.ogg" type="video/ogg">
+        </video>
+        <div>
+            <img src="cache/ava.png" class="ava">
+            <span>是贤</span>
+            <span>第三方地方松岛枫</span>
+        </div>
+    </section>
+    <section class="slider">
+        <ul class="slider-box">
+            <li>
+                <a href="">
+                    <p>刺猬体验NO.11 <span>30个心得</span></p>
+                    <p>台湾暑假实习阿斯顿撒</p>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <p>刺猬体验NO.12 <span>30个心得</span></p>
+                    <p>台湾暑假实习阿斯顿撒</p>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <p>刺猬体验NO.13 <span>30个心得</span></p>
+                    <p>台湾暑假实习阿斯顿撒</p>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <p>刺猬体验NO.14 <span>30个心得</span></p>
+                    <p>台湾暑假实习阿斯顿撒</p>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <p>刺猬体验NO.15 <span>30个心得</span></p>
+                    <p>台湾暑假实习阿斯顿撒</p>
+                </a>
+            </li>
+        </ul>
+    </section>
+</div>
+<script src="javascript/zepto.min.js"></script>
+<script src="javascript/swipeSlide.js"></script>
+<script>
+    $('.slider').swipeSlide({
+        pager: false
+    });
+</script>
+</body>
+</html>
