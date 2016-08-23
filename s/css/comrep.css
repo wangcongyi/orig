@@ -34,7 +34,7 @@ section cite {
     padding-left: .3rem;
 }
 
-section:first-of-type img {
+section img {
     width: 100%;
     display: inline-block;
     margin: .5rem 0;
@@ -82,7 +82,7 @@ section .floor {
     margin-right: .5rem;
 }
 
-section:not(:first-of-type) img {
+#replyList section img {
     max-width: 1.2rem;
     max-height: 1.2rem;
     border-radius: 50%;

@@ -35,7 +35,7 @@ input.on('keydown', function (e) {
 
 //页面下拉请求评论区数据
 window.addEventListener('touchmove', function () {
-    if (document.body.scrollTop + 10 >= g / 16 && one) {
+    if (document.body.scrollTop + 10 >= g / 6 && one) {
         one = false;
         $('#replyList').fadeIn();
         var x = xml('cache/comrep.json');
@@ -55,32 +55,28 @@ function replyHtml(data) {
     var list = '';
     var secList = '';
     var d = data.data.list;
-    var domHtml = '';
     if (d.length !== 0) {
-        $('#reply').fadeIn();
         $.each(d, function (index) {
-            if (d[index].list.length !== 0) {
-                var secItem = secReply(d[index].list);
+
+            if (d[index].replyList.length !== 0) {
+                var secItem = secReply(d[index].replyList);
                 secList = '<ul class="replyList">' + secItem + '</ul>';
             }
-            list += '<div class="leftD">\
-                        <img src="image/icon-1-2@2x.png">\
-                     </div>\
-                     <div class="rightD" data-pid="' + d[index].pid + '">\
-                        <h2>' + d[index].author + '</h2>\
-                        <time>' + d[index].dateline + '</time>\
-                        <p>' + d[index].message + '</p>' + secList + '\
-                     </div>';
+            list += '<section data-pid="'+d[index].pid+'">\
+                         <img src="' + d[index].ava + '">\
+                         <span>' + d[index].author + '</span>\
+                         <span class="floor">'+d[index].floor+'</span>\
+                         <time>' + d[index].time + '</time>\
+                         <p>' + d[index].comment + '</p>\
+                         '+secList+'\
+                     </section>';
         });
-        domHtml = '<section>\
-                       <div id="comment" class="comment">' + list + '</div>\
-                   </section>';
     } else {
         input.attr('placeholder', '暂无评论 快抢沙发');
-        $('#reply').fadeIn();
     }
-    $(document.body).append(domHtml);
-    $('#comment').on('click', '.rightD', function () {
+    $('#reply').fadeIn();
+    $('#replyList').append(list);
+    $('#replyList').on('click', 'section', function () {
         re.call(this)
     });
 }
@@ -93,15 +89,11 @@ function replyHtml(data) {
 function secReply(data) {
     var html = '';
     $.each(data, function (index) {
-        html += '<li>\
-                     <div class="leftD">\
-                         <img src="image/icon-1-2@2x.png">\
-                     </div>\
-                     <div class="rightD" data-pid="' + data[index].pid + '">\
-                         <h2><em>' + data[index].author + '</em> \u56de\u590d ' + data[index].replyname + '</h2>\
-                         <time>' + data[index].dateline + '</time>\
-                         <p>' + data[index].message + '</p>\
-                     </div>\
+        html += '<li data-pid="' + data[index].pid + '">\
+                    <img src="' + data[index].ava + '">\
+                    <span>' + data[index].author + ' 回复 '+data[index].replyName+'</span>\
+                    <time>' + data[index].time + '</time>\
+                    <p>' + data[index].comment + '</p>\
                  </li>';
     });
     return html
@@ -117,7 +109,8 @@ function secReply(data) {
  */
 function re() {
     ra = false;
-    var h = $($(this).find('h2')[0]);
+    var h = $(this).find('span');
+    console.log(h)
     h.find('em').length !== 0 ? who = h.find('em').text().trim() : who = h.text().trim();
     self = $(this);
     r = '\u56de\u590d: ' + who + ' ';
