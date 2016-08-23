@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta name="wap-font-scale" content="no"/>
+    <meta name="renderer" content="webkit"/>
+    <meta name="applicable-device" content="mobile"/>
+    <script src="./js/flexible_css.js"></script>
+    <script src="./js/flexible.debug.js"></script>
+    <meta charset="UTF-8">
+    <title>刺猬实习</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        h1 {
+            margin: .9375rem 0;
+            padding-bottom: .75rem;
+            border-bottom: 1px solid #ccc;
+            font-size: 0.5625rem;
+        }
+
+        em {
+            position: absolute;
+            right: 1.09rem;
+            top: .625rem;
+            color: #ddd;
+            font-size: .6rem;
+        }
+
+        .file {
+            transition: .2s ease-in-outa 0s;
+            width: 2.9rem;
+            height: 1.2rem;
+            line-height: 1.08rem;
+            text-align: center;
+            border-radius: 0.125rem;
+            color: #fff;
+            display: block;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 2rem -2rem 0 0 #086acd inset;
+            margin: 0 auto .2rem;
+            font-size: .6rem;
+            padding-top: 2rem;
+        }
+
+        .file:after {
+            content: '';
+            position: absolute;
+            z-index: 1;
+            border-width: 0;
+            border-bottom: 2.234375rem solid rgba(8, 106, 205, 0.6);
+            border-right: 1.625rem solid rgba(0, 0, 0, 0);
+            top: -1rem;
+            right: 0;
+        }
+
+        h3 {
+            color: #666;
+            font-size: .5rem;
+            margin-bottom: .5rem;
+        }
+
+        p {
+            font-size: 0.4375rem;
+            line-height: 1.5;
+            color: #999;
+        }
+
+        button {
+            background-color: #3db6ba;
+            width: 7rem;
+            padding: .4rem 0;
+            color: #fff;
+            font-size: .4rem;
+            border-radius: 1.4rem;
+            border: none;
+            margin-top: 1rem;
+            box-shadow: 0 .25rem .25rem  -.125rem #3DB9BE;
+        }
+
+        button.delete {
+            background-color: #FF825B;
+            box-shadow: 0 .25rem .25rem  -.125rem #FF825B;
+        }
+    </style>
+</head>
+<body>
+<h1>外文简历请上传附件使用</h1>
+<em>X</em>
+<i class="file">.file</i>
+<h3>My resume. jpg</h3>
+<p>支持格式： </p>
+<p>jpg、png、jpeg、doc、docx、pdf，最大2M。</p>
+<p> 注：iOS的朋友上传非图片格式请移步到电脑版</p>
+<button class="delete">删除附件</button>
+<button>上传附件</button>
+</body>
+</html>

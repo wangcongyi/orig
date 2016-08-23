@@ -1,0 +1,42 @@
+img#title{
+    height:270px;
+}
+.wrap .finalList{
+    width:1124px;
+    margin: 0 auto;
+    background-color: #fff;
+}
+.wrap .finalList div h1 {
+    font-size: 30px;
+    font-weight: normal;
+    padding-top: 40px;
+    color: #666;
+}
+
+.wrap .finalList div h1:before {
+    content: '-';
+    display: inline-block;
+    color: #31c5ca;
+    margin-right: 20px;
+}
+
+.wrap .finalList div h1:after {
+    content: '-';
+    display: inline-block;
+    color: #ffba00;
+    margin-left: 20px;
+
+}
+
+.wrap .finalList div span {
+    color: #c6c6c6;
+    font-size: 10px;
+}
+
+.wrap .finalList div span:after {
+    content: '';
+    background: linear-gradient(#f4f4f4, #fff);
+    display: inline-block;
+    width: 86%;
+    height: 4px;
+}
