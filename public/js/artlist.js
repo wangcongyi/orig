@@ -1,12 +1,3 @@
-$('nav').on('tap', 'a', function () {
-    var index = $(this).index();
-    var $div = $('.warp>div');
-    $('nav').find('a').css('fontWeight', 'normal');
-    $(this).css('fontWeight', 'bolder');
-    $div.hide().eq(index).show();
-});
-
-
 var $loadList = $('#loadList');
 var url = $loadList.data('url');
 if ($loadList.length > 0) {
@@ -14,10 +5,10 @@ if ($loadList.length > 0) {
         scrollArea: window,
         loadDownFn: function (load) {
             var xhr = new XMLHttpRequest();
-            xhr.open('GET', 'articl_list.json', true);
+            xhr.open('GET', url, true);
             xhr.responseType = 'json';
             xhr.onload = function () {
-                $loadList.data("url",this.response.data.url);
+                url = this.response.data.url;
                 loadHtml(this.response);
                 load.resetload();
             };

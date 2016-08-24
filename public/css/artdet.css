@@ -224,3 +224,10 @@ section:after {
     display: block;
     margin: 0 auto;
 }
+section button{
+    font-size: .3rem;
+    border: none;
+    padding: 3px 5px;
+    background-color: #f0f0f0;
+    margin: .2rem;
+}

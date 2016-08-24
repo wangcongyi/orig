@@ -91,6 +91,7 @@ header span {
     text-align: left;
     background-color: #fff;
     padding-bottom: .7rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
 }
 .play {
     border-radius: 2em;

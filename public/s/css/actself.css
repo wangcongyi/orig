@@ -3,10 +3,14 @@ ol {
 }
 
 .title header {
-    background: url(../cache/widget-2.jpg) no-repeat;
     height: 6.56rem;
-    background-size: cover;
     box-sizing: border-box;
+}
+
+.title header img{
+    width: 100%;
+    position: absolute;
+    z-index: -1;
 }
 
 .title header h1 {

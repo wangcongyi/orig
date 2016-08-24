@@ -69,11 +69,8 @@ nav .active {
     color: #34B9BE;
 }
 
-nav img {
-    width: 1.2rem;
-    height: 1.2rem;
-    display: inline-block;
-    margin: 0 auto;
+nav .active i > i {
+    -webkit-filter: drop-shadow(#34B8BE 1.2rem 0);
 }
 
 nav i {
@@ -152,6 +149,7 @@ section {
     text-align: left;
     background-color: #fff;
     padding-bottom: .3rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
 }
 
 section p {

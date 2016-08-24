@@ -7,7 +7,8 @@
  *   @author      king
  *
  *
- *   @log         2016/8/23     增加 评论区下拉刷新功能   注释 抢沙发逻辑代码
+ *   @log         2016/8/23     增加 评论区上拉刷新功能   注释 抢沙发逻辑代码
+ *   @log         2016/8/24     增加 二级评论区加载更多功能  替换$.each方法 ->  使用原生map方法
  *
  */
 
@@ -75,27 +76,30 @@ window.addEventListener('touchmove', function () {
 }, false);
 
 
+/**
+ * @description   上拉刷新 加载评论
+ * @param data
+ */
 function hehe(data) {
     var list = '';
     var secList = '';
     var d = data.data.list;
-    $.each(d, function (index) {
-        if (d[index].replyList.length !== 0) {
-            var secItem = secReply(d[index].replyList);
+    d.map(function (item, index) {
+        if (item.replyList.length !== 0) {
+            var secItem = secReply(item.replyList);
             secList = '<ul class="replyList">' + secItem + '</ul>';
         }
         list += '<div class="leftD">\
-                        <img src="image/icon-1-2@2x.png">\
-                     </div>\
-                     <div class="rightD" data-pid="' + d[index].pid + '">\
-                        <h2>' + d[index].author + '</h2>\
-                        <time>' + d[index].time + '</time>\
-                        <p>' + d[index].comment + '</p>' + secList + '\
-                     </div>';
+                    <img src="image/icon-1-2@2x.png">\
+                </div>\
+                <div class="rightD" data-pid="' + item.pid + '">\
+                    <h2>' + item.author + '</h2>\
+                    <time>' + item.time + '</time>\
+                    <p>' + item.comment + '</p>' + secList + '\
+                </div>';
     });
     $('.dropload-down').before(list)
 }
-
 
 /**
  * @description   AJAX去请求评论区数据
@@ -108,18 +112,21 @@ function replyHtml(data) {
     var domHtml = '';
     if (d.length !== 0) {
         $('#reply').fadeIn();
-        $.each(d, function (index) {
-            if (d[index].replyList.length !== 0) {
-                var secItem = secReply(d[index].replyList);
-                secList = '<ul class="replyList">' + secItem + '</ul>';
+        d.map(function (item, index) {
+            if (!!item.replyUrl) {
+                var btn = '<button data-url="' + item.replyUrl + '">更多评论...</button>'
+            }
+            if (item.replyList.length !== 0) {
+                var secItem = secReply(item.replyList);
+                secList = '<ul class="replyList">' + secItem + '</ul>' + btn;
             }
             list += '<div class="leftD">\
                         <img src="image/icon-1-2@2x.png">\
                      </div>\
-                     <div class="rightD" data-pid="' + d[index].pid + '">\
-                        <h2>' + d[index].author + '</h2>\
-                        <time>' + d[index].time + '</time>\
-                        <p>' + d[index].comment + '</p>' + secList + '\
+                     <div class="rightD" data-pid="' + item.pid + '">\
+                        <h2>' + item.author + '</h2>\
+                        <time>' + item.time + '</time>\
+                        <p>' + item.comment + '</p>' + secList + '\
                      </div>';
         });
         domHtml = '<section>\
@@ -130,10 +137,33 @@ function replyHtml(data) {
         $('#reply').fadeIn();
     }
     $(document.body).append(domHtml);
-    $('#comment').on('click', '.rightD', function () {
-        re.call(this)
+    $('#comment').on('click', '.rightD', function (e) {
+        if (e.target.nodeName.toLowerCase() == 'button') {
+            rr.call(this);
+        } else {
+            re.call(this)
+        }
     });
 }
+
+
+/**
+ *   @description  二级评论区  加载更多功能
+ */
+function rr() {
+    var self = this;
+    var btn = this.querySelector('button');
+    var u = btn.getAttribute('data-url');
+    var x = xml(u);
+    x.then(function (data) {
+        var h = secReply(data.list);
+        $(self).find('.replyList').append(h);
+        btn.setAttribute('data-url', data.replyUrl)
+    }, function (data) {
+        alert(data)
+    })
+}
+
 
 /**
  * @description      请求二级评论的数据
@@ -141,19 +171,19 @@ function replyHtml(data) {
  * @returns {string} 返回拼接好的二级评论DOM字符串
  */
 function secReply(data) {
-    var html = '';
-    $.each(data, function (index) {
-        html += '<li>\
-                     <div class="leftD">\
-                         <img src="image/icon-1-2@2x.png">\
-                     </div>\
-                     <div class="rightD" data-pid="' + data[index].pid + '">\
-                         <h2><em>' + data[index].author + '</em> \u56de\u590d ' + data[index].replyName + '</h2>\
-                         <p>' + data[index].comment + '</p>\
-                     </div>\
-                 </li>';
+    var h = '';
+    data.map(function (item, index) {
+        h += '<li>\
+                 <div class="leftD">\
+                     <img src="image/icon-1-2@2x.png">\
+                 </div>\
+                 <div class="rightD" data-pid="' + item.pid + '">\
+                     <h2><em>' + item.author + '</em> \u56de\u590d ' + item.replyName + '</h2>\
+                     <p>' + item.comment + '</p>\
+                 </div>\
+             </li>'
     });
-    return html
+    return h
 }
 
 
@@ -295,7 +325,6 @@ function scroll(scrollTo, time) {
         runEvery = 15;
     scrollTo = parseInt(scrollTo);
     time /= runEvery;
-
     var interval = setInterval(function () {
         i++;
         document.body.scrollTop = (scrollTo - scrollFrom) / time * i + scrollFrom;
@@ -303,4 +332,7 @@ function scroll(scrollTo, time) {
             clearInterval(interval);
         }
     }, runEvery);
+
+    $('.dropload-down').remove();    //添加评论 就删除上拉加载loading DOM
+
 }

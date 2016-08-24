@@ -69,13 +69,6 @@ nav .active {
     color: #34B9BE;
 }
 
-nav img {
-    width: 1.2rem;
-    height: 1.2rem;
-    display: inline-block;
-    margin: 0 auto;
-}
-
 nav i {
     overflow: hidden;
     width: 1.2rem;
@@ -89,6 +82,9 @@ nav i > i {
     left: -1.2rem;
     border-right: 1.2rem solid transparent;
 }
+nav .active i > i {
+    -webkit-filter: drop-shadow(#34B8BE 1.2rem 0);
+}
 
 .story {
     -webkit-filter: drop-shadow(#fff 1.2rem 0);
@@ -97,7 +93,7 @@ nav i > i {
 }
 
 .exp {
-    -webkit-filter: drop-shadow(#34B8BE 1.2rem 0);
+    -webkit-filter: drop-shadow(#fff 1.2rem 0);
     background: url("../images/exp.png") no-repeat center;
     background-size: cover;
 }
@@ -148,6 +144,7 @@ section {
     border-radius: .125rem;
     background-color: #fff;
     margin-bottom: .5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
 }
 
 
