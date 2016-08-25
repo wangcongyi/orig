@@ -1,0 +1,233 @@
+a {
+    color: #999;
+}
+
+a, a:link, a:hover, a:visited, a:active {
+    text-decoration: none;
+}
+
+h1 {
+    font-size: .4375rem;
+    color: #333;
+    padding: .7rem 0 .15625rem .25rem;
+}
+
+h2 {
+    font-size: .375rem;
+    color: #666;
+    margin-bottom: .34375rem;
+    display: inline-block;
+}
+
+p {
+    font-size: .375rem;
+    color: #333;
+    line-height: .625rem;
+    text-align: justify;
+}
+
+time {
+    float: right;
+    font-size: .375rem;
+    color: #999;
+    line-height: 1.5;
+    text-align: right;
+}
+
+img {
+    width: 100%;
+}
+
+body {
+    padding: .3125rem;
+    background-color: #f0f0f0;
+    overflow: hidden;
+}
+
+section {
+    position: relative;
+    margin-bottom: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    background-color: #fff;
+    display: inline-block;
+    border-radius: .125rem;
+}
+
+section:nth-of-type(2) {
+    margin-bottom: 2rem;
+    width:100%;
+    margin-top: .2rem;
+}
+
+section span {
+    margin-left: .5rem;
+    margin-bottom: .5625rem;
+    display: inline-block;
+}
+
+section:nth-of-type(1) p {
+    padding: .625rem .3rem .35rem .32rem;
+}
+
+section:before, section:after {
+    width: 212px;
+    height: 205px;
+    display: inline-block;
+    position: absolute;
+    bottom: -50px;
+    z-index: -1;
+}
+
+section:before {
+    content: url("shadow_01.png");
+    left: -23px;
+}
+
+section:after {
+    content: url("shadow_02.png");
+    right: 85px;
+}
+
+#comment {
+    background-color: #fff;
+    border-radius: .125rem;
+    margin-top: .235rem;
+    overflow: hidden;
+}
+
+#comment .leftD {
+    float: left;
+    width: .94rem;
+    padding-top: .4375rem;
+    padding-left: .46875rem;
+}
+
+#comment .leftD img {
+    border-radius: 50%;
+    border: 1px solid #ccc;
+}
+
+#comment .rightD {
+    border-bottom: 1px solid #ccc;
+    padding: .4375rem .46875rem .47rem 1.8rem;
+}
+
+#comment .replyList {
+    margin-top: .2rem;
+}
+
+#comment .replyList li {
+    border-bottom: 2px solid #fff;
+}
+
+#comment .replyList .leftD {
+    padding-left: .1rem;
+    padding-top: .2rem;
+}
+
+#comment .replyList .rightD {
+    padding-top: .2rem;
+    padding-left: 1.2rem;
+    background-color: #f0f0f0;
+    border: none;
+}
+
+#comment .replyList .rightD p {
+    font-size: .3125rem;
+    line-height: 1.2;
+}
+
+#comment .replyList .rightD h2 {
+    font-size: .3125rem;
+    margin-bottom: .2rem;
+}
+
+#comment .replyList .rightD time {
+    font-size: .28125rem;
+    line-height: 2.2;
+}
+
+#reply {
+    padding: .15625rem .3125rem;
+    bottom: 0;
+    background-color: #fff;
+    z-index: 2;
+    width: 100%;
+    margin-left: -.3125rem;
+    display: none;
+    opacity:0;
+    position: fixed;
+}
+
+#reply input {
+    outline: none;
+    border-radius: .125rem;
+    background-color: #f0f0f0;
+    width: 5.9rem;
+    height: 1rem;
+    text-indent: .2rem;
+    font-size: .375rem;
+    color: #999;
+    margin-right: .35rem;
+}
+
+#reply a {
+    display: inline-block;
+    width: .8rem;
+    padding: 0.3rem;
+}
+
+@keyframes heart {
+    0% {
+        background-position: 0;
+    }
+    100% {
+        background-position: 100%;
+    }
+}
+
+#reply a:nth-of-type(1) {
+    position: relative;
+}
+
+#reply a.praise:before {
+    animation: heart steps(28) .8s both .1s;
+}
+
+#reply a:nth-of-type(1):before {
+    content: '';
+    display: inline-block;
+    width: 1.2rem;
+    height: 1.2rem;
+    background: url("web_heart_animation.png") 0 0 no-repeat;
+    background-size: 2900%;
+    position: absolute;
+    margin-left: -.9rem;
+    margin-top: -.37rem;
+}
+#replyList{
+    display: none;
+    opacity:0;
+}
+
+.loading span{
+    padding: .5rem;
+    margin: 0;
+    font-size: .4rem;
+}
+.loading .iconing {
+    text-align: center;
+    background: url(loadicon.gif) no-repeat;
+    background-size: 100%;
+    width: .94rem;
+    height: .94rem;
+    display: block;
+    margin: 0 auto;
+}
+section button{
+    font-size: .3rem;
+    border: none;
+    padding: 3px 5px;
+    background-color: #f0f0f0;
+    margin: .2rem;
+}

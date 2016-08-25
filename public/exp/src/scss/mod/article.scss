@@ -1,0 +1,291 @@
+@charset "utf-8";
+// ======
+// ==== 大板块 - 文章列表样式
+// ======
+
+// 文章列表
+.widget-article {
+	// 文章筛选
+	&-filter {
+		padding: 14px 20px;
+		background: #ffffff;
+		overflow: hidden;
+		font-size: 0;
+
+		& a {
+			border-right: 1px solid nth($fontColor, 2);
+			padding: 0 10px;
+			color: nth($fontColor, 2);
+			@include fontsize(16px);
+
+			&:hover {
+				color: nth($color1, 1);
+			}
+
+			&:last-child {
+				border-right: none;
+			}
+
+			&.active {
+				font-weight: bold;
+				color: nth($fontColor, 1);
+			}
+		}
+	}
+
+	// 文章列表
+	&-list {
+		& .item {
+			padding: 20px;
+			background: #ffffff;
+			margin-bottom: 20px;
+		}
+
+		& .info {
+			overflow: hidden;
+		}
+
+		// 头像
+		& .avatar {
+			float: left;
+
+			& img {
+				width: 60px;
+				height: 60px;
+				border-radius: 50%;
+			}
+		}
+
+		// 作者
+		& .name {
+			float: left;
+			margin-top: 5px;
+			margin-left: 15px;
+
+			& a {
+				display: inline-block;
+				color: nth($fontColor, 3);
+			}
+
+			& strong {
+				color: nth($fontColor, 1);
+				font-weight: normal;
+				@include fontsize(18px);
+			}
+
+			& span {
+				display: block;
+			}
+		}
+
+		& .subinfo {
+			overflow: hidden;
+			height: 22px;
+			line-height: 22px;
+
+			& .icontext {
+				margin-right: 12px;
+			}
+
+			& .left {
+				& .font {
+					margin-right: 6px;
+				}
+			}
+
+			& .right {
+				margin-right: -12px;
+			}
+		}
+
+		// 图标
+		& a {
+			&:hover {
+				color: nth($color1, 1);
+			}
+		}
+
+		// 时间
+		& .time {
+			color: nth($fontColor, 3);
+			float: right;
+			line-height: 60px;
+			@include fontsize(18px);
+		}
+
+		// 预览图
+		& .img {
+			display: block;
+			margin-top: 20px;
+			margin-bottom: 20px;
+
+			& img {
+				width: 100%;
+			}
+		}
+
+		// 文章标题
+		& .title {
+			display: inline-block;
+			color: nth($fontColor, 1);
+			font-weight: normal;
+			@include fontsize(20px);
+
+			&:hover {
+				color: nth($color1, 1);
+			}
+		}
+
+		& p {
+			color: nth($fontColor, 2);
+			text-align: justify;
+			margin-top: 8px;
+			margin-bottom: 20px;
+		}
+	}
+}
+
+// 文章详情
+.widget-single {
+	position: relative;
+	overflow: hidden;
+	padding: 20px;
+	background: #ffffff;
+	color: nth($fontColor, 1);
+	word-wrap: break-word;
+    word-break: normal;
+	@include fontsize(16px);
+
+	// 标题
+	& .title {
+		font-weight: normal;
+		@include fontsize(22px);
+	}
+
+	& .subinfo {
+		color: nth($fontColor, 3);
+		border-bottom: 1px solid nth($borderColor, 1);
+		padding: 5px 0;
+		overflow: hidden;
+		line-height: 22px;
+		@include fontsize(12px);
+
+		& .author {
+			color: nth($fontColor, 1);
+		}
+
+		& span, & .font {
+			float: left;
+			margin-right: 7px;
+		}
+
+		& .font {
+			@include fontsize(16px);
+		}
+	}
+
+	// 引用
+	& blockquote {
+		margin: 1em 0;
+		padding: 23px 20px 23px 55px;
+		background: nth($bgColor, 1) url(../images/blockquoteup.png) 18px 20px no-repeat;
+		border: 1px solid nth($borderColor, 1);
+		line-height: 28px;
+
+		& p {
+			margin: 5px 0 0;
+			padding-right: 35px;
+			text-align: justify;
+
+			&:last-child {
+				padding-bottom: 10px;
+				background: nth($bgColor, 1) url(../images/blockquotedown.png) 100% 100% no-repeat;
+			}
+		}
+	}
+
+	& p {
+		margin: 1em 0;
+		line-height: 28px;
+	}
+
+	// 图片
+	& img {
+		max-width: 100%;
+		display: inline-block;
+	}
+
+	// 分享按钮组
+	& .share {
+		margin: 30px 20px 0;
+	}
+
+	& .share-list {
+		position: relative;
+		background: #ffffff;
+		height: 32px;
+		margin-top: 50px;
+
+		& .left {
+			line-height: 32px;
+			margin-left: -15px;
+		}
+
+		& .right {
+			line-height: 32px;
+		}
+
+		& .icontext {
+			float: left;
+			margin-left: 15px;
+		}
+	}
+
+	// 收藏按钮
+	& .button-collect {
+		// 已被收藏
+		&.active, &:hover {
+			color: nth($color4, 1);
+		}
+	}
+
+	// 收藏提示框
+	& .collect {
+		display: none;
+		position: absolute;
+		top: 30px;
+		right: 0;
+		background: #ffffff;
+		padding: 5px 15px;
+		box-shadow: 0 0px 5px rgba(221, 221, 221, 0.8);
+		@include fontsize(14px);
+
+		& a:hover {
+			text-decoration: underline;
+		}
+
+		&.success {
+			border: 1px solid nth($color2, 1);
+		}
+
+		&.error {
+			border: 1px solid nth($color3, 1);
+		}
+	}
+
+	// 文章版权说明
+	& .copyright {
+		text-align: center;
+		border-top: 1px solid nth($borderColor, 1);
+		margin-top: 20px;
+		padding-top: 20px;
+		color: nth($fontColor, 3);
+		@include fontsize(12px);
+
+		& p {
+			margin: 0;
+			line-height: 24px;
+			white-space: nowrap;
+		}
+	}
+}

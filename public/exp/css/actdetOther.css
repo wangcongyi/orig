@@ -1,0 +1,278 @@
+img#title {
+    height: 550px;
+}
+
+.wrap > div {
+    margin: 0 auto 14px;
+    width: 1124px;
+}
+
+.wrap .timeLine {
+    background-color: #fff;
+    height: 160px;
+    padding: 20px 115px;
+}
+
+.wrap .timeLine div {
+    display: inline-block;
+    line-height: 4;
+    width: 219px;
+    color: #d0d0d0;
+}
+
+.wrap .timeLine div.before {
+    color: #31c5ca;
+}
+
+.wrap .timeLine div:before {
+    content: '';
+    width: 218px;
+    border: 1px dashed currentColor;
+    position: absolute;
+    margin-left: -79px;
+    margin-top: 63px;
+}
+
+.wrap .timeLine div span:before {
+    content: '';
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: currentColor;
+    position: absolute;
+    margin-left: 25px;
+    margin-top: 57px;
+}
+
+.wrap .timeLine div.now span:before {
+    background: rgb(255, 174, 0);
+    animation: now 1s infinite linear;
+    box-shadow: 0 0 0 0 rgba(255, 174, 0, .5);
+}
+
+.wrap .timeLine div span:after {
+    content: '\A';
+    white-space: pre;
+}
+
+@keyframes now {
+    100% {
+        box-shadow: 0 0 0 5px rgba(255, 174, 0, .5);
+    }
+}
+
+@-webkit-keyframes now {
+    100% {
+        box-shadow: 0 0 0 5px rgba(255, 174, 0, .5);
+    }
+}
+
+@-ms-keyframes now {
+    100% {
+        box-shadow: 0 0 0 5px rgba(255, 174, 0, .5);
+    }
+}
+
+.wrap .detail {
+    position: relative;
+}
+
+.wrap .detail > div {
+    background-color: #fff;
+}
+
+.wrap .detail > div:not(:first-child) {
+    width: 968px;
+}
+
+.wrap .detail .actPro {
+    padding: 0 72px;
+    margin-bottom: 13px;
+}
+
+.wrap .detail div h1 {
+    font-size: 30px;
+    font-weight: normal;
+    padding-top: 40px;
+    color: #666;
+}
+
+.wrap .detail div h1:before {
+    content: '-';
+    display: inline-block;
+    color: #31c5ca;
+    margin-right: 20px;
+}
+
+.wrap .detail div h1:after {
+    content: '-';
+    display: inline-block;
+    color: #ffba00;
+    margin-left: 20px;
+
+}
+
+.wrap .detail div span {
+    color: #c6c6c6;
+    font-size: 10px;
+}
+
+.wrap .detail div span:after {
+    content: '';
+    background: linear-gradient(#f4f4f4, #fff);
+    display: inline-block;
+    width: 86%;
+    height: 4px;
+}
+
+.wrap .detail .actPro p {
+    text-align: justify;
+    color: #999;
+    line-height: 2;
+    font-size: 14px;
+}
+
+.wrap .detail div h2 {
+    margin: 40px 12px 4px 12px;
+    text-align: left;
+    font-size: 24px;
+    color: #31c5ca;
+    background: #f7f7f7;
+    padding: 15px 0;
+    position: relative;
+}
+
+.wrap .detail div h2 em {
+    font-style: normal;
+    font-size: 14px;
+    float: right;
+    padding: 10px;
+    background: white;
+    color: #999;
+    font-weight: normal;
+}
+
+.wrap .detail div h2 em:first-of-type {
+    margin-right: 8px;
+}
+
+.wrap .detail div h2 em:nth-of-type(1):before {
+    content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTMyIDc5LjE1OTI4NCwgMjAxNi8wNC8xOS0xMzoxMzo0MCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUuNSAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NkI5OUM5RkY0RkQwMTFFNkFDODg5NDA3NTdCOEIyRDMiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NkI5OUNBMDA0RkQwMTFFNkFDODg5NDA3NTdCOEIyRDMiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo2Qjk5QzlGRDRGRDAxMUU2QUM4ODk0MDc1N0I4QjJEMyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo2Qjk5QzlGRTRGRDAxMUU2QUM4ODk0MDc1N0I4QjJEMyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PiSSYk8AAAFbSURBVHjafJLNK4RRFMbfGS8Z46tMiFKyECIUC8Va+R9sWPj4DywmW1myVDYoiY2FtYVZUCywMFuxUZjG+MrX75met0bJqd89p/fec8+5z3ljA0fH6SAIhmESvuAAqh3LKuARpiELS9AfsqRgAq58uDH42zKQh1ZdoMQPb6SC/63WyN6V+Oo2ztzWf6aOkjAXJe6djgw9RLuDmZOi51sxjnyJjcdZYiZKqsStQgdxCz6Nb8L3wqIrFkKfj5XcVgZtVlZxN1RBPfSAcj6LixK5tRyvDp5hFu68N+9x3MIMPEFN3BKrvQVYs3Kb0AedsAHtMArbSoJcaCU1kn1/fIEduLFw666uIrvwppzQ7/iGa79F7R26E8UXmhvK6q/J8iTpURd3z/IrsOVWz2EMuuDSovyapyo2uOKU285Z1UicZrgvmaMqJpRYgGXN21InrWLSz8g7TjhRPvkjwABWw16p5LLBmAAAAABJRU5ErkJggg==');
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.wrap .detail div h2 em:nth-of-type(2):before {
+    content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTMyIDc5LjE1OTI4NCwgMjAxNi8wNC8xOS0xMzoxMzo0MCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUuNSAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDRGRTFCMjY0RkQwMTFFNkE2NTY5OTNBNTBGMEU5OUYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDRGRTFCMjc0RkQwMTFFNkE2NTY5OTNBNTBGMEU5OUYiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo0NEZFMUIyNDRGRDAxMUU2QTY1Njk5M0E1MEYwRTk5RiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo0NEZFMUIyNTRGRDAxMUU2QTY1Njk5M0E1MEYwRTk5RiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pip0iHIAAAD+SURBVHjaYvz//z8DOjA6dtoRSO2DciOBeOU5K1MUhUxYNDVDNe0F4vlAvByIdwLFGXBqBEqKAqkaIM4F2uACxElAtiUQuwKxMj4bDaH0FJgAUPMJKDMIn8YXaAaAXCEEZZ5CVsiCpvEqzCKghgQg/RGI12PTyIgeqkAN3UCqBM3Aa0Ana+MNVSCoxiLmji6AoRFo8i8g5Ysk1AUUe4JVI9B5TEDMiqR5C5C6AOWWI3mDGaYOZuMNIA5EM9QMiHmBhiCLqQHxL3DgGB49xQik/wExO9SZeAHQRlBoioKiIwAqJgUU/EdA30+Y80EanwHxYyC+z0AceArEOwACDADIYFDkadkSZQAAAABJRU5ErkJggg==');
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.wrap .detail div h2:before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 26px;
+    background-color: currentColor;
+    vertical-align: sub;
+    margin: 0 14px 0 3px;
+}
+
+.wrap .detail div h2:not(:first-of-type):after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+    height: 3px;
+    background: #eee;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: -35px;
+}
+
+.wrap .detail .actPro p:first-of-type {
+    margin-top: 40px;
+}
+
+.wrap .detail .actPro img {
+    max-width: 638px;
+    margin: 40px 0;
+}
+
+.wrap .detail .actJob ul {
+    display: inline-block;
+    width: 313px;
+    height: 264px;
+    background-color: #f7f7f7;
+    text-align: left;
+    padding: 20px;
+}
+
+.wrap .detail .actJob ul li {
+    color: #999;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.wrap .detail .actJob ul li:first-child {
+    color: #666;
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+button {
+    width: 185px;
+    padding: 9px 0;
+    background: #3ccfd4;
+    color: #fff;
+    border-radius: 5px;
+    margin: 15px 0 30px 0;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.wrap .detail .title button {
+    width: 100px;
+}
+
+.wrap .detail .title {
+    width: 156px;
+    background-color: #f7f7f7;
+    height: 100%;
+    position: absolute;
+    right: 0;
+}
+
+#menu {
+    position: absolute;
+    right: 22%;
+    top: 7%;
+}
+
+.wrap .detail .title a {
+    color: #b9b9b9;
+    font-size: 18px;
+    line-height: 2;
+}
+
+.wrap .detail .title a:after {
+    content: '\A';
+    white-space: pre;
+}
+
+.wrap .detail .title a.active {
+    color: #30c2c7;
+}
+
+.wrap .detail .title a.active:before {
+    content: '';
+    display: inline-block;
+    height: 20px;
+    width: 6px;
+    background-color: currentColor;
+    position: absolute;
+    margin-top: 9px;
+    margin-left: -10px;
+}
