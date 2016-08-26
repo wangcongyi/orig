@@ -1,6 +1,7 @@
 $('nav a').on('click', function () {
     $('nav a').removeClass('active');
     $(this).addClass('active');
+    return false
 });
 
 
@@ -15,7 +16,7 @@ if ($loadList.length > 0) {
             xhr.open('GET', url, true);
             xhr.responseType = 'json';
             xhr.onload = function () {
-                $loadList.data("url", this.response.data.url);
+                url = this.response.data.url;
                 loadHtml(this.response);
                 load.resetload();
             };

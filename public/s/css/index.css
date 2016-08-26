@@ -1,15 +1,25 @@
 header {
-    background: url(../cache/widget-2.jpg) no-repeat;
     height: 6.56rem;
-    background-size: cover;
-    box-sizing: border-box;
-    padding-top: 2.08rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
 }
 
 header h1 {
     background-color: rgba(52, 185, 190, 0.8);
     width: 7.733rem;
-    margin: 0 auto;
     font-size: .5rem;
     text-align: center;
     color: #fff;
@@ -93,6 +103,7 @@ header span {
     padding-bottom: .7rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, .1);
 }
+
 .play {
     border-radius: 2em;
     padding: 2em;
@@ -104,7 +115,6 @@ header span {
     margin-left: 40%;
     margin-top: 16%;
 }
-
 
 .wrap section:last-of-type {
     margin-bottom: 0;
@@ -133,8 +143,9 @@ header span {
     -o-text-overflow: ellipsis;
     overflow: hidden;
 }
-.wrap section img{
-    width:100%;
+
+.wrap section img {
+    width: 100%;
 }
 
 button {
@@ -147,7 +158,7 @@ button {
     border-radius: 50%;
     position: fixed;
     bottom: 0;
-    left:44%;
+    left: 44%;
     font-size: 1rem;
     color: #fff;
     line-height: 1.2rem;
@@ -200,11 +211,11 @@ button.active a:nth-of-type(5) {
     left: 2.9rem;
 }
 
-.mask{
-    background-color: rgba(0,0,0,.3);
+.mask {
+    background-color: rgba(0, 0, 0, .3);
     position: absolute;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     display: none;
     z-index: 2;
 }

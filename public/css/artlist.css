@@ -6,14 +6,16 @@ header {
     overflow: hidden;
     position: fixed;
     top: 0;
-    background-color: #fff;
     z-index: 2;
 }
 
 header nav {
     width: 17.0664rem;
-    overflow: hidden;
     font-size: 0;
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+    transition: all .3s ease-out;
 }
 
 header nav a {
@@ -24,6 +26,27 @@ header nav a {
     background-color: #34B9BE;
     align-items: center;
     color: #fff;
+}
+.sec {
+    margin-top: 1.55rem;
+    display: flex;
+    position: fixed;
+    top: 0;
+    background-color: #fff;
+    z-index: 2;
+    flex-wrap: nowrap;
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+}
+
+.sec a {
+    color: #999;
+    font-size: .37rem;
+    padding: 30px 0;
+    width:25%;
+    text-align: center;
 }
 
 header nav .active {
@@ -97,23 +120,13 @@ header nav i > i {
     background-size: cover;
 }
 
-.sec {
-    margin-top: 1.6rem;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap
-}
-
-.sec a {
-    color: #999;
-    font-size: .37rem;
-    padding: 30px 0;
-}
 
 .wrap {
     background-color: #f0f0f0;
     padding: .43rem .3rem .5rem;
     text-align: center;
+    margin-top: 2.8rem;
+
 }
 
 section {

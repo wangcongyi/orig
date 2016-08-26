@@ -14,6 +14,7 @@ var self, // 回复二级评论时 需要监听所选区域
     one = true, // AJAX只请求一次数据
     input = $('#reply').find('input'),
     url = $('section').data('url'),
+    t = $('section').height(),
     $replyArea = $('#replyArea');
 g = parseInt(getComputedStyle(document.querySelector('section')).getPropertyValue('height'));
 //请求评论区需要的条件 至于为什么不用zepto  有可能 flexbox没有计算好 最好使用getComputedStyle
@@ -82,12 +83,12 @@ function hehe(data) {
             var secItem = secReply(item.replyList);
             secList = '<ul class="replyList">' + secItem + '</ul>' + btn;
         }
-        list += '<section data-pid="' + d[index].pid + '">\
-                         <img src="' + d[index].ava + '">\
-                         <span>' + d[index].author + '</span>\
-                         <span class="floor">' + d[index].floor + '</span>\
-                         <time>' + d[index].time + '</time>\
-                         <p>' + d[index].comment + '</p>\
+        list += '<section data-pid="' + item.pid + '">\
+                         <img src="' + item.ava + '">\
+                         <span>' + item.author + '</span>\
+                         <span class="floor">' + item.floor + '</span>\
+                         <time>' + item.time + '</time>\
+                         <p>' + item.comment + '</p>\
                          ' + secList + '\
                      </section>';
     });
@@ -112,12 +113,12 @@ function replyHtml(data) {
                 var secItem = secReply(item.replyList);
                 secList = '<ul class="replyList">' + secItem + '</ul>' + btn;
             }
-            list += '<section data-pid="' + d[index].pid + '">\
-                         <img src="' + d[index].ava + '">\
-                         <span>' + d[index].author + '</span>\
-                         <span class="floor">' + d[index].floor + '</span>\
-                         <time>' + d[index].time + '</time>\
-                         <p>' + d[index].comment + '</p>\
+            list += '<section data-pid="' + item.pid + '">\
+                         <img src="' + item.ava + '">\
+                         <span>' + item.author + '</span>\
+                         <span class="floor">' + item.floor + '</span>\
+                         <time>' + item.time + '</time>\
+                         <p>' + item.comment + '</p>\
                          ' + secList + '\
                      </section>';
         });
@@ -135,6 +136,12 @@ function replyHtml(data) {
     });
 }
 
+
+/**
+ *  @description  二级评论加载更多
+ *
+ *
+ */
 function rr() {
     var self = this;
     var btn = this.querySelector('button');
@@ -145,7 +152,7 @@ function rr() {
         $(self).find('.replyList').append(h);
         btn.setAttribute('data-url', data.replyUrl)
     }, function (data) {
-        btn.textContent ='没有更多评论咯~~'
+        btn.textContent = '没有更多评论咯~~'
     })
 }
 
@@ -157,12 +164,14 @@ function rr() {
  */
 function secReply(data) {
     var html = '';
-    $.each(data, function (index) {
-        html += '<li data-pid="' + data[index].pid + '"><section>\
-                    <img src="' + data[index].ava + '">\
-                    <span><em>' + data[index].author + '</em> 回复 ' + data[index].replyName + '</span>\
-                    <p>' + data[index].comment + '</p>\
-                 </section></li>';
+    data.map(function (item, index) {
+        html += '<li data-pid="' + item.pid + '">\
+                   <section>\
+                       <img src="' + item.ava + '">\
+                       <span><em>' + item.author + '</em> 回复 ' + item.replyName + '</span>\
+                       <p>' + item.comment + '</p>\
+                   </section>\
+               </li>';
     });
     return html
 }
@@ -195,6 +204,7 @@ function re() {
  * @description 评论功能主要方法
  *
  */
+
 function rb() {
     var val = input.val().trim();
     var v = input.val().replace(new RegExp(r, 'gi'), '');
@@ -206,19 +216,21 @@ function rb() {
             var oHtml = '<section>\
                              <img src="cache/ava.png">\
                              <span>king</span>\
+                             <span class="floor">' + 55 + '楼</span>\
+                             <time>' + Date.parse(new Date()) + '</time>\
                              <p>' + val + '</p>\
                          </section>';
-            $replyArea.append(oHtml);
-            scroll($(document).height(), 500)
+            $replyArea.prepend(oHtml);
+            scroll(t, 500)
         } else {
             if (self.parent().parent().hasClass('replyList')) {
                 var html = '<li>\
-                            <section>\
-                                <img src="cache/ava.png">\
-                                <span><em>king</em> \u56de\u590d ' + who + '</span>\
-                                <p>' + v + '</p>\
-                            </section>\
-                        </li>';
+                                <section>\
+                                    <img src="cache/ava.png">\
+                                    <span><em>king</em> \u56de\u590d ' + who + '</span>\
+                                    <p>' + v + '</p>\
+                                </section>\
+                            </li>';
                 self.parent().parent().append(html);
             } else if (!self.hasClass('replyList') && self.find('.replyList').length === 0) {
                 var firstHtml = '<ul class="replyList">\
@@ -234,12 +246,12 @@ function rb() {
                 self.append(firstHtml);
             } else if (self.find('.replyList').length !== 0) {
                 var html = '<li>\
-                            <section>\
-                                <img src="cache/ava.png">\
-                                <span><em>king</em> \u56de\u590d ' + who + '</span>\
-                                <p>' + v + '</p>\
-                            </section>\
-                        </li>';
+                                <section>\
+                                    <img src="cache/ava.png">\
+                                    <span><em>king</em> \u56de\u590d ' + who + '</span>\
+                                    <p>' + v + '</p>\
+                                </section>\
+                            </li>';
                 self.find('.replyList').append(html)
             }
             ra = true
@@ -304,7 +316,6 @@ function scroll(scrollTo, time) {
             clearInterval(interval);
         }
     }, runEvery);
-    $('.dropload-down').remove();    //添加评论 就删除上拉加载loading DOM
 }
 
 

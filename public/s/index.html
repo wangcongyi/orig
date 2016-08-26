@@ -15,6 +15,7 @@
 <body>
 <a href="actother.html">
     <header>
+        <img src="cache/widget-2.jpg">
         <div>NO. <em>19</em>刺猬体验</div>
         <h1>在上海ChinaJoy与二次元的邂逅,深扒漫Coser场照小记</h1>
         <span>进行中</span>
@@ -26,7 +27,7 @@
         分享刺猬体验馆的故事
     </a>
     <section>
-        <a href="">
+        <a href="comdec.html">
             <div class="play"></div>
             <img src="cache/widget-2.jpg">
             <cite>刺猬体验的最深度体验巴拉巴拉</cite>
@@ -35,7 +36,7 @@
         </a>
     </section>
     <section>
-        <a href="">
+        <a href="comdec.html">
             <div class="play"></div>
             <img src="cache/widget-2.jpg">
             <cite>刺猬体验的最深度体验巴拉巴拉</cite>
@@ -44,7 +45,7 @@
         </a>
     </section>
     <section>
-        <a href="">
+        <a href="comdecs.html">
             <div class="play"></div>
             <img src="cache/widget-2.jpg">
             <cite>刺猬体验的最深度体验巴拉巴拉</cite>
@@ -53,7 +54,16 @@
         </a>
     </section>
     <section>
-        <a href="">
+        <a href="comrep.html">
+            <div class="play"></div>
+            <img src="cache/widget-2.jpg">
+            <cite>刺猬体验的最深度体验巴拉巴拉</cite>
+            <address>武林梅 哈尔滨公共关系学院 艺术设计</address>
+            <main>谁能想到，十几年前的年撒旦撒大神大神大神大神大年撒旦撒大神大神大神大神大我们还在因为用几十块钱的键盘 玩游戏锁键而烦恼</main>
+        </a>
+    </section>
+    <section>
+        <a href="comreps.html">
             <div class="play"></div>
             <img src="cache/widget-2.jpg">
             <cite>刺猬体验的最深度体验巴拉巴拉</cite>
@@ -63,8 +73,8 @@
     </section>
     <button>
         <span>&#8801;</span>
-        <a href="active.html">我的</a>
-        <a href="videos.html">视频</a>
+        <a href="comtopic.html">我的</a>
+        <a href="video.html">视频</a>
         <a href="report.html">心得</a>
         <a href="active.html">活动</a>
         <a href="index.html">首页</a>
@@ -72,7 +82,26 @@
 </div>
 <div class="mask"></div>
 <script src="javascript/zepto.min.js"></script>
-<script src="javascript/dropload.js"></script>
-<script async defer src="javascript/index.js"></script>
+<script>
+    var btn = document.querySelector('button');
+    var btnClass = btn.classList;
+    var mask = document.querySelector('.mask');
+    btn.addEventListener('touchstart', function (e) {
+        mask.style.width = document.body.clientWidth + 'px';
+        mask.style.height = document.body.clientHeight + 'px';
+        e.stopPropagation();
+        if (btnClass.contains('active')) {
+            btnClass.remove('active');
+            mask.style.display = 'none';
+        } else {
+            btnClass.add('active');
+            mask.style.display = 'block';
+        }
+    }, false);
+    mask.addEventListener('touchstart', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+    });
+</script>
 </body>
 </html>

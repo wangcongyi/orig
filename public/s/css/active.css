@@ -24,7 +24,7 @@ header span > span:before {
 
 .wrap {
     background-color: #f0f0f0;
-    padding: .4rem .27rem .51rem;
+    padding: .4rem .27rem 1px;
 }
 
 .wrap section {
@@ -33,7 +33,7 @@ header span > span:before {
     position: relative;
     background-color: #fff;
     padding-bottom: .7rem;
-    margin-bottom: .5rem;
+    margin-bottom: .533rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, .1);
 }
 
@@ -57,10 +57,10 @@ header span > span:before {
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    line-height: .56rem;
 }
 
 nav {
-    width: 100%;
     display: flex;
     justify-content: space-around;
 }
@@ -69,6 +69,9 @@ nav a {
     font-size: .48rem;
     color: #666;
     padding: .3rem .5rem;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
 }
 
 nav a.active {
@@ -175,6 +178,6 @@ nav a.active {
     color: #fff;
 }
 
-.wrap:nth-of-type(2) section div:nth-of-type(2){
-    background-color:#3DB9BE ;
+.wrap:nth-of-type(2) section div:nth-of-type(2) {
+    background-color: #3DB9BE;
 }

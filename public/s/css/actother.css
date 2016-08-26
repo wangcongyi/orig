@@ -1,5 +1,11 @@
 ol {
     list-style: decimal inside;
+    font-size: .37rem;
+    line-height: .64rem;
+}
+
+body {
+    background-color: #f0f0f0;
 }
 
 .title header {
@@ -9,24 +15,24 @@ ol {
     display: -webkit-flex; /* 新版本语法: Chrome 21+ */
     display: flex; /* 新版本语法: Opera 12.1, Firefox 22+ */
     -webkit-box-pack: center;
-    -moz-justify-content: center;
     -webkit-justify-content: center;
     justify-content: center;
     -webkit-box-align: center;
-    -moz-align-items: center;
     -webkit-align-items: center;
     align-items: center;
-    height: 5.5rem;
+    height: 6.56rem;
+    position: relative;
 }
 
 .title header img {
-    width: 100%;
-    z-index: -1;
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
 }
 
 .title header h1 {
@@ -87,7 +93,7 @@ ol {
 section {
     background-color: #fff;
     margin-top: .28rem;
-    padding: 0 .3rem;
+    padding: .28rem .3rem 0;
     color: #999;
     font-size: .4rem;
     line-height: 2;
@@ -130,6 +136,11 @@ section .timeLine .today {
     background: rgb(255, 174, 0);
     box-shadow: 0 0 0 0 rgba(255, 174, 0, .5);
     animation: now 1s infinite linear;
+}
+
+section p {
+    font-size: .37rem;
+    line-height: .64rem;
 }
 
 @keyframes now {
@@ -177,13 +188,16 @@ section .time span {
     font-size: .3rem;
 }
 
+section:nth-of-type(2) {
+    padding-bottom: .7rem;
+}
+
 section:nth-of-type(2) h1 {
     font-size: .5rem;
     color: #666;
-    padding: .72rem 0 .2rem;
     border-bottom: 2px solid #A1D8DA;
     width: 2rem;
-    margin: 0 auto .86rem;
+    margin: .4rem auto .63rem;
 }
 
 section:nth-of-type(2) h1:after {
@@ -195,15 +209,19 @@ section:nth-of-type(2) h1:after {
     position: absolute;
     transform: rotateZ(45deg);
     margin-left: .9rem;
-    margin-top: .1rem;
+    margin-top: -.09rem;
 }
 
 section:nth-of-type(2) img {
     width: 100%;
+    margin: .5rem 0;
 }
 
 section h2 {
     color: #666;
+    font-size: .37rem;
+    line-height: .64rem;
+    margin-top: .8rem;
 }
 
 section:nth-of-type(2) h2:first-of-type {
@@ -219,18 +237,15 @@ section:nth-of-type(2) h2:first-of-type {
     background-size: cover;
     color: #fff;
     display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
     -webkit-box-pack: center;
-    -moz-justify-content: center;
     -webkit-justify-content: center;
     justify-content: center;
     -webkit-box-align: center;
-    -moz-align-items: center;
     -webkit-align-items: center;
     align-items: center;
+    margin-top: .3rem;
 }
 
 .secTitle h1 {
@@ -246,15 +261,24 @@ section:nth-of-type(2) h2:first-of-type {
     white-space: pre;
 }
 
+section:nth-of-type(3) {
+    margin-top: 0;
+    padding-bottom: .7rem;
+}
+
 section:nth-of-type(3) article {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 9.5rem;
     height: 1.6rem;
-    margin: .7rem auto;
+    margin: .7rem auto 0;
     background-color: #eaeaea;
     border-radius: .125rem;
+}
+
+section:nth-of-type(3) article:not(:first-of-type) {
+    margin-top: 1.63rem;
 }
 
 section:nth-of-type(3) article strong {
@@ -331,11 +355,10 @@ button {
 }
 
 .slogen {
-    background: url("../images/slogen.png") no-repeat;
+    background: url(../images/slogen.png) no-repeat;
     height: 1.6rem;
     background-size: contain;
-    margin: .9rem 0;
-    padding-bottom: 1rem;
+    margin-bottom: 1.33rem;
 }
 
 footer {
@@ -488,17 +511,23 @@ footer > div:last-of-type {
 .menu h1, .job h1, .resume h1 {
     font-size: .48rem;
     color: #666;
-    padding: .8rem 0 .6rem 0;
+    padding: .4rem 0;
     border-bottom: 1px solid #ddd;
     border-top: 1px solid #ddd;
 }
 
+.menu h2, .job h2, .resume h2{
+    margin: 0;
+}
+
+
 .menu em, .job em, .resume em {
     position: absolute;
     right: .8rem;
-    top: .4rem;
+    top: -.2rem;
     color: #ddd;
-    font-size: .48rem;
+    font-size: .8rem;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .menu p {
@@ -730,6 +759,7 @@ i.icon2 > i {
 .resume input[type='radio']:checked + label {
     background-color: #3DB9BE;
 }
+
 #praise:before {
     content: '';
     display: inline-block;
