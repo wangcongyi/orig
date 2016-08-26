@@ -684,6 +684,10 @@
 //   Cross-domain   no
 //   just play with ajax2 and worker
 /////////////////////////////////////////////////////////////////
+//移动端禁止 链接 默认属性
+/////-webkit-tap-highlight-color transparent;
+//-webkit-touch-callout none;
+//-webkit-user-select none;
 
 
 
