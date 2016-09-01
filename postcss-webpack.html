@@ -37,6 +37,41 @@
     //            new Ex("【name】.css")
     //        ]
     //    }
+    //////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////
+    //  使用webpack 打包单独的多个postcss语法的css文件
+    //    var precss = require('precss');
+    //    var cssnext = require('cssnext');
+    //    var autoprefixer = require('autoprefixer');
+    //    var cssnano = require('cssnano');
+    //    var Ex = require('extract-text-webpack-plugin');
+    //    var webpack = require('webpack');
+    //
+    //
+    //    module.exports = {
+    //        entry: {
+    //            ac1: './src/actother.css',
+    //            ac2: './src/index.css'
+    //        },
+    //        output: {
+    //            filename: "[name].css"
+    //        },
+    //        module: {
+    //            loaders: [
+    //                {
+    //                    test: /\.css$/,
+    //                    loader: Ex.extract('style-loader', 'css-loader!postcss-loader')
+    //                }
+    //            ]
+    //        },
+    //        postcss: function () {
+    //            return [autoprefixer, precss, cssnano, cssnext]
+    //        },
+    //        plugins: [
+    //            new Ex('[name].css')
+    //        ]
+    //    }
+
 
 </script>
 </body>
