@@ -89,9 +89,9 @@ header span > span:before {
 
 .slider ul {
     position: absolute;
-    left: 0;
+    left: 1.5rem;
     top: 0;
-    width: 8.3rem;
+    width: 7.3rem;
     height: 2.4rem;
     padding: 5px;
 }
@@ -101,7 +101,7 @@ header span > span:before {
     position: absolute;
     left: 0;
     top: 0;
-    width: 8.3rem;
+    width: 7.3rem;
     height: 100%;
     border: 1px solid #3DB9BE;
 }

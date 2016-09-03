@@ -1,0 +1,328 @@
+html, body {
+    font-family: Hiragino Sans GB, Microsoft Yahei, SimSun, Arial Helvetica Neue, Helvetica, STHeiTi, sans-serif;
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, menu, nav, section {
+    margin: 0;
+    padding: 0
+}
+
+address, caption, cite, code, dfn, em, th, var, i, strong {
+    font-style: normal;
+    font-weight: 500
+}
+
+ol, ul {
+    list-style: none
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: 500
+}
+
+a, a:link, a:hover, a:visited, a:active {
+    text-decoration: none;
+    color: #999;
+}
+
+body {
+    background-color: #f0f0f0;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #34B9BE;
+    color: #fff;
+    padding-top: .8rem;
+}
+
+header a:nth-of-type(1) {
+    position: absolute;
+    background: url(../image/b.png) no-repeat;
+    width: .6rem;
+    height: .6rem;
+    background-size: 100%;
+    top: .31rem;
+    left: .4rem;
+
+}
+
+header a:nth-of-type(2) {
+    position: absolute;
+    background: url(../image/c.png) no-repeat;
+    width: .6rem;
+    height: .6rem;
+    background-size: 100%;
+    top: .29rem;
+    right: .48rem;
+
+}
+
+header .mes:after {
+    content: '';
+    display: block;
+    width: .27rem;
+    height: .27rem;
+    background-color: #FF4B4B;
+    border-radius: 50%;
+    margin-left: .4rem;
+}
+
+header img {
+    width: 1.73rem;
+    height: 1.73rem;
+    border: 4px solid #fff;
+    border-radius: 50%;
+}
+
+header h1 {
+    font-size: .48rem;
+    line-height: 2;
+}
+
+header p:after {
+    content: '未认证';
+    color: #bbb;
+    padding: 2px .2rem 2px .4rem;
+    border-radius: 15%/50%;
+    background-color: #fff;
+    margin-bottom: .24rem;
+    font-size: .3rem;
+    display: block;
+}
+
+header p:before {
+    content: '';
+    background: url(../image/aa.png) no-repeat;
+    width: .27rem;
+    height: .27rem;
+    display: block;
+    background-size: 100%;
+    position: absolute;
+    margin-left: .11rem;
+    margin-top: .13rem;
+}
+
+header .aut:after {
+    content: '已认证';
+    color: #F7C15E;
+}
+
+header .aut:before {
+    background: url(../image/aaa.png) no-repeat;
+    background-size: 100%;
+}
+
+.resume {
+    color: #999;
+    text-align: center;
+    padding-top: .4rem;
+    position: relative;
+}
+
+.resume h2 {
+    font-size: .49rem;
+
+}
+
+.resume a {
+    position: absolute;
+    right: .43rem;
+    top: .49rem;
+}
+
+.resume div {
+    background: url(../image/k.png) no-repeat;
+    background-size: 100%;
+    position: relative;
+    padding-top: .8rem;
+}
+
+.resume div div {
+    background: linear-gradient(to right, #7AD5E0 0%, #ECDF00 0%, #d7d7d7 0);
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    height: 58%;
+    padding: 0;
+}
+
+.resume strong {
+    font-size: 1.33rem;
+    color: #34B9BE;
+    margin-left: .6rem;
+    line-height: 1;
+}
+
+.resume p {
+    margin-bottom: .2rem;
+}
+
+.resume em {
+    font-size: .48rem;
+    color: #34B9BE
+}
+
+.tips {
+    padding: .4rem .4rem .6rem .4rem;
+    margin-bottom: .3rem;
+    background-color: #fff;
+}
+
+.tips a:nth-of-type(1) {
+    font-size: .37rem;
+    padding: .28rem .16rem;
+    color: #34B9BE;
+    border-radius: .13rem;
+    border: 1px solid #34B8BE;
+    margin-right: .31rem;
+}
+
+.tips a:nth-of-type(2) {
+    font-size: .37rem;
+    padding: .28rem 1.6rem;
+    background-color: #34B8BE;
+    color: #fff;
+    border-radius: 0 5% 5% 5% /0 30% 30% 30%;
+}
+
+.tips a:nth-of-type(2) strong {
+    font-size: .64rem;
+    color: #FFEA00;
+}
+
+.more {
+    background-color: #fff;
+    margin-bottom: .3rem;
+    font-size: .373rem;
+    position: relative;
+}
+
+.more:after {
+    content: '>';
+    display: block;
+    position: absolute;
+    top: .27rem;
+    right: .33rem;
+    color: #AEAEAE;
+}
+
+.more a {
+    padding: .293rem;
+    display: inline-block;
+    width: 94%;
+}
+
+nav {
+    margin-bottom: 2rem;
+}
+
+nav, footer {
+    display: flex;
+    justify-content: space-around;
+    background-color: #fff;
+    padding: .5rem 0;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 0;
+    height: 1.33rem;
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+}
+
+nav > a, footer > a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer > a:nth-of-type(3) {
+    width: 1.69rem;
+    height: 1.69rem;
+    border-radius: 50%;
+    position: relative;
+    top: -.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .26);
+    background-color: #fff;
+}
+
+nav i > i {
+    -webkit-filter: drop-shadow(1rem 0 #31CCD2);
+}
+
+.info {
+    background: url("../image/m.png") no-repeat center;
+    background-size: cover;
+}
+
+.col {
+    background: url("../image/s.png") no-repeat center;
+    background-size: cover;
+}
+
+.act {
+    background: url("../image/p.png") no-repeat center;
+    background-size: cover;
+}
+
+.wei {
+    background: url("../image/w.png") no-repeat center;
+    background-size: cover;
+}
+
+i {
+     overflow: hidden;
+     width: 1rem;
+     height: 1rem;
+     display: inline-block;
+     vertical-align: sub;
+ }
+
+i > i {
+    position: relative;
+    left: -1rem;
+    border-right: 1rem solid transparent;
+    -webkit-filter: drop-shadow(1rem 0 #31CCD2);
+
+}
+
+footer i > i {
+    -webkit-filter: drop-shadow(1rem 0 #bbb);
+}
+
+footer i > .active {
+    -webkit-filter: drop-shadow(1rem 0 #34B9BE);
+}
+
+.index {
+    background: url("../image/9@2x.png") no-repeat center;
+    background-size: cover;
+}
+
+.job {
+    background: url("../image/5@2x.png") no-repeat center;
+    background-size: cover;
+}
+
+.exp {
+    background: url("../image/7@2x.png") no-repeat center;
+    background-size: cover;
+}
+
+.com {
+    background: url("../image/4@2x.png") no-repeat center;
+    background-size: cover;
+}
+
+.me {
+    background: url("../image/8-2@2x.png") no-repeat center;
+    background-size: cover;
+}

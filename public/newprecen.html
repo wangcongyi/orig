@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta name="wap-font-scale" content="no"/>
+    <meta name="renderer" content="webkit"/>
+    <meta name="applicable-device" content="mobile"/>
+    <script src="./js/flexible.debug.js"></script>
+    <link rel="stylesheet" href="css/newpre.css">
+    <title>个人中心</title>
+</head>
+<body>
+<header>
+    <a href=""></a>
+    <a href="" class="mes"></a>
+    <img src="css/widget-2.jpg">
+    <h1>曾小贤</h1>
+    <p class="aut"></p>
+</header>
+<section class="resume" data-pro="84">
+    <h2>我的简历</h2>
+    <a href="">编辑</a>
+    <strong>0</strong>
+    <em>%</em>
+    <p>完成度</p>
+    <div>
+        <div></div>
+    </div>
+</section>
+<section class="tips">
+    <a>Tips</a>
+    <a href="">你有<strong> 36 </strong>条投递反馈</a>
+</section>
+<section class="more">
+    <a href="">我的求职档案</a>
+</section>
+
+<nav>
+    <a href="">
+        <i><i class="info"></i></i>
+        <span>个人信息</span>
+    </a>
+    <a href="">
+        <i><i class="col"></i></i>
+        <span>我的收藏</span>
+    </a>
+    <a href="">
+        <i><i class="act"></i></i>
+        <span>参与活动</span>
+    </a>
+    <a href="">
+        <i><i class="wei"></i></i>
+        <span>绑定微信</span>
+    </a>
+</nav>
+<footer>
+    <a href="">
+        <i><i class="index"></i></i>
+        <span>首页</span>
+    </a>
+    <a href="">
+        <i><i class="job"></i></i>
+        <span>求职</span>
+    </a>
+    <a href="">
+        <i><i class="exp"></i></i>
+        <span>体验</span>
+    </a>
+    <a href="">
+        <i><i class="com"></i></i>
+        <span>社区</span>
+    </a>
+    <a href="">
+        <i><i class="me active"></i></i>
+        <span>我的</span>
+    </a>
+</footer>
+
+<script>
+    var resume = document.querySelector('.resume');
+    var div = resume.querySelector('div div');
+    var pro = +resume.getAttribute('data-pro') - 2;
+    var num = 0;
+    var t;
+    function process() {
+        div.style.background = 'linear-gradient(to right, #7AD5E0 0%, #ECDF00 ' + num + '%,red 0,red 2px,#d7d7d7 0)';
+        resume.querySelector('strong').textContent = num + 2 + '';
+        num++;
+        if (num <= pro) {
+            t = requestAnimationFrame(process)
+        }
+    }
+    t = requestAnimationFrame(process);
+    cancelAnimationFrame(t);
+    process()
+
+</script>
+</body>
+</html>

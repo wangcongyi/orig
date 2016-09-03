@@ -78,7 +78,6 @@
 			if(me.opts.lazyLoad) fnLazyLoad(me, 0);
 			return false;
 		}
-
 		// 生成页码
 		if(me.opts.pager) {
 			fnPager(me, me._liLength, me._index);
@@ -144,7 +143,8 @@
 			fnTouches(e);
 			fnTouchmove(e, me);
 		});
-		me.$el.on(touchEvents.touchEnd,function(){
+		me.$el.on(touchEvents.touchEnd,function(e){
+
 			fnTouchend(me);
 		});
 		me.opts.ul.on('webkitTransitionEnd MSTransitionEnd transitionend',function(){
