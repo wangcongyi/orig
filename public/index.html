@@ -148,35 +148,35 @@
         <span>社区话题</span>
     </div>
     <nav id="nav">
-        <a href="javascript:" class="active" data-url="./topic.json" data-href="22">
+        <a href="javascript:" class="active" data-url="./topic1.json" data-href="22">
             <i><i class="story"></i></i>
             <span>刺猬故事</span>
         </a>
-        <a href="javascript:" data-href="242">
+        <a href="javascript:" data-url="./topic2.json" data-href="242">
             <i><i class="exp"></i></i>
             <span>刺猬体验</span>
         </a>
-        <a href="javascript:" data-href="2452">
+        <a href="javascript:" data-url="./topic3.json" data-href="2452">
             <i><i class="col"></i></i>
             <span>刺猬学院</span>
         </a>
-        <a href="javascript:" data-href="2452">
+        <a href="javascript:" data-url="./topic4.json" data-href="2452">
             <i><i class="ass"></i></i>
             <span>求助助攻</span>
         </a>
-        <a href="javascript:" data-href="23432">
+        <a href="javascript:" data-url="./topic5.json" data-href="23432">
             <i><i class="work"></i></i>
             <span>职场范儿</span>
         </a>
-        <a href="javascript:">
+        <a href="javascript:" data-url="./topic6.json">
             <i><i class="ara"></i></i>
             <span>刺猬夜谈</span>
         </a>
-        <a href="javascript:">
+        <a href="javascript:" data-url="./topic7.json">
             <i><i class="det"></i></i>
             <span>活动详情</span>
         </a>
-        <a href="javascript:">
+        <a href="javascript:" data-url="./topic8.json">
             <i><i class="que"></i></i>
             <span>你问我答</span>
         </a>
@@ -379,6 +379,9 @@
     $('.slider').swipeSlide();
     var search = document.querySelector('header').querySelector('em');
     var input = document.querySelector('header').querySelector('input');
+    var ul = document.querySelector('.topics');
+    var htmlArr = {};
+    htmlArr[0] = ul.innerHTML;
     search.addEventListener('tap', function (e) {
         e.preventDefault();
         e.stopPropagation();
@@ -413,14 +416,19 @@
     $('#nav').on('tap', 'a', function () {
         $('#nav').find('a').removeClass('active');
         $(this).addClass('active');
-        xml($(this).data('url'));
-        $('#allTopic').attr('href',$(this).data('href'))
+        var index = $(this).index();
+        if (!!htmlArr[index]) {
+            ul.innerHTML = htmlArr[index]
+        } else {
+            xml($(this).data('url'), index);
+        }
+        $('#allTopic').attr('href', $(this).data('href'))
     });
 
 
-    function replyHTML(data) {
+    function replyHTML(data, index) {
         var html = '';
-        data.data.list.map(function (item, index) {
+        data.data.list.map(function (item) {
             html += '<li>\
                          <a href="' + item.href + '">\
                              <img src="' + item.imgsrc + '">\
@@ -429,37 +437,22 @@
                          </a>\
                      </li>';
         });
-        document.querySelector('.topics').innerHTML = html;
+        ul.innerHTML = html;
+        htmlArr[index] = html;
     }
-    function xml(url) {
+    function xml(url, index) {
         var x = new XMLHttpRequest();
         x.open('GET', url, true);
         x.responseType = 'json';
         x.onload = function () {
             if (x.status === 200 && x.response.code == 1) {
-                replyHTML(x.response)
+                replyHTML(x.response, index)
             } else {
                 alert('数据请求失败 ' + x.status)
             }
         };
         x.send()
     }
-
-    var htmlArr = [];
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 </script>
