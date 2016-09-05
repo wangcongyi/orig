@@ -1,3 +1,7 @@
+body {
+    overflow: hidden;
+}
+
 header {
     display: flex;
     justify-content: center;
@@ -8,26 +12,46 @@ img {
     border-radius: .13rem;
 }
 
+i {
+    overflow: hidden;
+    width: 1rem;
+    height: 1rem;
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+i > i {
+    position: relative;
+    left: -1rem;
+    border-right: 1rem solid transparent;
+    -webkit-filter: drop-shadow(1rem 0 #31CCD2);
+
+}
+
 header input {
+    display: block;
     position: absolute;
+    margin: .2rem .5rem 0;
     border: none;
     background-color: rgba(255, 255, 255, .7);
-    padding: .29rem 2.7rem;
+    width: 9.1rem;
+    height: 1rem;
     z-index: 2;
-    margin-top: .2rem;
     border-radius: 5%/50%;
+    text-indent: 2rem;
+
 }
 
 header em {
-    background: url(../image/icon-3-1@2x.png) no-repeat;
+    background: url(../image/icon-3-1@2x.png) no-repeat center;
     display: block;
-    width: .53rem;
-    height: .53rem;
+    width: 1.53rem;
+    height: 1.53rem;
     position: absolute;
     z-index: 4;
-    background-size: 100%;
-    top: .4rem;
-    right: .8rem;
+    background-size: 50%;
+    top: -0.1rem;
+    right: .4rem;
 }
 
 .slider {
@@ -100,12 +124,12 @@ header em {
     background: rgba(255, 255, 255, 0.8);
 }
 
-nav {
+.title {
     margin-left: 2%;
     margin-bottom: .24rem;
 }
 
-nav a div {
+.title a div {
     position: absolute;
     text-align: center;
     margin-top: -1.693rem;
@@ -113,20 +137,20 @@ nav a div {
     color: #fff;
 }
 
-nav a:nth-of-type(2) div {
+.title a:nth-of-type(2) div {
     right: .23rem;
 }
 
-nav a img {
+.title a img {
     width: 48%;
 }
 
-nav h1 {
+.title h1 {
     font-size: .48rem;
     line-height: 1;
 }
 
-nav h2 {
+.title h2 {
     line-height: 2;
 }
 
@@ -134,10 +158,12 @@ nav h2 {
     display: flex;
     justify-content: space-around;
     margin-bottom: .4rem;
+    text-align: center;
 }
 
-.company div {
-    text-align: center;
+.company img {
+    width: 1.733rem;
+    height: 1.733rem;
 }
 
 .company h2 {
@@ -159,9 +185,12 @@ nav h2 {
 
 .adv {
     padding-left: .27rem;
-    display: flex;
+
     flex-wrap: wrap;
     margin-bottom: .4rem;
+    display: -webkit-box; /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
+    display: -webkit-flex; /* 新版本语法: Chrome 21+ */
+    display: flex;
 }
 
 .adv a {
@@ -171,14 +200,14 @@ nav h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
     flex-direction: column;
     text-align: center;
     color: #fff;
+    position: relative;
 }
 
-.adv a:nth-of-type(1), .adv a:nth-of-type(4), .adv a:nth-of-type(5), .adv a:nth-of-type(8), .adv a:nth-of-type(9) {
-    min-width: 6.253rem;
+.adv .s {
+    width: 6.25rem;
 }
 
 .adv h1 {
@@ -187,13 +216,230 @@ nav h2 {
 }
 
 .adv img {
-    width: 100%;
-    height: 100%;
+    top: 0;
+    left: 0;
     position: absolute;
     z-index: -1;
+    width: 100%;
+    height: 100%;
+    -webkit-filter: brightness(65%);
+}
+
+.comtop {
+    z-index: 0;
+    position: relative;
+    margin-top: .27rem;
+    border-top: .27rem solid #f0f0f0;
+}
+
+.comtop div {
+    padding: .27rem;
+}
+
+.comtop div span {
+    font-size: .43rem;
+    color: #34B9BE;
+}
+
+.comtop div span:nth-of-type(2) {
+    font-size: .32rem;
+    color: #aeaeae;
+
+}
+
+.comtop div i {
+    width: .493rem;
+    height: .493rem;
+}
+
+.topic {
+    background: url("../image/h.png") no-repeat center;
+    background-size: cover;
+}
+
+.comtop nav {
+    width: 17.0664rem;
+    font-size: 0;
+    border-top: 1px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea;
+    padding: .27rem 0;
+}
+
+.comtop nav a {
+    width: 2.1333rem;
+    display: inline-flex;
+    flex-direction: column;
+    font-size: .27rem;
+    align-items: center;
+    color: #666;
+}
+
+.comtop nav .active {
+    color: #34B9BE;
+}
+
+.comtop nav .active i > i {
+    -webkit-filter: drop-shadow(1.2rem 0 #34B8BE);
+}
+
+.comtop nav i {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.comtop nav i > i {
+    left: -1.2rem;
+    border-right: 1.2rem solid transparent;
+    -webkit-filter: drop-shadow(1.2rem 0 #666);
+}
+
+.story {
+    background: url("../css/story.png") no-repeat center;
+    background-size: cover;
+}
+
+.exp {
+    background: url("../css/exp.png") no-repeat center;
+    background-size: cover;
+}
+
+.col {
+    background: url("../css/col.png") no-repeat center;
+    background-size: cover;
+}
+
+.ass {
+    background: url("../css/ass.png") no-repeat center;
+    background-size: cover;
+}
+
+.work {
+    background: url("../css/work.png") no-repeat center;
+    background-size: cover;
+}
+
+.ara {
+    background: url("../css/ara.png") no-repeat center;
+    background-size: cover;
+}
+
+.det {
+    background: url("../css/det.png") no-repeat center;
+    background-size: cover;
+}
+
+.que {
+    background: url("../css/que.png") no-repeat center;
+    background-size: cover;
+}
+
+.comjob {
+    background: url("../image/pp.png") no-repeat center;
+    background-size: cover;
+}
+
+.comtop ul {
+    padding: .43rem .27rem 0 .27rem;
+    border: 1px solid #eaeaea;
+}
+
+.comtop ul li {
+    height: 1.733rem;
+    margin-bottom: .44rem;
+    position: relative;
+}
+
+.comtop .topics img {
+    width: 3.47rem;
+    height: 1.733rem;
+    margin-right: .4rem;
+}
+
+.comtop .topics h1 {
+    margin-bottom: .2rem;
+}
+
+.comtop ul img {
+    float: left;
+    width: 1.733rem;
+    height: 1.733rem;
+    margin-right: .533rem;
+}
+
+.comtop ul h1 {
+    font-size: .373rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+.comtop ul h2 {
+    color: #999;
+    margin: .11rem 0;
+}
+
+.comtop ul h1:nth-of-type(2) {
+    color: #46C6D5;
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: .2rem;
+    width: 77%;
+    margin-left: 2.24rem;
+
+}
+
+.comtop ul li:last-of-type h1:nth-of-type(2) {
+    border: none;
+}
+
+.comtop ul em {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: #999;
+}
+
+.comtop ul em:before {
+    content: '';
+    background: url(../pos.png) no-repeat center;
+    background-size: 100%;
+    width: .373rem;
+    height: .373rem;
+    display: inline-block;
+    vertical-align: sub;
+}
+
+.comtop ul span {
+    font-size: .27rem;
+    color: #999;
+}
+
+.comtop ul span:before {
+    content: '';
+    display: inline-block;
+    background: url(../image/r.png) no-repeat center;
+    width: .263rem;
+    height: .31rem;
+    background-size: 100%;
+    vertical-align: middle;
+    margin-right: .11rem;
+}
+
+.comtop > a {
+    display: inline-block;
+    width: 100%;
+    padding: .23rem 0;
+    font-size: .373rem;
+    color: #999;
+    text-align: center;
+}
+
+.comtop:not(:last-of-type) >a{
+    padding-bottom: 0;
 }
 
 
+.comtop:last-of-type {
+    border-bottom: 2.2rem solid #f0f0f0;
+}
 
 footer {
     position: fixed;
@@ -201,7 +447,7 @@ footer {
     width: 100%;
     padding: 0;
     height: 1.33rem;
-    box-shadow: 0 0 10px rgba(0,0,0,.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
     display: flex;
     justify-content: space-around;
     background-color: #fff;
@@ -222,22 +468,6 @@ footer > a:nth-of-type(3) {
     top: -.5rem;
     box-shadow: 0 4px 10px rgba(0, 0, 0, .26);
     background-color: #fff;
-}
-
-i {
-    overflow: hidden;
-    width: 1rem;
-    height: 1rem;
-    display: inline-block;
-    vertical-align: sub;
-}
-
-i > i {
-    position: relative;
-    left: -1rem;
-    border-right: 1rem solid transparent;
-    -webkit-filter: drop-shadow(1rem 0 #31CCD2);
-
 }
 
 footer i > i {
@@ -272,12 +502,3 @@ footer i > .active {
     background: url("../image/8-2@2x.png") no-repeat center;
     background-size: cover;
 }
-
-
-
-
-
-
-
-
-
