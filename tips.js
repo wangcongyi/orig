@@ -690,19 +690,6 @@
 //-webkit-user-select none;
 
 
-/*
-*  https://developers.google.com/web/fundamentals/primers/shadowdom/?utm_source=javascriptweekly&utm_medium=email
-*  https://blog.risingstack.com/node-hero-node-js-debugging-tutorial/?utm_source=javascriptweekly&utm_medium=email
-*  https://github.com/codylindley/frontend-tools
-*  https://dev.w3.org/html5/html-author/charref
-*  http://www.ccwebsite.com/flex-layout-old-and-new-compatible/
-*  https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/HTML5/HTML5_element_list
-*
-*
-*
-*
-* */
-
 
 
 
