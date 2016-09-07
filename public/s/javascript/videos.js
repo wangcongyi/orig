@@ -1,5 +1,6 @@
 $('.slider').swipeSlide({
-    pager: false
+    pager: false,
+    autoSwipe: false
 });
 
 var $loadList = $('#loadList');

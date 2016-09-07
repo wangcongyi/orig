@@ -88,9 +88,9 @@ header span > span:before {
 
 .slider ul {
     position: absolute;
-    left: 0;
+    left: .8rem;
     top: 0;
-    width: 8.3rem;
+    width: 8.5rem;
     height: 2.4rem;
     padding: 5px;
 }
@@ -116,14 +116,12 @@ header span > span:before {
     right: 0;
     top: 0;
     text-align: center;
-    padding-top: .133rem;
 }
 
 .slider li.ing:after {
     content: '进行中';
     background-color: rgb(255, 174, 0);;
 }
-
 
 .slider p:first-of-type {
     font-size: .4rem;

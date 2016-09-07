@@ -74,26 +74,30 @@
     <button>
         <span>&#8801;</span>
         <a href="comtopic.html">我的</a>
-        <a href="video.html">视频</a>
-        <a href="report.html">心得</a>
-        <a href="active.html">活动</a>
-        <a href="index.html">首页</a>
+        <a href="video.html">体验<br>视频</a>
+        <a href="report.html">体验<br>心得</a>
+        <a href="active.html">体验<br>活动</a>
+        <a href="index.html">刺猬<br>首页</a>
     </button>
 </div>
 <div class="mask"></div>
 <script>
-    var btn = document.querySelector('button');
-    var btnClass = btn.classList;
-    var mask = document.querySelector('.mask');
+    var btn = document.querySelector('button'),
+            span = btn.querySelector('span'),
+            t = span.textContent,
+            btnClass = btn.classList,
+            mask = document.querySelector('.mask');
     btn.addEventListener('touchstart', function (e) {
         mask.style.width = document.body.clientWidth + 'px';
         mask.style.height = document.body.clientHeight + 'px';
         e.stopPropagation();
         if (btnClass.contains('active')) {
+            span.textContent = t;
             btnClass.remove('active');
             mask.style.display = 'none';
         } else {
             btnClass.add('active');
+            span.textContent = 'X';
             mask.style.display = 'block';
         }
     }, false);

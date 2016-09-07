@@ -168,7 +168,7 @@ button {
 button a {
     display: inline-block;
     width: 1.2rem;
-    height: 1.2rem;
+    height: 1rem;
     background-color: #fff;
     border-radius: 50%;
     position: absolute;
@@ -179,6 +179,8 @@ button a {
     -webkit-transition: all .4s cubic-bezier(0.42, 0, 0.57, 1.35);
     font-size: .3rem;
     color: #3DB9BE;
+    line-height: .4rem;
+    padding-top: .2rem;
 }
 
 button.active a {
@@ -189,6 +191,8 @@ button.active a {
 button.active a:nth-of-type(1) {
     top: -1.5rem;
     left: -2.9rem;
+    height: .8rem;
+    padding-top: .4rem;
 }
 
 button.active a:nth-of-type(2) {

@@ -87,8 +87,9 @@ section {
     font-size: .4rem;
     line-height: 2;
 }
+
 section p {
-    font-size: .37rem;
+    font-size: .48rem;
     line-height: .64rem;
 }
 
@@ -102,6 +103,7 @@ section:first-of-type h1 {
 
 section h1 span {
     color: #999;
+    font-size: .43rem;
 }
 
 section strong {
@@ -120,7 +122,7 @@ section .timeLine {
     justify-content: space-between;
     background-color: #f0f0f0;
     height: .13rem;
-    margin: .4rem auto;
+    margin: .8rem auto .4rem;
 }
 
 section .timeLine span {
@@ -203,6 +205,7 @@ section:nth-of-type(2) h1 {
     padding: .72rem 0 .2rem;
     border-bottom: 2px solid #A1D8DA;
     text-align: center;
+    margin-bottom: .4rem;
 }
 
 section:nth-of-type(2) h1:after {
@@ -226,7 +229,7 @@ section h2 {
     color: #666;
     font-size: .37rem;
     line-height: .64rem;
-    margin-top: .8rem;
+    margin-top: .4rem;
 }
 
 aside {
@@ -260,10 +263,10 @@ section:nth-of-type(2) article {
     justify-content: center;
     align-items: center;
     width: 9.5rem;
-    height: 1.6rem;
     margin: .7rem auto;
     background-color: #eaeaea;
     border-radius: .125rem;
+    flex-direction: column;
 }
 
 section:nth-of-type(2) article strong {
@@ -280,7 +283,6 @@ section:nth-of-type(2) article strong {
     margin-left: 4.63rem;
     margin-top: -.45rem;
     left: 0;
-
 }
 
 section:nth-of-type(2) article h2 {
@@ -368,7 +370,7 @@ button {
 }
 
 .wrap section i > i {
-    -webkit-filter: drop-shadow(#34B8BE .6rem 0);
+    -webkit-filter: drop-shadow(.6rem 0 #34B8BE);
     background: url("../images/video.png") no-repeat center;
     background-size: cover;
     position: relative;
@@ -419,7 +421,7 @@ footer div > i {
 footer i > i {
     left: -.5rem;
     border-right: .5rem solid transparent;
-    -webkit-filter: drop-shadow(#999 .5rem 0);
+    -webkit-filter: drop-shadow(.5rem 0 #999);
     background: url("../images/menu.png") no-repeat;
     background-size: cover;
 }
@@ -580,7 +582,7 @@ i.other {
 i.pos > i {
     left: -.5rem;
     border-right: .5rem solid transparent;
-    -webkit-filter: drop-shadow(#3DB9BE .5rem 0);
+    -webkit-filter: drop-shadow(.5rem 0 #3DB9BE);
     background: url("../images/pos.png") no-repeat;
     background-size: cover;
 }
