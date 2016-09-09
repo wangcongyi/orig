@@ -688,8 +688,12 @@
 /////-webkit-tap-highlight-color transparent;
 //-webkit-touch-callout none;
 //-webkit-user-select none;
-
-
+///////////////////////////////////////////////////////////////////////////////
+//  updata with document.querySelectorAll
+//    let divs = [].slice.call(document.querySelectorAll('div'));
+//   divs.forEach(div=>div.addEventListener('click',handleClick));
+//   divs.forEach(div=>div.addEventListener('mousemove',handleMousemove));
+//
 
 
 
