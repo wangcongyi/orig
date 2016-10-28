@@ -696,6 +696,22 @@
 //
 
 
+///////////////////////////////////////////////////////////////////
+//////////   react change tagName
+//  根据参数不同 用于修改tagName
+// const ToBillion = ({tag,data})=>{
+//   let Ele = `${tag}`;
+//   return (
+//     <dd>
+//       { data ? (~~data).toString().length>=5 ? <Ele>{(data/10000).toFixed(2)}<sub>亿元</sub></Ele> : <Ele>{data}<sub>万元</sub></Ele> : <NoDate/> }
+//     </dd>
+//   )
+// }
+
+
+
+
+
 
 
 
