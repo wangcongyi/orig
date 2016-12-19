@@ -708,7 +708,10 @@
 //   )
 // }
 
-
+/////////////////////////////////////////////////////////////////////
+//  search转变成json对象
+//  var search= window.location.search.substring(1);
+//  var obj = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}')
 
 
 
