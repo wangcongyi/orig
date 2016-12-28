@@ -713,8 +713,9 @@
 //  var search= window.location.search.substring(1);
 //  var obj = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}')
 
-
-
-
-
-
+////////////////////////////////////////////////////
+// 不打印出console.log信息在JS的位置信息
+//
+// setTimeout(console.log.bind(console, 'Hello world'), 2000)
+//
+//
