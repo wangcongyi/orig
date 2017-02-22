@@ -719,3 +719,26 @@
 // setTimeout(console.log.bind(console, 'Hello world'), 2000)
 //
 //
+//////////////////////////////////////////////////////////////////////////
+//   react 组件默认参数写法   本人偏向于这种  不太喜欢分开写
+//  class Video extends React.Component{
+//        static defaultProps = {
+//            autoPlay:false,
+//            maxLoops:10,
+//        }
+//       static propTypes = {
+//           autoPlay:React.PropTypes.bool.isRequired,  
+//           maxLoops:React.PropTypes.number.isRequired
+//       }
+//   render(){
+//       return (
+//         <div>
+//            <div>{`${this.props.autoPlay}`}</div>
+//            <div>{`${this.props.maxLoops}`}</div> 
+//         </div>
+//       )       
+//    }   
+//  }
+
+
+
