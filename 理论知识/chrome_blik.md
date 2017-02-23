@@ -1,5 +1,6 @@
 #[在知乎专栏中看见李银城对chrome内核的一些分析](https://www.zhihu.com/people/li-yin-cheng-24/pins/posts) 
- ##整理下文章中的结论
+
+##整理下文章中的结论
   
   - `a`, `b`, `big`, `code`, `em`, `font`, `i`, `nobr`, `s`, `small`, `strike`, `strong`, `tt`, and `u`
   
@@ -22,5 +23,4 @@
        window.gc()
 ```
   
-  *上述代码remove掉了 GC也不会去回收*  
-  *remove掉了之后 如果将 `p = null` 或者离开作用域 GC就会管用*
+  **上述代码 remove 掉了 GC也不会去回收。remove 掉了之后 如果将 `p = null` 或者离开作用域 GC就会管用**  
