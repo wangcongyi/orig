@@ -18,10 +18,11 @@
   删除一个节点 是不需要手动去释放它绑定的事件
   但是节点存在一个引用 即使remove掉 GC也不会去回收
   
-  `var p = document.getElementById('XXX')  
-   p.remove();  
-   window.gc()
-  `
+  ```javascript
+  var p = document.getElementById('XXX')   
+      p.remove();    
+      window.gc()
+  ```
   
   *上述代码remove掉了 GC也不会去回收*  
   *remove掉了之后 如果将 `p = null` 或者离开作用域 GC就会管用*
