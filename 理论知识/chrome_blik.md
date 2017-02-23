@@ -10,16 +10,15 @@
   
   - 自定义标签默认不会有任何的样式，并且是一个行内元素，可以把自定义的标签当做一个span来看待
   
-  - `querySelector` 查找DOM  如果是ID  最后还是会去调用TreeScope的`getElementById`
-  所以 `document.querySelector('#XXX')` -->> `document.getElementById('XXX')`
+  - `querySelector` 查找DOM  如果是ID  最后还是会去调用TreeScope的`getElementById` 所以 `document.querySelector('#XXX')` -->> `document.getElementById('XXX')`
   
-  
-  - 删除一个节点 是不需要手动去释放它绑定的事件但是节点存在一个引用 即使remove掉 GC也不会去回收
-  
+  - 删除一个节点 是不需要手动去释放它绑定的事件但是节点存在一个引用 即使remove掉 GC也不会去回收  
+   
 ```javascript
    var p = document.getElementById('XXX');
        p.remove();
        window.gc()
 ```
   
-  **上述代码 remove 掉了 GC也不会去回收。remove 掉了之后 如果将 `p = null` 或者离开作用域 GC就会管用**  
+  **上述代码 remove 掉了 GC也不会去回收。remove 掉了之后 如果将 `p = null` 或者离开作用域 GC就会管用**    
+  **删掉之后GC并不会立刻回收和释放事件，因为在执行监听函数的时候，里面有个this指针指向了该节点，并且this是只读的，你不能把它置成null。所以只有执行完了回调函数，离开了作用域，this才会销毁，才有可能被GC回收** 
