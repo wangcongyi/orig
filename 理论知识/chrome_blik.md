@@ -14,8 +14,7 @@
   所以 `document.querySelector('#XXX')` -->> `document.getElementById('XXX')`
   
   
-  删除一个节点 是不需要手动去释放它绑定的事件
-  但是节点存在一个引用 即使remove掉 GC也不会去回收
+  - 删除一个节点 是不需要手动去释放它绑定的事件但是节点存在一个引用 即使remove掉 GC也不会去回收
   
 ```javascript
    var p = document.getElementById('XXX');
