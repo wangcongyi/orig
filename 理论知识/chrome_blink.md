@@ -47,15 +47,16 @@
  
  
 > 浏览器事件机制
-  - `querySelector` 查找 DOM 如果是 ID 最后还是会去调用 TreeScope 的 `getElementById` 所以 `document.querySelector('#XXX')` -->> `document.getElementById('XXX')`
+
+ - `querySelector` 查找 DOM 如果是 ID 最后还是会去调用 TreeScope 的 `getElementById` 所以 `document.querySelector('#XXX')` -->> `document.getElementById('XXX')`
   
-  - 删除一个节点 是不需要手动去释放它绑定的事件但是节点存在一个引用 即使remove掉 GC 也不会去回收  
+ - 删除一个节点 是不需要手动去释放它绑定的事件但是节点存在一个引用 即使remove掉 GC 也不会去回收  
    
-        ```javascript
-           var p = document.getElementById('XXX');
-               p.remove();
-               window.gc()
-        ```
+```javascript
+       var p = document.getElementById('XXX');
+       p.remove();
+       window.gc()
+ ```
   
  - **上述代码 remove 掉了 GC 也不会去回收。remove 掉了之后 如果将 `p = null` 或者离开作用域 GC 就会管用。**
  
@@ -77,7 +78,7 @@
  
  ```javascript
     function Aaa() {}
-//    Aaa.prototype.constructor = Aaa;    //程序自动生成此句话
+      //    Aaa.prototype.constructor = Aaa;    //程序自动生成此句话
       var a = new Aaa();
       console.log(a.constructor.prototype === Aaa.prototype);
       console.log(a.__proto__ === Aaa.prototype);
