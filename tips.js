@@ -739,6 +739,102 @@
 //       )       
 //    }   
 //  }
+////////////////////////////////////////////////////////////////
+//    对react 组件默认参数写法 更新写法
+// export default class Plat extends React.Component {
+//   static defaultProps = {
+//     a: "aaaaaa",
+//     b: "bbbbbb",
+//   }
+//   static PropTypes = {
+//     a: React.PropTypes.string,
+//     b: React.PropTypes.string,
+//   }
+//
+//   state = {
+//     aa: this.props.a,
+//     bb: this.props.b,
+//   }
+//
+//   handleAA() {
+//     this.setState({
+//       aa: "adasd",
+//       bb: "asdsadasdsad",
+//     })
+//   }
+//
+//   render() {
+//     return (
+//       <div>
+//         <div>{this.state.aa}</div>
+//         <div>{this.state.bb}</div>
+//         <button onClick={::this.handleAA}>hello</button>
+//       </div>
+//     )
+//   }
+// }
 
 
+//  使用webpack 打包单独的postcss语法的css文件
+///  之前使用webpack版本好像是1.XX版本  也由于当时不太熟悉webpack  估计以下写法已经过时 2017/2/28
+/*   webpack.config.js   */
+//    var precss = require('precss');
+//    var cssnext = require('cssnext');
+//    var autoprefixer = require('autoprefixer');
+//    var cssnano = require('cssnano');
+//    var Ex = require('extract-text-webpack-plugin');
+//    module.exports = {
+//        entry: './【path】/index.js',                 /*  index.js 里  require('./【name】.css');就好  我在看看文档是不是直接不用引入js文件 */
+//        output: {
+//            filename: 'index.js'
+//        },
+//        module: {
+//            loaders: [
+//                {
+//                    test: /\.css$/,
+//                    loader: Ex.extract('style-loader', 'css-loader!postcss-loader')  /*这里的写法注意下 */
+//                }
+//            ]
+//        },
+//        postcss: function () {
+//            return [autoprefixer, cssnext, precss, cssnano]
+//        },
+//        plugins: [
+//            new Ex("【name】.css")
+//        ]
+//    }
+//////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
+//  使用webpack 打包单独的多个postcss语法的css文件
+//    var precss = require('precss');
+//    var cssnext = require('cssnext');
+//    var autoprefixer = require('autoprefixer');
+//    var cssnano = require('cssnano');
+//    var Ex = require('extract-text-webpack-plugin');
+//    var webpack = require('webpack');
+//
+//
+//    module.exports = {
+//        entry: {
+//            ac1: './src/actother.css',
+//            ac2: './src/index.css'
+//        },
+//        output: {
+//            filename: "[name].css"
+//        },
+//        module: {
+//            loaders: [
+//                {
+//                    test: /\.css$/,
+//                    loader: Ex.extract('style-loader', 'css-loader!postcss-loader')
+//                }
+//            ]
+//        },
+//        postcss: function () {
+//            return [autoprefixer, precss, cssnano, cssnext]
+//        },
+//        plugins: [
+//            new Ex('[name].css')
+//        ]
+//    }
 
