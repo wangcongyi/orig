@@ -53,10 +53,10 @@
  - 删除一个节点 是不需要手动去释放它绑定的事件但是节点存在一个引用 即使remove掉 GC 也不会去回收  
    
 ```javascript
-       var p = document.getElementById('XXX');
-       p.remove();
-       window.gc()
- ```
+      var p = document.getElementById('XXX');
+      p.remove();
+      window.gc()
+```
   
  - **上述代码 remove 掉了 GC 也不会去回收。remove 掉了之后 如果将 `p = null` 或者离开作用域 GC 就会管用。**
  
@@ -76,11 +76,11 @@
  
  - JavaScript 面向对象编程
  
- ```javascript
-    function Aaa() {}
+```javascript
+      function Aaa() {}
       //    Aaa.prototype.constructor = Aaa;    //程序自动生成此句话
-      var a = new Aaa();
-      console.log(a.constructor.prototype === Aaa.prototype);
-      console.log(a.__proto__ === Aaa.prototype);
-      console.log(a.constructor.prototype.constructor)
- ```
+        var a = new Aaa();
+        console.log( a.constructor.prototype === Aaa.prototype );
+        console.log( a.__proto__ === Aaa.prototype );
+        console.log( a.constructor.prototype.constructor )
+```
