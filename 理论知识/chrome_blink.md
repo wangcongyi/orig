@@ -74,7 +74,7 @@
  
  - IE下使用 `event.returnValue = false` 阻止默认事件，使用 `event.cancelBubble = true` 阻止事件冒泡
  
- - JavaScript 面向对象编程
+ - JavaScript 面向对象编程 **es6的语法基本类似，不作介绍**
  
 ```javascript
       function Aaa() {}
