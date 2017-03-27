@@ -546,69 +546,6 @@
  * */
 
 
-
-
-///////////
-/*
- *    用react去'代替jade'        可惜好像没有事件
- *    express-react-views
- *   var express = require('express');
- *   var app = express();
- *
- *   app.set('views',__dirname+'/views');
- *   app.set('view engine','jsx');
- *   app.engine('jsx',require('express-react-views').createEngine());
- *   app.set('port', 3000);
- *   app.listen(3000);
- *   app.get('/',require('./routes').index);
- *   app.get('/admin',require('./routes').admin);
- *   var React = require('react');
- var Student = require('./student');
- var data = [
- {name: 'king', age: 20, other: 'nothing'},
- {name: 'kinga', age: 20, other: 'nothingB'},
- {name: 'kingb', age: 20, other: 'nothingA'}
- ]
- var Hello = React.createClass({
- render: function () {
- return (
- <div>
- Hello {this.props.name.toLowerCase()}
- <Student data={data}/>
- </div>
- )
- }
- });
-
- module.exports = Hello;
- var React = require('react');
-
- var Student = React.createClass({
- getInitialState: function () {
- return {
- data: this.props.data
- }
- },
- render: function () {
- return (
- <div>
- {this.state.data.map(function (item, index) {
- return (
- <div key={index}>
- <h3>{item.name}</h3>
- <h4>{item.age}</h4>
- <h5>{item.other}</h5>
- </div>
- )
- })}
- </div>
- )
- }
- });
-
- module.exports = Student;
- * */
-
 /////////////////////////////////////
 /**
  * @description 超简化的模板
@@ -719,28 +656,8 @@
 // setTimeout(console.log.bind(console, 'Hello world'), 2000)
 //
 //
-//////////////////////////////////////////////////////////////////////////
-//   react 组件默认参数写法   本人偏向于这种  不太喜欢分开写
-//  class Video extends React.Component{
-//        static defaultProps = {
-//            autoPlay:false,
-//            maxLoops:10,
-//        }
-//       static propTypes = {
-//           autoPlay:React.PropTypes.bool.isRequired,  
-//           maxLoops:React.PropTypes.number.isRequired
-//       }
-//   render(){
-//       return (
-//         <div>
-//            <div>{`${this.props.autoPlay}`}</div>
-//            <div>{`${this.props.maxLoops}`}</div> 
-//         </div>
-//       )       
-//    }   
-//  }
 ////////////////////////////////////////////////////////////////
-//    对react 组件默认参数写法 更新写法
+//    对react 组件默认参数写法 统一写法
 // export default class Plat extends React.Component {
 //   static defaultProps = {
 //     a: "aaaaaa",
