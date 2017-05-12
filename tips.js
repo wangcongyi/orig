@@ -754,4 +754,32 @@
 //            new Ex('[name].css')
 //        ]
 //    }
+//
+//////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
+//  react render collects for demo
+//  useage   <Section data={data} />
+// const data = [
+//   {
+//     a: '111',
+//     b: '222',
+//   },
+//   {
+//     a: '333',
+//     b: '444',
+//   },
+// ]
 
+// const Section = ({ data }) => (
+//   <main>
+//     {data.map(item => <Item {...item} />)}
+//   </main>
+// )
+// const Item = ({ a, b }) => (
+//   <section>
+//     <div className="title">
+//       <p>{a}</p>
+//       <span>{b}</span>
+//     </div>
+//   </section>
+// )
