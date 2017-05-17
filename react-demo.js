@@ -114,3 +114,129 @@ class PlanList extends React.Component {
 }
 
 export default PlanList
+
+
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+import React from 'react'
+import { connect } from 'react-refetch'
+import setPageTitle from '~/common/helpers/setPageTitle'
+import PromiseStateContainer from '~/common/components/PromiseStateContainer'
+import './index.less'
+
+const ShowAmount = () => (
+  <section>
+    <cite>保留金额</cite>
+    <div>
+      <input className="input-normal" type="text" placeholder="账户保留金额" />
+    </div>
+  </section>
+)
+
+class AutoBuy extends React.Component {
+
+  state = {
+    showAmount: true,
+    type: ['普通债权', '品牌债权'],
+    period: ['1个月', '2个月', '3个月'],
+    copies: ['最大份数', '自定义购买']
+  }
+
+  componentDidMount() {
+    setPageTitle('自动购买')
+  }
+                                                     /*react有一个‘强制要求’ ：必须wrapper一个‘DIV’; */
+                                                     /* google at strackoverflow you can reutrn array */
+  renderInput(stateType) {
+    const s = this.state[`${stateType}`]
+    const c = stateType === 'copies'
+    return s.map((item, i) => {
+      return [
+        <input
+          type={c ? 'radio' : 'checkbox'}
+          id={`${stateType}${i}`}
+          name={`${stateType}`}
+          onChange={c ? (e) => this.changeCopies(e) : null}
+        />,
+        <label htmlFor={`${stateType}${i}`}>{item}</label>
+      ]
+    })
+  }
+
+  renderSection(classNames, cite) {
+    const style = classNames === 'period' ? { "padding": 0 } : null
+    return (
+      <section className={classNames}>
+        <cite>{cite}</cite>
+        <div style={style}>
+          {this.renderInput(classNames)}
+          {classNames === 'type' ? <small>VIP特享</small> : null}
+        </div>
+      </section>
+    )
+  }
+
+  changeCopies(e) {
+    e.target.id === 'copies0' ? this.setState({ showAmount: false }) : this.setState({ showAmount: true })
+  }
+
+  render() {
+    const { autoBuy } = this.props
+    return (
+      <PromiseStateContainer
+        ps={autoBuy}
+        onFulfillment={({ r }) => (
+          <main className="auto-purchase">
+            <section>
+              <cite>可用余额</cite>
+              <div><em>￥65.15</em></div>
+            </section>
+            {this.renderSection('type', '债权类型')}
+            {this.renderSection('period', '债权期限')}
+            {this.renderSection('copies', '购买份数')}
+            <section>
+              <cite>债权购买</cite>
+              <div>
+                <input className="input-normal" type="text" placeholder="每个债权购买份额" />
+              </div>
+            </section>
+            {this.state.showAmount ? <ShowAmount /> : null}
+            <section className="password">
+              <cite>交易密码</cite>
+              <div>
+                <input className="input-normal" type="text" placeholder="请输入交易密码" />
+                <a href="">忘记密码</a>
+              </div>
+            </section>
+            <a id="save" href="">保存设置</a>
+          </main>
+        )}
+      />
+    )
+  }
+}
+
+const autoBuy = {
+  url: '/api/walletk/autoBuy',
+  headers: {
+    'x-auth-token': 'yFXQ8ELaeNjJfoYG7VMkAbHX5VnWormF'
+  }
+}
+
+export default connect(() => ({
+  autoBuy,
+}))(AutoBuy)
+
+
+
+
+
+
+
+
+
+
+
+
+
