@@ -231,9 +231,107 @@ export default connect(() => ({
 
 
 
+///////////////////////////////////////////////////////////////////
+//////////   react change tagName
+//  根据参数不同 用于修改tagName
+// const ToBillion = ({tag,data})=>{
+//   let Ele = `${tag}`;
+//   return (
+//     <dd>
+//       { data ? (~~data).toString().length>=5 ? <Ele>{(data/10000).toFixed(2)}<sub>亿元</sub></Ele> : <Ele>{data}<sub>万元</sub></Ele> : <NoDate/> }
+//     </dd>
+//   )
+// }
+////////////////////////////////////////////////////////////////
+//    对react 组件默认参数写法 统一写法
+// export default class Plat extends React.Component {
+//   static defaultProps = {
+//     a: "aaaaaa",
+//     b: "bbbbbb",
+//   }
+//   static PropTypes = {
+//     a: React.PropTypes.string,
+//     b: React.PropTypes.string,
+//   }
+//
+//   state = {
+//     aa: this.props.a,
+//     bb: this.props.b,
+//   }
+//
+//   handleAA() {
+//     this.setState({
+//       aa: "adasd",
+//       bb: "asdsadasdsad",
+//     })
+//   }
+//
+//   render() {
+//     return (
+//       <div>
+//         <div>{this.state.aa}</div>
+//         <div>{this.state.bb}</div>
+//         <button onClick={::this.handleAA}>hello</button>
+//       </div>
+//     )
+//   }
+// }
+//////////////////////////////////////////////////////////////////////////////////////
+//  react render collects for demo
+//  useage   <Section data={data} />
+// const data = [
+//   {
+//     a: '111',
+//     b: '222',
+//   },
+//   {
+//     a: '333',
+//     b: '444',
+//   },
+// ]
+
+// const Section = ({ data }) => (
+//   <main>
+//     {data.map(item => <Item {...item} />)}
+//   </main>
+// )
+// const Item = ({ a, b }) => (
+//   <section>
+//     <div className="title">
+//       <p>{a}</p>
+//       <span>{b}</span>
+//     </div>
+//   </section>
+// )
+
+class SS extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      comments: []
+    }
+  }
+
+  componentDidMount() {
+    axios.get('./data.json')
+      .then(({ data }) => this.setState({ comments: data }))
+  }
+
+  render() {
+    return (
+      <ul>
+        {this.state.comments.map((item, i) => <li key={i}>{item}</li>)}
+      </ul>
+    )
+  }
+}
 
 
 
+ReactDOM.render(
+  <SS />,
+  document.getElementById('app')
+)
 
 
 
