@@ -146,8 +146,9 @@ class AutoBuy extends React.Component {
   componentDidMount() {
     setPageTitle('自动购买')
   }
-                                                     /*react有一个‘强制要求’ ：必须wrapper一个‘DIV’; */
-                                                     /* google at strackoverflow you can reutrn array */
+                                                     /* react有一个‘强制要求’ ：必须wrapper一个‘DIV’; */
+                                                     /* 可以返回一个数组 */
+                                                    /* Each child in an array or iterator should have a unique "key" prop */
   renderInput(stateType) {
     const s = this.state[`${stateType}`]
     const c = stateType === 'copies'
