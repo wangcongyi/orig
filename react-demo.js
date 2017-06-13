@@ -149,10 +149,12 @@ class AutoBuy extends React.Component {
                                                      /* react有一个‘强制要求’ ：必须wrapper一个‘DIV’; */
                                                      /* 可以返回一个数组 */
                                                     /* Each child in an array or iterator should have a unique "key" prop */
+                               
+                                                        
   renderInput(stateType) {
     const s = this.state[`${stateType}`]
     const c = stateType === 'copies'
-    return s.map((item, i) => {
+    return s.map((item, i) => {       <<<<<<<<----------- /* 2017-6-13 为了解决react遍历时候产生的key提醒 可以不直接返回数组 */
       return [
         <input
           type={c ? 'radio' : 'checkbox'}
