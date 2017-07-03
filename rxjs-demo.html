@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/rxjs/6.0.0-alpha.0/Rx.min.js"></script>
+    <style>
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            min-width: 100vw;
+            min-height: 100vh;
+        }
+    </style>
+</head>
+<body>
+<h1>对Rx.js知识做下整理</h1>
+<script>
+    /*
+     *
+     *    Operators （操作）
+     *
+     *   const s = Rx.Observable.interval(1000);
+     *
+     *
+     *    1.  map     与数组的map类似
+     *    const n = s.map(x => x + 1)
+     *
+     *    s: -----0-----1-----2-----3--.....
+     *          map(x => x + 1)
+     *    n: -----1-----2-----3-----4--.....
+     *
+     *
+     *    2.  mapTo   传来的值改成固定值
+     *    const n = s.mapTo(22)
+     *
+     *    s: -----0-----1-----2-----3--.....
+     *         mapTo(2)
+     *    n: -----2-----2-----2-----2--.....
+     *
+     *
+     *    3.  filter   与数组的filter类似
+     *    const n = s.filter(x => x % 2 === 0)
+     *    s: -----0-----1-----2-----3--....
+     *          filter(x => x % 2 ===0)
+     *    n: -----0-----------2------------4--....
+     *
+     *
+     *    4.   take    取前几个元素后就结束
+     *    const n = s.take(3)
+     *                      =====s.take(1) === s.first()=====
+     *                      =====s.takeLast ====获取最后几个元素
+     *                      =====s.takeLast ====s.last()
+     *    s: -----0-----1-----2-----3--....
+     *            take(3)
+     *    n: -----0-----1-----2|
+     *
+     *
+     *    5. takeUntil  在某件事情发生时，让一个observable直接送出完成
+     *    const click = Rx.Observable.fromEvent(document.body,'click')
+     *    const n = s.takeUntil(click)
+     *    s: -----0-----1-----2-----3--....
+     *    click:------------------c----
+     *               takeUntil(click)
+     *    n: -----0-----1-----2-----|
+     *
+     *
+     *
+     *     6. concatAll 解释太多了 看代码~~
+     *     const click = Rx.Observer.fromEvent(document.body,'click')
+     *     const s = click.map(e => Rx.Observer.of(1,2,3))
+     *     const n = s.concatAll()
+     *
+     *     click: -----c----------c---------
+     *           map(e => Rx.Observer.of(1,2,3))
+     *     s:   -----(123)|-----(123)|-------
+     *     n:   -----(123)--------(123)
+     *
+     *
+     *     ===============================================
+     *     concatAll会优先处理source先发出来的observable
+     *     必须等上一个observable结束，才会处理下一个observable
+     *     const o1 = Rx.Observable.interval(1000).take(5)
+     *     const o2 = Rx.Observable.interval(500).take(2)
+     *     const o3 = Rx.Observable.interval(2000).take(1)
+     *     const s = Rx.Observable.of(o1,o2,o3)
+     *     const n = s.concatAll()
+     *
+     *
+     *     7.  skip   忽略前几个送出的元素
+     *     const n = s.skip(3)
+     *
+     *     s:  --0--1--2--3--4--5--6--7--...
+     *                skip(3)
+     *     n:  -----------3--4--5--6--7--...
+     *
+     *
+     *
+     *     8.  startWith  从什么元素开始
+     *     const n = s.startWith(111)
+     *
+     *     s: ---0---1---2---3---4---5--.....
+     *        startWith(111)
+     *     n: (111)---0---1---2---3---4---5--....
+     *
+     *
+     *     9.  merge   与concat类似。但是！！merge同时处理多个observable
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *     n.subscribe({
+     *     next: v => console.log(v),
+     *     error: err => console.error(err),
+     *     complete: () => console.log('OK')
+     *      })
+     *
+     *
+     *
+     *
+     *
+     * */
+</script>
+</body>
+</html>
