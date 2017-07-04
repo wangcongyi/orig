@@ -106,11 +106,63 @@
      *
      *
      *     9.  merge   与concat类似。但是！！merge同时处理多个observable
+     *      const s1 = Rx.Observable.interval(500).take(3)
+     *      const s2 = Rx.Observable.interval(300).take(6)
+     *      const n = s1.merge(s2)
+     *
+     *      s1: ----0----1----2|
+     *      s2: --0--1--2--3--4--5|
+     *             merge()
+     *      n:  --0-01--21--3--(24)--5
+     *
+     *
+     *
+     *
+     *     10.  combineLatest  直接看代码~~
+     *     const s1 = Rx.Observable.interval(500).take(3)
+     *     const s2 = Rx.Observable.interval(300).take(6)
+     *     const n = s1.combineLatest(s2, (x, y) => x + y)
+     *
+     *     s1: -----0------1-----2|
+     *     s2: ---0---1---2---3---4---5|
+     *             combineLatest
+     *     n:  ---x-0-1---2-3-4-5-6--7
+     *
+     *        s1--> null     s2--> 0    ==>> null
+     *        s1--> 0        s2--> 0    ==>> 0
+     *        s1--> 0        s2--> 1    ==>> 1
+     *        s1--> 0        s2--> 2    ==>> 2
+     *        s1--> 1        s2--> 2    ==>> 3
+     *        s1--> 1        s2--> 3    ==>> 4
+     *        s1--> 2        s2--> 3    ==>> 5
+     *        s1结束 s2还没有，cb继续执行，s1始终输出最后一个值 。 本列中  为 2
+     *        s1--> 2        s2--> 4    ==>> 6
+     *        s1--> 2        s2--> 5    ==>> 7
+     *
+     *
+     *
+     *     11.   zip   相同顺位的值传入callback中
+     *     const s1 = Rx.Observable.interval(500).take(3)
+     *     const s2 = Rx.Observable.interval(300).take(6)
+     *     const n = s1.zip(s2, (x, y) = x + y)
+     *
+     *     s1: -----0-----1-----2|
+     *     s2: ---0---1---2---3---4---5|
+     *           zip
+     *     n:  ---x--0-x---2---x--4---x---x
      *
      *
      *
      *
      *
+     *     12.  scan   Observable版本 数组的reduce方法
+     *     const s1 = Rx.Observable.from('hello')
+     *                  .zip(Rx.Observable.interval(600),(x, y) => x)
+     *     const n = s1.scan((origin, next) => origin + next, '')
+     *
+     *     s1: ------h------e------l------l------o|
+     *                scan
+     *     n:  ------h------(he)------(hel)------(hell)------(hello)|
      *
      *
      *
@@ -123,10 +175,38 @@
      *      })
      *
      *
+     *   ****************************************************************************
+     *   ****************************************************************************
+     *    Subject
+     *
+     *
+     *    每个observable可以被订阅多次,但是 observer是分开执行的，完全独立的。
+     *    Subject是Observable又是Observer
+     *    const o = Rx.Observable.interval(1000).take(3)
+     *    const s1 = {
+     *       next: v => console.log(`A next: ${v}`),
+     *       ....,
+     *       ....
+     *    }
+     *    const s2 = {
+     *       next: v => console.log(`A next: ${v}`),
+     *       ....,
+     *       ....
+     *    }
+     *    o.subscribe(s1)
+     *    o.subscribe(s2)
+     *
+     *
+     *
+     *
+     *
      *
      *
      *
      * */
+
+
+
 </script>
 </body>
 </html>
