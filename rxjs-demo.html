@@ -168,6 +168,109 @@
      *
      *
      *
+     *     13.  delay  延迟observable发送元素的时间点
+     *     const s = Rx.Observable.interval(500).take(6)
+     *     const n = s.delay(100)    参数也可以接受Date类型
+     *
+     *     s: -----0-----1-----2-----3-----4-----5|
+     *                delay
+     *     n: ------0-----1-----2-----3-----4-----5|
+     *
+     *
+     *
+     *
+     *     14.  delayWhen  与delay类似，但是可以影响到每个元素
+     *     const s = Rx.Observable.interval(300).take(5);
+     *     const n = s.delayWhen(x => Rx.Observable.empty().delay(100 * x * x))
+     *
+     *     s: ---0---1---2---3---4|
+     *               delayWhen
+     *     n: --0---1----2-----3------4|
+     *
+     *
+     *
+     *
+     *
+     *     15.   debounceTime 每次收到元素，cache并等待一段时间，如果这段时间内没有收到任何元素，则把元素送出；
+     *            如果这段时间收到了新元素，则会把原来的cache的元素释放掉并重新计时。
+     *        const btn = document.getElementById('btn');
+     *        const div = document.getElementById('div');
+     *        Rx.Observable.fromEvent(btn, 'input')
+     *                     .debounceTime(1000)
+     *                     .map(e => e.target.value)
+     *                     .subscribe(v => div.textContent = v)
+     *
+     *
+     *
+     *
+     *     16.  throttleTime  与debounce不同 throttle会先送出元素，等到有元素被送出就会停止一段时间，
+     *     时间过后才会继续发送元素
+     *
+     *
+     *
+     *
+     *
+     *
+     *     17.  distinct   把相同的元素过滤掉只留一个
+     *     const s = Rx.Observable.from(['a', 'b', 'c', 'a', 'b'])
+     *                            .zip(Rx.Observable.interval(300),(x, y) => x)
+     *     const n = s.distinct()
+     *
+     *     s: ---a---b---c---a---b|
+     *           distinct
+     *     n: ---a---b---c--------|
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *     18.  distinctUntilChanged  与distinct类似
+     *      但 知会和最后一次送出的元素相比较，不会每个都对比。
+     *      只和上一次的元素进行对比~~
+     *      const s = Rx.Observable.from(['a', 'b', 'c', 'c', 'b'])
+     *                             .zip(Rx.Observable.interval(300),(x, y) => x)
+     *      const n = s.distinctUntilChanged()
+     *
+     *      s:   ---a---b---c---c---b|
+     *              distinctUntilChanged
+     *      n:   ---a---b---c-------b|
+     *
+     *
+     *
+     *
+     *
+     *
+     *     19.  catch   Rx错误处理方式，可以回传一个observable的值
+     *     const s = Rx.Observable.from(['a','b','c','d',2])
+     *                            .zip(Rx.Observable.interval(300), (x, y) => x)
+     *     const n = s.map(x => x.toUpperCase())
+     *                .catch(err => Rx.Observable.of('wrong'))
+     *
+     *     s: ---a---b---c---d---2|
+     *              map toUpperCase
+     *        ---A---B---C---D---X|
+     *     n: ---A---B---C---D---(wrong)|
+     *
+     *
+     *     20. retry   类似catch  如果发生错误 尝试 重新开始发送 参数为重新尝试几次
+     *
+     *     s: ---a---b---c---d---2|
+     *        ---A---B---C---D---X|
+     *             retry(1)
+     *     n: ---A---B---C---D-------A---B---C---D---X|
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
      *     n.subscribe({
      *     next: v => console.log(v),
      *     error: err => console.error(err),
@@ -204,7 +307,6 @@
      *
      *
      * */
-
 
 
 </script>
