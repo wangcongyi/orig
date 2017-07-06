@@ -12,4 +12,4 @@
 
 > 2017/5/17 分离react的tips到react-demo文件  
 
-> 2017/7/3  对Rx.js做整理（to be continue....）
+> 2017/7/6  对Rx.js做整理（to be continue....）发现rx的东西有点多 还是看官方文档吧。。。😔
