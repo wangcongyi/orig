@@ -306,6 +306,38 @@
      *
      *
      *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *   ****************************************************************************
+     *   ****************************************************************************
+     *    Scheduler    queue  asap  async  animationFrame
+     *
+     *
+     *    控制一个observable的订阅什么时候开始，什么时候发送元素，
+     *    在使用各种不同的operator的时候，会个字预设值不同的scheduler
+     *    一个无限的observable  就会设置queue的 scheduler
+     *    一个timer相关的的observable  就会设置async的 scheduler
+     *
+     *
+     *    const observable = Rx.Observable.from([1,2,3,4,5], Rx.Scheduler.async)
+     *
+     *
+     *
+     *    queue                    ----->  立即执行
+     *    asap                     ----->  setTimeout(fn,0)    ------>  process.nextTick
+     *    async                    ----->  setInterval
+     *    animationFrame           ----->  requestAnimationFrame
+     *
+     *
+     *
+     *
+     *
+     *
      * */
 
 
