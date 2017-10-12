@@ -155,7 +155,7 @@ class AutoBuy extends React.Component {
     const s = this.state[`${stateType}`]
     const c = stateType === 'copies'
     return s.map((item, i) => {       <<<<<<<<----------- /* 2017-6-13 为了解决react遍历时候产生的key提醒 可以不直接返回数组 */
-      return [
+      return [                        <<<<<<<<----------- /* 2017-10-12 React 16版本已经可以返回数组和字符串了 */
         <input
           type={c ? 'radio' : 'checkbox'}
           id={`${stateType}${i}`}
