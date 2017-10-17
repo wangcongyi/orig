@@ -1,7 +1,9 @@
 ## Javascript Event Loop
 
-- 事件循环机制 可以参考阮一峰老师的 [JavaScript 运行机制详解](http://www.ruanyifeng.com/blog/2014/10/event-loop.html)
-- 这里 我想说的是 
+- 事件循环机制 可以参考阮一峰老师的 [JavaScript 运行机制详解](http://www.ruanyifeng.com/blog/2014/10/event-loop.html)  
+
+- 这里 我想说的是  
+
     * MacroTask (Task) 与 MicroTask (Job)  
     
     > 一个事件循环(Event Loop)会有一个或多个任务队列(Task Queue，又称 Task Source)，
@@ -27,12 +29,13 @@
     console.log(2)
   }
 
-    function bar() {
-      setTimeout(() => console.log(5), 0);
-      setTimeout(() => console.log(6), 0);
-    }
+   function bar() {
+       setTimeout(() => console.log(5), 0);
+       setTimeout(() => console.log(6), 0);
+   }
   
   foo();
+  
 ```
 
 ```js
@@ -57,7 +60,5 @@
 // 3
 // 5
 // 4
-
-
 
 ```
