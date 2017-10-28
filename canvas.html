@@ -56,118 +56,118 @@
 <canvas id="c3" style="position: absolute; border: 1px solid #cccccc;margin:50px;"></canvas>
 <input id="btn2" type="button" value="上传"/>
 <script>
-    document.querySelector('#upload').onchange = function () {
-        var c1 = document.getElementById('c1'),
-                $1 = c1.getContext('2d'), w, h;
-        var c3 = document.getElementById('c3'),
-                $3 = c3.getContext('2d'),
-                dx = c3.width = 200,
-                dy = c3.height = 200;
-        var c2 = document.getElementById('c2'),
-                $2 = c2.getContext('2d');
-        var image = new Image();
-        var file = this.files[0];
-        var reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = function (e) {
-            image.src = e.target.result;
-            var t, l;
-            var bodyL = parseInt(getComputedStyle(document.body).getPropertyValue('margin-left'));
-            var bodyT = parseInt(getComputedStyle(document.body).getPropertyValue('margin-top'));
+  document.querySelector('#upload').onchange = function () {
+    var c1 = document.getElementById('c1'),
+      $1 = c1.getContext('2d'), w, h;
+    var c3 = document.getElementById('c3'),
+      $3 = c3.getContext('2d'),
+      dx = c3.width = 200,
+      dy = c3.height = 200;
+    var c2 = document.getElementById('c2'),
+      $2 = c2.getContext('2d');
+    var image = new Image();
+    var file = this.files[0];
+    var reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = function (e) {
+      image.src = e.target.result;
+      var t, l;
+      var bodyL = parseInt(getComputedStyle(document.body).getPropertyValue('margin-left'));
+      var bodyT = parseInt(getComputedStyle(document.body).getPropertyValue('margin-top'));
 
-            image.onload = function () {
-                w = c1.width = c2.width = image.width;
-                h = c1.height = c2.height = image.height;
-                $1.drawImage(image, 0, 0, w, h);
-                c2.style.position = 'absolute';
-                t = c1.getBoundingClientRect().top - bodyT;
-                l = c1.getBoundingClientRect().left - bodyL;
-                c2.style.top = t + 'px';
-                c2.style.left = l + 'px';
-                cutArea(10, 10);
-            };
-            function cutArea(x, y) {
-                $2.clearRect(0, 0, w, h);
-                $2.setLineDash([4, 2]);
-                $2.strokeRect(x, y, dx, dy);
-                $3.clearRect(0, 0, dx, dy);
-                $3.drawImage(image, x, y, dx, dy, 0, 0, dx, dy)
-            }
+      image.onload = function () {
+        w = c1.width = c2.width = image.width;
+        h = c1.height = c2.height = image.height;
+        $1.drawImage(image, 0, 0, w, h);
+        c2.style.position = 'absolute';
+        t = c1.getBoundingClientRect().top - bodyT;
+        l = c1.getBoundingClientRect().left - bodyL;
+        c2.style.top = t + 'px';
+        c2.style.left = l + 'px';
+        cutArea(10, 10);
+      };
+      function cutArea(x, y) {
+        $2.clearRect(0, 0, w, h);
+        $2.setLineDash([4, 2]);
+        $2.strokeRect(x, y, dx, dy);
+        $3.clearRect(0, 0, dx, dy);
+        $3.drawImage(image, x, y, dx, dy, 0, 0, dx, dy)
+      }
 
-            function mouseMove(e) {
-                var x = e.clientX || e.changedTouches[0].pageX;
-                var y = e.clientY || e.changedTouches[0].pageY;
-                e.preventDefault();
-                if (x < l + dx / 2) {
-                    if (y < t + dy / 2) {
-                        cutArea(0, 0)
-                    } else if (y > t + h - dy / 2) {
-                        cutArea(0, h - dy)
-                    } else {
-                        cutArea(0, y - dy / 2 - t)
-                    }
-                } else if (x > l + w - dx / 2) {
-                    if (y < t + dy / 2) {
-                        cutArea(w - dx, 0)
-                    } else if (y > h + t - dy / 2) {
-                        cutArea(w - dx, h - dy)
-                    } else {
-                        cutArea(w - dx, y - dy / 2 - t)
-                    }
-                } else if (y < t + dy / 2) {
-                    cutArea(x - dx / 2 - l, 0)
-                } else if (y > t + h - dy / 2) {
-                    cutArea(x - dx / 2 - l, h - dy)
-                } else {
-                    cutArea(x - dx / 2 - l, y - dy / 2 - t)
-                }
-            }
-
-            function removeEvent() {
-                document.removeEventListener('mousemove', mouseMove);
-                document.removeEventListener('touchmove', mouseMove);
-                document.removeEventListener('mouseup', removeEvent);
-                document.removeEventListener('touchend', removeEvent)
-            }
-
-            function startMove(e) {
-                e.preventDefault();
-                document.addEventListener('mousemove', mouseMove);
-                document.addEventListener('touchmove', mouseMove);
-                document.addEventListener('mouseup', removeEvent);
-                document.addEventListener('touchend', removeEvent)
-            }
-
-            c2.addEventListener('mousedown', startMove);
-            c2.addEventListener('touchstart', startMove);
-        };
-        var index = 1;
-        document.addEventListener('mousewheel', function (e) {
-            e.preventDefault();
-            e.wheelDelta > 0 ? index += 0.1 : index -= 0.1;
-/*
-*
-*        这里 我想放大缩小图片  但是思路 不太好
-*
-*
-* */
-            const disx = w * index;
-            const disy = h * index;
-            var x = w / 2 - disx / 2;
-            var y = h / 2 - disy / 2;
-            $1.clearRect(0, 0, w, h);
-            $1.drawImage(image, x, y, disx, disy);
-            var d = $1.getImageData(0, 0, w, h);
-            $3.putImageData(d, 0, 0, 0, 0, dx, dy);
-            image.src = c1.toDataURL();
-        }, false);
-    };
-
-
-    document.querySelector('#btn2').addEventListener('click', function (e) {
+      function mouseMove(e) {
+        var x = e.clientX || e.changedTouches[0].pageX;
+        var y = e.clientY || e.changedTouches[0].pageY;
         e.preventDefault();
-        console.log(document.getElementById('c3').toDataURL())
+        if (x < l + dx / 2) {
+          if (y < t + dy / 2) {
+            cutArea(0, 0)
+          } else if (y > t + h - dy / 2) {
+            cutArea(0, h - dy)
+          } else {
+            cutArea(0, y - dy / 2 - t)
+          }
+        } else if (x > l + w - dx / 2) {
+          if (y < t + dy / 2) {
+            cutArea(w - dx, 0)
+          } else if (y > h + t - dy / 2) {
+            cutArea(w - dx, h - dy)
+          } else {
+            cutArea(w - dx, y - dy / 2 - t)
+          }
+        } else if (y < t + dy / 2) {
+          cutArea(x - dx / 2 - l, 0)
+        } else if (y > t + h - dy / 2) {
+          cutArea(x - dx / 2 - l, h - dy)
+        } else {
+          cutArea(x - dx / 2 - l, y - dy / 2 - t)
+        }
+      }
+
+      function removeEvent() {
+        document.removeEventListener('mousemove', mouseMove);
+        document.removeEventListener('touchmove', mouseMove);
+        document.removeEventListener('mouseup', removeEvent);
+        document.removeEventListener('touchend', removeEvent)
+      }
+
+      function startMove(e) {
+        e.preventDefault();
+        document.addEventListener('mousemove', mouseMove);
+        document.addEventListener('touchmove', mouseMove);
+        document.addEventListener('mouseup', removeEvent);
+        document.addEventListener('touchend', removeEvent)
+      }
+
+      c2.addEventListener('mousedown', startMove);
+      c2.addEventListener('touchstart', startMove);
+    };
+    var index = 1;
+    document.addEventListener('mousewheel', function (e) {
+      e.preventDefault();
+      e.wheelDelta > 0 ? index += 0.1 : index -= 0.1;
+        /*
+         *
+         *        这里 我想放大缩小图片  但是思路 不太好
+         *
+         *
+         * */
+      const disx = w * index;
+      const disy = h * index;
+      var x = w / 2 - disx / 2;
+      var y = h / 2 - disy / 2;
+      $1.clearRect(0, 0, w, h);
+      $1.drawImage(image, x, y, disx, disy);
+      var d = $1.getImageData(0, 0, w, h);
+      $3.putImageData(d, 0, 0, 0, 0, dx, dy);
+      image.src = c1.toDataURL();
     }, false);
+  };
+
+
+  document.querySelector('#btn2').addEventListener('click', function (e) {
+    e.preventDefault();
+    console.log(document.getElementById('c3').toDataURL())
+  }, false);
 </script>
 </body>
 </html>
