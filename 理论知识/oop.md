@@ -100,7 +100,8 @@
      m.show()
    
    ////    原型链继承
-   //      缺点就是 
+   //      缺点就是 每次都要创建父类的实例，
+   //      因为是原型对象，所以 定义在prototype上的属性，一个实例上修改了，其他的实例上也会修改
    Child.prototype = new Father()
    Child.constructor = Child
    
