@@ -73,7 +73,7 @@
 
 ```javascript
    
-   ////   对象冒充   
+   ////   类式继承--对象冒充   
    //     关键一点就是改变 this 指向
    //     缺点就是父类定义在 prototype 无法继承
    function Stu(name, age) {
@@ -97,6 +97,13 @@
      const m = new MidStu("king",23)
      m.show()
    
-   
+   ////    原型链继承
+   //      缺点就是 
+   Child.prototype = new Father()
+   Child.constructor = Child
    
 ```
+
+#### ES5 的继承实质上是子类先创建自己的 this ，然后再将父类的方法添加到this上  
+#### ES6 的继承则是先创建父类的实例对象this，然后在用子类的构造函数修改 this。
+
