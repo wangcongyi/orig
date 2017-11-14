@@ -642,67 +642,45 @@
 // setTimeout(console.log.bind(console, 'Hello world'), 2000)
 //
 //
-///////////////////////////////////////////////////////////////
-//  使用webpack 打包单独的postcss语法的css文件
-///  之前使用webpack版本好像是1.XX版本  也由于当时不太熟悉webpack  估计以下写法已经过时 2017/2/28
-/*   webpack.config.js   */
-//    var precss = require('precss');
-//    var cssnext = require('cssnext');
-//    var autoprefixer = require('autoprefixer');
-//    var cssnano = require('cssnano');
-//    var Ex = require('extract-text-webpack-plugin');
-//    module.exports = {
-//        entry: './【path】/index.js',                 /*  index.js 里  require('./【name】.css');就好  我在看看文档是不是直接不用引入js文件 */
-//        output: {
-//            filename: 'index.js'
-//        },
-//        module: {
-//            loaders: [
-//                {
-//                    test: /\.css$/,
-//                    loader: Ex.extract('style-loader', 'css-loader!postcss-loader')  /*这里的写法注意下 */
-//                }
-//            ]
-//        },
-//        postcss: function () {
-//            return [autoprefixer, cssnext, precss, cssnano]
-//        },
-//        plugins: [
-//            new Ex("【name】.css")
-//        ]
-//    }
-//////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////
-//  使用webpack 打包单独的多个postcss语法的css文件
-//    var precss = require('precss');
-//    var cssnext = require('cssnext');
-//    var autoprefixer = require('autoprefixer');
-//    var cssnano = require('cssnano');
-//    var Ex = require('extract-text-webpack-plugin');
-//    var webpack = require('webpack');
+////////////////////////////////////////////////////
+// 2017-11-14 使用webpack 3.X 版本 和 postcss
+//  webpack.config.js
+// var ex = require('extract-text-webpack-plugin');
+// module.exports = {
+//   entry: {
+//     ac1: './src/acone.css',
+//     ac2: './src/arctwo.css'
+//   },
+//   output: {
+//     filename: "[name].css"
+//   },
+//   module: {
+//     rules: [
+//       {
+//         test: /\.css$/,
+//         exclude: /node_modules/,
+//         use: ex.extract({
+//           fallback: 'style-loader',
+//           use: [ 'css-loader', 'postcss-loader' ]
+//         })
+//       }
+//     ]
+//   },
 //
-//
-//    module.exports = {
-//        entry: {
-//            ac1: './src/actother.css',
-//            ac2: './src/index.css'
-//        },
-//        output: {
-//            filename: "[name].css"
-//        },
-//        module: {
-//            loaders: [
-//                {
-//                    test: /\.css$/,
-//                    loader: Ex.extract('style-loader', 'css-loader!postcss-loader')
-//                }
-//            ]
-//        },
-//        postcss: function () {
-//            return [autoprefixer, precss, cssnano, cssnext]
-//        },
-//        plugins: [
-//            new Ex('[name].css')
-//        ]
-//    }
-//
+//   plugins: [
+//     new ex('[name].css')
+//   ]
+// }
+///////////  postcss.config.js
+// module.exports = {
+//   plugins: [
+//     require('autoprefixer')({
+//       browsers: 'last 5 version'
+//     }),
+//     require('cssnano')({
+//       preset: 'default'
+//     }),
+//......................
+//   ]
+// }
+
