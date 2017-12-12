@@ -684,3 +684,64 @@
 //   ]
 // }
 
+///////////////////////////////
+// 新设计验证码 有很好用户体验和代码，得意之作 input 只有一个 模拟四个位置的输入提醒
+//  <div class="phone-confirm">
+//    <header>請輸入手機簡訊驗證碼</header>
+//    <span>' + phone + '</span>
+//    <main>
+//      <div></div>
+//      <div></div>
+//      <div></div>
+//      <div></div>
+//      <input type="tel" autofocus maxlength="4" minlength="1" size="1" min="0" max="9999" pattern="[0-9]{4}" />
+//    </main>
+//    <footer>收不到驗證碼？<em id="again">59s</em></footer>
+//  </div>
+// function getInput() {
+//     var input = document.querySelector('.phone-confirm').querySelector('input');
+//     fakeVal = document.querySelector('.phone-confirm').querySelector('div');
+//     fakeDIv = fakeVal;
+//     fakeNum = '';
+//     $('.phone-confirm').on('keyup', 'input', function (e) {
+//         fakeVal.textContent = $(this).val();
+//         fakeNum += $(this).val();
+//         if (fakeNum.length === 4) {
+//             $(this).prop('disabled', 'disabled');
+//             !flag && register({
+//                 mobile_pre: mobile_pre,
+//                 mobile: mobile,
+//                 code: fakeNum,
+//                 act: 'register',
+//                 backUrl: p,
+//                 "_csrf-frontend": csrfToken
+//             });
+//         }
+
+//         if (fakeVal.nodeName.toLowerCase() === 'div') {
+//             if (e.which === 8) {
+//                 if (fakeVal === fakeDIv) {
+//                     fakeVal = fakeDIv
+//                 } else {
+//                     fakeVal = fakeVal.previousElementSibling;
+//                 }
+//                 fakeVal.textContent = '';
+//                 fakeNum = fakeNum.slice(0, -1)
+//             } else {
+//                 fakeVal = fakeVal.nextElementSibling
+//             }
+//             this.value = ''
+//         } else {
+//             return false
+//         }
+//         input.style.left = fakeNum.length * .64 + 'rem';  ／／  不获取光标位置 直接修改 input 的定位
+//     })
+// }
+
+
+
+
+
+
+
+
