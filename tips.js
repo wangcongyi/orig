@@ -686,6 +686,7 @@
 
 ///////////////////////////////
 // 新设计验证码 有很好用户体验和代码，得意之作 input 只有一个 模拟四个位置的输入提醒
+//              update at 2018.1.1  vue 上有一个 demo, https://juejin.im/post/5a31ddb251882527541053ee。以后在看
 //  <div class="phone-confirm">
 //    <header>請輸入手機簡訊驗證碼</header>
 //    <span>' + phone + '</span>
@@ -745,6 +746,24 @@
 //    background-position: -.15rem 0, -.15rem 100%, 0 -.15rem, 100% -.15rem;
 //    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
 ///////////////////////////
+
+
+//////////////////////////////////////
+//    利用定时器函数的第三个参数可以节约很多代码
+//
+// function p(time = 1000) {
+//   return new Promise((res, rej) => {
+//     setTimeout(res, time, {
+//       code: 200,
+//       mes: 'OK',
+//       data: {
+//         name: 'king',
+//         age: 20
+//       }
+//     })
+//   })
+// }
+// p().then(({ data }) => console.log(data))        // {name:'king',age:20}
 
 
 
