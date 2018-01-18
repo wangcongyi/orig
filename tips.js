@@ -661,7 +661,15 @@
 //         exclude: /node_modules/,
 //         use: ex.extract({
 //           fallback: 'style-loader',
-//           use: [ 'css-loader', 'postcss-loader' ]
+//           use: [ 'css-loader', {
+ //               loader:'postcss-loader',options:{
+//                  plugins: loader => [
+//                    require('postcss-simple-vars')(),
+//                    require('autoprefixer')(),
+//                    require('cssnano')()
+//                  ]
+//                }
+//                } ]
 //         })
 //       }
 //     ]
@@ -671,19 +679,6 @@
 //     new ex('[name].css')
 //   ]
 // }
-///////////  postcss.config.js
-// module.exports = {
-//   plugins: [
-//     require('autoprefixer')({
-//       browsers: 'last 5 version'
-//     }),
-//     require('cssnano')({
-//       preset: 'default'
-//     }),
-//......................
-//   ]
-// }
-
 ///////////////////////////////
 // 新设计验证码 有很好用户体验和代码，得意之作 input 只有一个 模拟四个位置的输入提醒
 //              update at 2018.1.1  vue 上有一个 demo, https://juejin.im/post/5a31ddb251882527541053ee。以后在看
