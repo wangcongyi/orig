@@ -1,7 +1,3 @@
-// 获取伪类样式ֵ
-
-//var color = window.getComputedStyle(document.querySelector('.element'), ':before').getPropertyValue('color');
-//
 ///////////////////////////////////////////
 //var a = 10;
 //var b;
@@ -421,22 +417,7 @@
  })
  })
  */
-//////////////////////
-//页面重构的时候 可以使用伪类元素的背景图  但是宽高不受限制
-//.logo:after{
-// /*content: url("path.png");*/
-// /*display: inline-block;*/
-// /*width: 26px;*/
-// /*height: 26px;*/
-//***********************************
-// background-image: url("path.png");
-// background-size: 10px 20px;// background-size: 100%
-// display: inline-block;
-// width: 26px;
-// height: 26px;
-// content:"";
-//}
-/////////////////////////////
+
 
 ////////////////
 //  input type = file 的时候  如果重新选择上一次的文件 是不会再次触发change事件的
@@ -449,7 +430,7 @@
  *   div.appendChild(image);
  *   var C = new Cropper(image);
  *   div.style.display = 'block';
- *   this.value = '';    ~！！！！！！！！！！！！！！！！！    
+ *   this.value = '';    ~！！！！！！！！！！！！！！！！！
  *
  * */
 
@@ -546,10 +527,8 @@
 
 ////////////////////////////////////////////////////
 // 不打印出console.log信息在JS的位置信息
-//
 // setTimeout(console.log.bind(console, 'Hello world'), 2000)
-//
-//
+///////////////////////////////
 ///////////////////////////////
 // 新设计验证码 有很好用户体验和代码，得意之作 input 只有一个 模拟四个位置的输入提醒
 //              update at 2018.1.1  vue 上有一个 demo, https://juejin.im/post/5a31ddb251882527541053ee。以后在看
@@ -604,16 +583,6 @@
 //         input.style.left = fakeNum.length * .64 + 'rem';  ／／  不获取光标位置 直接修改 input 的定位
 //     })
 // }
-
-///////////////////////////////////////
-//    折角边框样式
-//    background-image: linear-gradient(to right, #DCE3E6 .3rem, transparent .3rem), linear-gradient(to right, #DCE3E6 .3rem, transparent .3rem), linear-gradient(to bottom, #DCE3E6 .3rem, transparent .3rem), linear-gradient(to bottom, #DCE3E6 .3rem, transparent .3rem);
-//    background-size: 100% 1px, 100% 1px, 1px 100%, 1px 100%;
-//    background-position: -.15rem 0, -.15rem 100%, 0 -.15rem, 100% -.15rem;
-//    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
-///////////////////////////
-
-
 //////////////////////////////////////
 //    利用定时器函数的第三个参数可以节约很多代码
 //
@@ -630,6 +599,3 @@
 //   })
 // }
 // p().then(({ data }) => console.log(data))        // {name:'king',age:20}
-
-
-
