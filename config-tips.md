@@ -38,3 +38,39 @@
   
 ```
 
+
+* 2018-02-23 `hash` -> `chunkhash` -> `contenthash`
+
+```js
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
+module.exports = {
+  entry: {
+    main: "./src/index.js",
+    vendor: ["lodash"]
+  },
+  output: {
+    filename: "[name]-[chunkhash:8].js",
+    path: path.resolve(__dirname, 'dist')
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: "css-loader"
+        })
+      }
+    ]
+  },
+  plugins: [
+    new HtmlWebpackPlugin({ title: 'caching', template: path.resolve(__dirname, 'src/index.html') }),
+    new ExtractTextPlugin("index-[contenthash:8].css"),
+  ]
+};
+
+```
