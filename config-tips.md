@@ -40,6 +40,8 @@
 
 
 * 2018-02-23 `hash` -> `chunkhash` -> `contenthash`
+* 2018-02-23 与 `postcss` 结合，并且生成 `json` 静态资源映射表（`map-json-webpack-plugin` `webpack-assets-manifest` `assets-webpack-plugin`）
+
 
 ```js
 const path = require('path');
@@ -70,6 +72,10 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({ title: 'caching', template: path.resolve(__dirname, 'src/index.html') }),
     new ExtractTextPlugin("index-[contenthash:8].css"),
+    new webpack.optimize.UglifyJsPlugin(),
+    require('map-json-webpack-plugin')({
+      output:'dist/map.json'
+    })
   ]
 };
 
