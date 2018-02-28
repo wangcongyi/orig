@@ -80,3 +80,83 @@ module.exports = {
 };
 
 ```
+
+
+
+* 2018-02-28 对现有的项目结构做以下调整，估计以后也会用得到
+
+```js
+const path = require('path');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const mapJSON = require('webpack-assets-manifest');
+const beforeClean = require('clean-webpack-plugin');
+const afterClean = require('webpack-clean');
+
+module.exports = {
+    entry: {
+        bind: './static/css/bind.css',
+        checkin: './static/css/checkin.css',
+        common: './static/css/common.css',
+        iber1028: './static/css/iber1028.css',
+        illnesses: './static/css/illnesses.css',
+        // index: './static/css/index.css',
+        // mobiscroll: './static/css/mobiscroll.custom-2.17.0.min.css',
+        // my: './static/css/my.css',
+        // news: './static/css/news.css',
+        // policy: './static/css/policy.css',
+        // products: './static/css/products.css',
+        // register: './static/css/register.css',
+        // theme: './theme.css',
+    },
+    output: {
+        filename: "js/css/[name]-[chunkhash:8].css",
+        path: path.resolve(__dirname, 'assets')
+    },
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: "style-loader",
+                    use: "css-loader",
+                    publicPath: '../'
+                })
+            },
+            {
+                test: /\.(png|jpe?g|gif|webp)/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: 'images/[name]-[hash:8].[ext]'
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.(woff|svg|eot|ttf)\??.*$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: 'iconfont/[name]-[hash:8].[ext]'
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    plugins: [
+        new beforeClean(['assets', 'dist']),
+        new afterClean(['assets/js']),
+        new ExtractTextPlugin("css/[name]-[contenthash:8].css"),
+        new mapJSON({
+            output: './map.json'
+        })
+    ]
+};
+
+```
+
+
+
