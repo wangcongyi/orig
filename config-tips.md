@@ -159,4 +159,78 @@ module.exports = {
 ```
 
 
+结合起来
+
+```js
+const path = require('path');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const mapJSON = require('webpack-assets-manifest');
+const beforeClean = require('clean-webpack-plugin');
+const afterClean = require('webpack-clean');
+const glob_entry = require('webpack-glob-folder-entries');
+
+
+module.exports = {
+    entry: glob_entry('./static/css/**/*.css'),
+    output: {
+        filename: "js/css/[name]-[chunkhash].css",
+        path: path.resolve(__dirname, 'res'),
+    },
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: "style-loader",
+                    publicPath: '../',
+                    use: ['css-loader', {
+                        loader: 'postcss-loader', options: {
+                            plugins: loader => [
+                                require('postcss-simple-vars')(),
+                                require('postcss-cssnext')(),
+                                require('postcss-nested')(),
+                                require('cssnano')
+                            ]
+                        }
+                    }],
+                })
+            },
+            {
+                test: /\.(png|jpe?g|gif|webp)/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: 'images/[name]-[hash].[ext]'
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.(woff|svg|eot|ttf)\??.*$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: 'iconfont/[name]-[hash].[ext]'
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    plugins: [
+        new beforeClean(['assets', 'dist','res']),
+        new afterClean(['res/js/css']),
+        new ExtractTextPlugin("css/[name]-[contenthash].css"),
+        new mapJSON({
+            output: '../mapcss.json',
+            publicPath:'res/',
+            contextRelativeKeys:true
+        })
+    ]
+};
+
+```
+
 
