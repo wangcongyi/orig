@@ -1,9 +1,5 @@
 ## Javascript Event Loop
 
-- 事件循环机制 可以参考阮一峰老师的 [JavaScript 运行机制详解](http://www.ruanyifeng.com/blog/2014/10/event-loop.html)  
-
-- 这里 我想说的是  
-
     * MacroTask (Task) 与 MicroTask (Job)  
     
     > 一个事件循环(Event Loop)会有一个或多个任务队列(Task Queue，又称 Task Source)，
@@ -38,8 +34,9 @@
   
 ```
 
-```js
 
+
+```js
 (function test() {
     setTimeout(function() {console.log(4)}, 0);
     new Promise(function executor(resolve) {   // 创建 Promise 实例是同步的 ！！
@@ -62,3 +59,20 @@
 // 4
 
 ```
+
+
+
+```js
+btn.addEventListener('click', () => {
+    Promise.resolve().then(() => console.log('microtask 1'))
+    console.log('Listener 1')
+  })
+
+  btn.addEventListener('click', () => {
+    Promise.resolve().then(() => console.log('microtask 2'))
+    console.log('Listener 2')
+  })
+
+// 输出结果为： L1 m1 L2 m2
+
+```  
