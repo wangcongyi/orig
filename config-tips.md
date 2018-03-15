@@ -40,7 +40,7 @@
 
 
 * 2018-02-23 `hash` -> `chunkhash` -> `contenthash`
-* 2018-02-23 与 `postcss` 结合，并且生成 `json` 静态资源映射表（`map-json-webpack-plugin` `webpack-assets-manifest` `assets-webpack-plugin`）
+* 2018-02-23 与 `postcss` 结合，并且生成 `json` 静态资源映射表（`map-json-webpack-plugin` `webpack-assets-manifest` `assets-webpack-plugin` `webpack-manifest-plugin`）
 
 
 ```js
