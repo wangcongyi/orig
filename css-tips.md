@@ -3,6 +3,7 @@
 window.getComputedStyle(document.querySelector('.element'),':before').getPropertyValue('color');
 ```
 
+
 * 页面重构的时候 可以使用伪类元素的背景图  但是宽高不受限制
 ```css
 .logo:after {
@@ -13,6 +14,8 @@ window.getComputedStyle(document.querySelector('.element'),':before').getPropert
     background-size: 10px 20px;
 }
 ```
+
+
 * 折角边框样式
 ```css
 .demo {
@@ -23,3 +26,6 @@ window.getComputedStyle(document.querySelector('.element'),':before').getPropert
 }
 ```
 
+
+* margin 合并情况和解决方案  
+[margin collapse](https://jonathan-harrell.com/whats-the-deal-with-margin-collapse/)
