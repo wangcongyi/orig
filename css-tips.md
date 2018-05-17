@@ -31,5 +31,5 @@ window.getComputedStyle(document.querySelector('.element'),':before').getPropert
 [margin collapse](https://jonathan-harrell.com/whats-the-deal-with-margin-collapse/)
 
 
-* 文本换行问题效果
+* 文本换行问题效果  
 [codepen](https://codepen.io/chriscoyier/pen/qoLLpN)
