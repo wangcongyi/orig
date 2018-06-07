@@ -349,6 +349,8 @@ ReactDOM.render(
 /////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 // Dynamic import in Create React App
+// 不太喜欢 Loadable 的写法
+// https://zhuanlan.zhihu.com/p/25874892
 
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
@@ -366,7 +368,7 @@ class Dynamic extends Component {
       .then(module => this.setState({ module: module.default }))
   }
   render() {
-    const { module: Component } = this.state; // Assigning to new variable names @see: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+    const { module: Component } = this.state; // 重命名变大写开头
     return(
       <div>
         {Component && <Component />}
