@@ -346,7 +346,37 @@ ReactDOM.render(
 )
 
 
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+// Dynamic import in Create React App
 
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import registerServiceWorker from './registerServiceWorker';
+
+class Dynamic extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { module: null };
+  }
+  componentDidMount() {
+    const { path } = this.props;
+    import(`${path}`)
+      .then(module => this.setState({ module: module.default }))
+  }
+  render() {
+    const { module: Component } = this.state; // Assigning to new variable names @see: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+    return(
+      <div>
+        {Component && <Component />}
+      </div>
+    )
+  }
+}
+
+ReactDOM.render(<Dynamic path='./App' />, document.getElementById('root'));
+registerServiceWorker();
 
 
 
