@@ -368,11 +368,11 @@ class Dynamic extends Component {
       .then(module => this.setState({ module: module.default }))
   }
   render() {
-    const { module: Component } = this.state; // 重命名变大写开头
+    const { module: Component } = this.state;    //   重命名变大写开头
     return(
-      <div>
-        {Component && <Component />}
-      </div>
+      <div>                                     //  这里的写法太奇怪了，但是不得不这么写
+        {Component && <Component />}            //  这里的写法太奇怪了，但是不得不这么写
+      </div>                                    //  这里的写法太奇怪了，但是不得不这么写
     )
   }
 }
