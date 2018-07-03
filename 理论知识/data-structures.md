@@ -1,6 +1,6 @@
 [对文章的一些总结](https://www.interviewcake.com/data-structures-reference)
 
-# Array 
+ # Array 
  
 |             |  Worst Case |
 |  :-------:  |  :-------:  |
@@ -14,7 +14,9 @@
 
 
 
-# Dynamic Array
+
+
+ # Dynamic Array
 
 |             |  Average Case   |  Worst Case  |
 |  :-------:  |  :-----------:  |  :--------:  |
@@ -33,7 +35,9 @@
 
 
 
-# Linked List
+
+
+ # Linked List
 
 |             |  Worst Case |
 |  :-------:  |  :-------:  |
@@ -50,7 +54,9 @@
 
 
 
-# Queue
+
+
+ # Queue
 
 |             |  Worst Case |
 |  :-------:  |  :-------:  |
@@ -63,7 +69,9 @@
 
 
 
-# Stack
+
+
+ # Stack
 
 |             |  Worst Case |
 |  :-------:  |  :-------:  |
@@ -76,7 +84,9 @@
 
 
 
-# Hash Table
+
+
+ # Hash Table
 
 |             |  Average Case   |  Worst Case  |
 |  :-------:  |  :-----------:  |  :--------:  |
@@ -94,16 +104,48 @@
 |  Java                 |  hash maps     |
 |  JavaScript           |  objects       | 
 
-`Hash table` 是建立在 `Array` 上的 
+![Hash Table](https://www.interviewcake.com/images/svgs/cs_for_hackers__hash_tables_lies_key_labeled.svg?bust=183)  
 
- //TODO
-
-# Tree
+`Hash table` 是建立在 `Array` 上的,提供一个 `key` 值，是经过 `hashing function` 算出底层数组的对应的 `Index`，找到 `value`的
 
 
 
+
+
+ # Tree
+
+![Tree](https://www.interviewcake.com/images/svgs/trees__depth_height.svg?bust=183)
+
+每个在 `Tree`里的元素叫做 `node`,每个 `node` 至少有0个 `child nodes`。如果一个节点没有子节点，我们叫它 `Leaf Nodes`。每个树都有深度，上图所示 深度为4。  
+
+### Binary Trees (以下解释有可能有误，最好还是看英文文献，中文的解释像坨屎)
+
+![Binary Trees](https://www.interviewcake.com/images/svgs/trees__binary_non_binary.svg?bust=183)  
+二叉树是指 在树节点中 最多有两个子节点  
+
+![Full binary trees](https://www.interviewcake.com/images/svgs/trees__full_binary.svg?bust=183)  
+满二叉树是指 每个节点 有0个或者2个 子节点  
+
+![Perfect binary trees](https://www.interviewcake.com/images/svgs/trees__perfect_binary.svg?bust=183)  
+平衡二叉树是指 每个节点只有2个子节点 所有 `leaf node` 在同一个深度  
+ 
+`Relationship between height and number of nodes`  
+ Level 0: 2^0= 1 nodes  
+ Level 1: 2^1= 2 nodes  
+ Level 2: 2^2= 4 nodes  
+ 所有节点为 n 深度为 h 可以推导出  
+ n = 2^h - 1  
+ h = log2(n+1)
+
+![Complete binary trees](https://www.interviewcake.com/images/svgs/trees__complete_binary.svg?bust=183)  
+完全二叉树是指 满二叉树最后的 `leaf node` 在最左边或者最右边
+  
+
+
+# `以下内容更多的是关于算法，另写一篇`     
+1. Tree Traversals
+  + 广度优先遍历 (Breadth First Search (BFS))  
+  + 深度优先遍历 (Depth First Search (DFS))
+  + 还有其他的遍历方法 看原文 (not important)  
 # Binary Search Tree
-
-
-
 # Graph
