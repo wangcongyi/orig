@@ -57,7 +57,9 @@
 ```
 案例1：运营商会用自己识别的ip或者域名做js网址，wap.zjtoolbar.10086.cn这类只有在浙江移动网络下才会被解析出来，同理ip也是
 
-案例2：运营商很聪明，知道页面可以检测所有外链js的域名，比如：m.baidu.com我只允许m.baidu.com/static的外链js，其他js都会被记录反馈；为了不被检测出来，我遇见个case电信会访问一个不存在的地址，比如：m.baidu.com/static/abc.js，这个地址在运营商直接返回劫持的js代码，请求不会发到百度的服务器。
+案例2：运营商很聪明，知道页面可以检测所有外链js的域名，比如：m.baidu.com我只允许m.baidu.com/static的外链js，其他js都会  
+被记录反馈为了不被检测出来，我遇见个case电信会访问一个不存在的地址，比如：m.baidu.com/static/abc.js，这个地址在运营商直  
+接返回劫持的js代码,请求不会发到百度的服务器。
 ```  
 
 ##### 改写 `document.write` 方法 和  `window.top = parent!== window` 和  `https://`
