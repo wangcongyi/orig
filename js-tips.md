@@ -5,9 +5,12 @@
   
   a === 10 && fn1() & fn2()
   
+  n === 1 && (x = 1, y = 2, z = 3)
+  
   a === 10 ? console.log(1) : console.log(2) & console.log(3)
   
   a === 10 ? console.log(1): console.log(2) , console.log(3)
+  
 ```
 
 ## 运用 `&&` 运算符简化代码
