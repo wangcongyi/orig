@@ -44,7 +44,7 @@ window.getComputedStyle(document.querySelector('.element'),':before').getPropert
   
   
   
-* AE + bodymovin 做动画非常好的解决方案~  
+* AE + bodymovin 做动画非常好的解决方案~  但使用过程中貌似 camera 只能有一个，
 [bodymovin](https://github.com/airbnb/lottie-web)
 
 
