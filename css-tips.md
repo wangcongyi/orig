@@ -27,15 +27,24 @@ window.getComputedStyle(document.querySelector('.element'),':before').getPropert
 ```
 
 
+
+
+
 * margin 合并情况和解决方案  
 [margin collapse](https://jonathan-harrell.com/whats-the-deal-with-margin-collapse/)
-
-
+  
+  
+  
+  
+  
 * 文本换行问题效果  
 [codepen](https://codepen.io/chriscoyier/pen/qoLLpN)
-
-
-* AE + bodymovin 做动画非常好的解决方案~
+  
+  
+  
+  
+  
+* AE + bodymovin 做动画非常好的解决方案~  
 [bodymovin](https://github.com/airbnb/lottie-web)
 
 
