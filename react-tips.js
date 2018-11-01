@@ -377,6 +377,47 @@ class Dynamic extends Component {
   }
 }
 
+
+////////////////////////////////////////////////////
+//  另外一种 写法
+import React, { Component } from "react"
+
+export default function asyncComponent(importComponent) {
+  class AsyncComponent extends Component {
+    constructor(props) {
+      super(props)
+      this.state = {
+        component: null
+      }
+    }
+    
+    async componentDidMount() {
+      const { default: component } = await importComponent()
+      this.setState({
+        component: component
+      })
+    }
+    render() {
+      const C = this.state.component
+      return C ? <C {...this.props} /> : null
+    }
+  }
+
+  return AsyncComponent
+}
+
+const Routers = () => (
+  <Switch>
+    <Route exact path="/" component={Home} />
+    <Route path="/user" component={asyncComponent(() => import('./components/User'))} />
+    <Route path="/camera" component={asyncComponent(() => import('./components/Camera'))} />
+    <Route path="/upload" component={asyncComponent(() => import('./components/Upload'))} />
+  </Switch>
+)
+ 
+
+
+
 ReactDOM.render(<Dynamic path='./App' />, document.getElementById('root'));
 registerServiceWorker();
 
