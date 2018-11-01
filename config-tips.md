@@ -1,5 +1,7 @@
 * 2017-11-14 使用 webpack 3.X 版本 和 postcss；不用写postcss.config.js
 * 2018-02-07 增加 postcss-nested,postcss-cssnext （ cssnext 插件已经包含 autoprefixer 可以在配置文件中删除）
+* 2018-11-1 有篇文章很长,但十分详细的说明 [webpack v4](https://nystudio107.com/blog/an-annotated-webpack-4-config-for-frontend-web-development)
+
 
 ```js
   var ex = require('extract-text-webpack-plugin');
