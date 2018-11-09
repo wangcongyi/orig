@@ -1,4 +1,4 @@
-# javascript变量与内存
+# javascript变量与内存 传值策略
 ## javascript变量有两种不同的数据类型
 1. 基本类型  undefined、boolean、number、string、null.  
 2. 引用类型  array、object、function.
@@ -49,3 +49,41 @@ var objb = obja         //为objb分配栈内存objb 引用堆内存德尔值{v:
 objb.v = 'b'       //通过objb访问堆内存的值 修改为"b" 由于obja和objb引用的是堆内存同一个对象值 obja={v:'b'}
 var objb = {v:'c'}     //修改了整个对象 在对内存中创建一个新的对象值{v:'c'} 
 ```
+
+
+### JavaScript 的传值策略
+#### JavaScript 基本类型按值传递，引用类型按共享传递（call by sharing）
+```javascript
+  const obj = { x: 1 }
+
+  function foo(o) {
+    o.x = 121212
+  }
+
+  foo(obj)
+  console.log(obj.x)   //  121212    
+     //  引用的是副本，但引用的对象是相同的（共享相同的对象）  修改形参对象的属性值，也会影响到实参的属性值 
+
+
+  function change(n, o1, o2) {
+    n = n * 100
+    o1.item = 'b'
+    o2 = { item: 'b' }
+  }
+
+  const n = 10
+  const o1 = { item: 'a' }
+  const o2 = { item: 'a' }
+
+  change(n, o1, o2)
+  console.log(n)             //  没有变   10
+  console.log(o1.item)       //  改变了   b
+  console.log(o2.item)       //  没有变   a
+
+
+
+
+```
+
+
+
