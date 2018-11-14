@@ -373,7 +373,7 @@ class Dynamic extends Component {
       <div>                                     //  这里的写法太奇怪了，但是不得不这么写
         {Component && <Component />}            //  这里的写法太奇怪了，但是不得不这么写
       </div>                                    //  这里的写法太奇怪了，但是不得不这么写
-    )
+    )                                           //  推荐使用 下面的写法~~
   }
 }
 
