@@ -78,7 +78,6 @@ ws.on("message", data => {
 ```
 
 
-### polling
 > 一点历史  
 
 1. `短轮训 Polling` client 每隔一段时间都会向 server 发生 http 请求  
