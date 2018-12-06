@@ -23,7 +23,13 @@
  
  - 设置了margin：20px，会转化成四个属性 虽然CSS提倡属性合并 但最后还是被拆成各个小属性 属性合并最大最作用应该在于减少CSS代码量
  
- - [chrome blink内核 浏览器默认样式表](http://yincheng.site/html/chrome-ua-css.html)
+ 
+ - [Chromium UA stylesheet - Google Chrome & Opera](https://chromium.googlesource.com/chromium/blink/+/master/Source/core/css/html.css)  
+ - [Mozilla UA stylesheet - Firefox](https://dxr.mozilla.org/mozilla-central/source/layout/style/res/html.css)  
+ 
+ - [WebKit UA stylesheet - Safari](https://trac.webkit.org/browser/trunk/Source/WebCore/css/html.css)
+ 
+ 
  
  - CSS表解析好了之后 触发layout tree 把每个可视的node节点相应的创建一个layout节点 创建layout节点的时候需要计算一下自己的style 因为有可能多个选择器样式命中 需要把样式属性综合在一起 ect
  
