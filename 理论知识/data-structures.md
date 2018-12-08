@@ -1,4 +1,15 @@
-[对文章的一些总结](https://www.interviewcake.com/data-structures-reference)
+## 编程语言大致分类
+
+1. 静态类型语言：变量的类型在编译时就能知道。  
+2. 动态类型语言：变量的类型只能在运行时知道。   
+3. 强类型语言：变量不得随意更改类型。  
+4. 弱类型语言：变量可以随意更改类型。 
+
+
+
+
+## [数据结构](https://www.interviewcake.com/data-structures-reference)
+
 
  # Array 
  
