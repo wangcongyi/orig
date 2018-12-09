@@ -6,11 +6,11 @@ import api from './lib/api'
 import wrap from './lib/wrap'
 import IndexRoutes from './pages/routes'
 
-import styleSheet from 'styled-components/lib/models/StyleSheet';
+import styleSheet from 'styled-components/lib/models/StyleSheet'
 
-styleSheet.flush();
+styleSheet.flush()
 
-const app = express();
+const app = express()
 
 async function login(req, res, next) {
   if (req.query && req.query.auth_key) {
@@ -44,7 +44,8 @@ async function login(req, res, next) {
   }
   next()
 }
-const styles = styleSheet.rules().map(rule => rule.cssText).join('\n');
+
+const styles = styleSheet.rules().map(rule => rule.cssText).join('\n')
 app.use('/static', express.static(__dirname + '/static'))
 
 app.use(cookieParser())
@@ -54,7 +55,7 @@ app.use(session({
   saveUninitialized: true,
 }))
 
-app.use(wrap(login));
+app.use(wrap(login))
 
 
 // 路由设置
