@@ -48,3 +48,6 @@
 
 
 ![I/O 比较](https://static.oschina.net/uploads/img/201604/21095604_vhHX.png)
+
+
+[这篇文章更详尽](https://www.jianshu.com/p/486b0965c296)
