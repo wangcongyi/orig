@@ -290,6 +290,14 @@ var search = window.location.search.substring(1);
 var obj = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"') + '"}');
 ```
 
+## Get Cookie Value by RegEx
+```js
+function getCookieValue(a) {
+    var b = document.cookie.match('(^|;)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b ? b.pop() : '';
+}
+```
+
 ## 不打印出 console.log 信息在 JS 文件的位置信息
 ```js
 setTimeout(console.log.bind(console, 'Hello world'), 2000)
