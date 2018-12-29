@@ -379,7 +379,38 @@ function getInput() {
 ```
 
 
+## Better Condition
+```js
 
+function test(fruit) {
+  if (fruit == 'apple' || fruit == 'strawberry') {
+    console.log('red');
+  }
+}
+
+function test(fruit) {
+  // extract conditions to array
+  const redFruits = ['apple', 'strawberry', 'cherry', 'cranberries'];
+
+  if (redFruits.includes(fruit)) {
+    console.log('red');
+  }
+}
+
+//////////////////////
+function test(fruit) { 
+  // printing fruit name if value provided
+  if (fruit && fruit.name)  {
+    console.log (fruit.name);
+  } else {
+    console.log('unknown');
+  }
+}
+
+function test({name} = {}) {
+  console.log (name || 'unknown');
+}
+```
 
 
 
