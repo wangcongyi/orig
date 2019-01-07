@@ -41,3 +41,20 @@ function setDestModeAndTimestamps(srcStat, dest, opts, cb, src) {
 }
 
 ```
+
+
+#### 菱形 ◇
+
+```js
+let j, z = 1, n = 19
+Array(n).fill(0).map(() => {
+    z > n ? j = j - 2 : j = z
+    z += 2
+    return ' '.repeat((n - j) / 2) + '*'.repeat(j) + '\n'
+  }).join('')
+
+```
+
+
+
+
