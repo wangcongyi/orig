@@ -70,3 +70,14 @@ index.html
 </script>
 ```
 
+
+### 重要概念
+
+1. `WebAssembly.Module` : 模块 —— 是已被编译为可执行机器码的二进制对象，可以简单地与操作系统的班底可执行程序进行类比（win系统的 .exe 文件)。是由 WebAssembly 二进制汇编代码（.wasm）编译而来  
+
+2. `WebAssembly.Memory` ：内存 —— 在浏览器中，WebAssembly 是由 JavaScript 中的 ArrayBuffer 对象实现，JavaScript 和 WebAssembly 可以通过内存交换数据。    
+
+3. `WebAssembly.Table` ：表格 —— WebAssembly 引入了表格对象用于存储函数引用。 
+
+4. `WebAssembly.Instance` ：实例 —— 在 WebAssembly 中，实例用于指代一个模块及其运行时的所有状态，包括内存、表格、导入对象等，模块只有在实例化之后才能被调用。导入、导出对象是模块实例很重要的部分，模块内部的 WebAssembly 代码可以通过导入对象中的导入函数调用外部的 JavaScript 的方法，导出对象中的导出函数是模块提供 外部 JavaScript 使用的接口。  
+
