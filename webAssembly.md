@@ -217,6 +217,136 @@ WebAssembly.instantiateStreaming(fetch('./test.wasm'))
 )
 ```
 
+### WebAssembly 文本格式基本语法
 
+- WebAssembly 文本格式是以 `S-表达式` 表示的。`S-表达式` 是用于描述树状结构的一种简单的文本格式，其特征是树的每个结点均被一对圆括号 “(...)” 包围，结点可以包含子结点。  
+- WebAssembly 中共有以下4种数据类型
+1. i32  32位整形数
+2. i64  64位整形数
+3. f32  32位浮点数
+4. f64  64位浮点数
 
+```
+(module              ;; WebAssembly模块根结点，即Module
+  (func)             ;; 函数
+　(memory 1)         ;; Memory
+  (data)             ;; Memory初始值
+  (table)            ;; Table
+  (elem)             ;; Table元素初始值
+  (import)           ;; 导入对象
+  (export)           ;; 导出对象
+  (type)             ;; 函数签名
+  (global)           ;; 全局变量
+  (param)            ;; 函数参数
+  (local)            ;; 局部变量
+  (result)           ;; 函数返回值
+  (start)            ;; 开始函数
+)
+```
+- 函数签名 函数签名表明了函数的参数及返回值，它由一系列 `param` 结点（参数列表）及 `result` 结点（返回值）构成
+```
+(func (param i32) (param f32) (result f64) ...)
+```  
 
+- 局部变量表 局部变量表由一系列 `local` 结点组成  
+- get_local 0指令将得到第一个参数（i32类型），get_local 1将得到第二个参数（f32类型），get_local 2将得到局部变量（f64类型）。由此我们可以看出，参数与局部变量的区别仅在于：参数的初始值是在调用函数时由调用方传入的；对函数体来说，参数与局部变量是等价的，都是函数内部的局部变量，WebAssembly按照变量声明出现的顺序给每个变量赋予了0,1,2,…这样的递增索引，get_local n指令的作用是读取第n个索引对应的局部变量的值并将其压入栈中（关于栈式虚拟机的概念将在4.5节中介绍），相对地，set_local n的功能是将栈顶的数据弹出并存入第n个索引对应的局部变量中。
+```
+(func (result f64) (local i32) (local f32) ...)  
+
+func $f1 (param i32) (param f32) (result i64)
+　　(local f64)
+　　get_local 0 ;;get i32
+　　get_local 1 ;;get f32
+　　get_local 2 ;;get f64
+　　...
+)
+```  
+
+- 全局变量 与局部变量的作用域仅限于函数内部不同，全局变量的作用域是整个module。全局变量分为可变全局变量、只读全局变量两种，区别 `mut`
+```
+(module
+　　(global (mut i32) (i32.const 42))　　;;define global[0]
+　　(global $pi f32 (f32.const 3.14159)) ;;define global[1] as $pi
+)  
+
+(module
+　　(global (mut i32) (i32.const 42))　　;;define global[0]
+　　(global $pi f32 (f32.const 3.14159)) ;;define global[1] as $pi
+　　(func
+　　　　get_global 0　 ;;get 42
+　　　　get_global 1　 ;;get 3.14159
+　　　　get_global $pi ;;get 3.14159
+　　　　i32.const 42
+　　　　set_global 0　 ;;global[0] now become 42
+　　　　f32.const 2.1
+　　　　set_global $pi ;;CompileError!!!
+　　)
+)
+```
+
+- 函数体 函数体是一系列 WebAssembly 汇编指令的线性列表
+- 使用 `call` 直接调用
+```
+(module
+　　(func $compute (result i32)
+　　　　i32.const 13
+　　　　f32.const 42.0
+　　　　call 1　　　　 ;;get 55
+　　　　f32.const 10.0
+　　　　call $add　　　;;get 65
+　　)
+　　(func $add (param $a i32) (param $b f32) (result i32)
+　　　　get_local $a
+　　　　get_local $b
+　　　　i32.trunc_s/f32
+　　　　i32.add
+　　)
+)
+```
+
+- 使用 `call_indirect` 间接调用
+```
+(module
+　　(table 2 anyfunc)
+　　(elem (i32.const 0) $plus13 $plus42)　　　 ;;set $plus13,$plus42 to table
+　　(type $type_0 (func (param i32)(result i32))) ;;define func Signatures
+　　(func $plus13 (param $i i32) (result i32)
+　　　　i32.const 13
+　　　　get_local $i
+　　　　i32.add)
+　　(func $plus42 (param $i i32) (result i32)
+　　　　i32.const 42
+　　　　get_local $i
+　　　　i32.add)
+　　(func (export "call_by_index") (param $id i32) (param $input i32) (result i32)
+　　　　get_local $input　　　　　　 ;;push param into stack
+　　　　get_local $id　　　　　　　　;;push Function id into stack
+　　　　call_indirect (type $type_0) ;;call table:id
+　　)
+)
+```
+
+- 递归
+```
+(module
+　　(func $sum (export "sum") (param $i i32) (result i32)
+　　 (local $c i32)
+　　　　get_local $i
+　　　　i32.const 1
+　　　　i32.le_s
+　　　　if
+　　　　　　get_local $i
+　　　　　　set_local $c
+　　　　else
+　　　　　　get_local $i
+　　　　　　i32.const 1
+　　　　　　i32.sub
+　　　　　　call $sum
+　　　　　　get_local $i
+　　　　　　i32.add
+　　　　　　set_local $c
+　　　　end
+　　　　get_local $c
+　　)
+)
+```
