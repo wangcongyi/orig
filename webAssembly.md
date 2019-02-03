@@ -350,3 +350,97 @@ func $f1 (param i32) (param f32) (result i64)
 　　)
 )
 ```
+
+- 导出对象 WebAssembly 中可导出的对象包括内存、表格、函数、只读全局变量。若要导出某个对象，只需要在该对象的类型后加入(export "export_name")属性即可  
+```
+(module
+　　(func (export "wasm_func") (result i32)
+　　　　i32.const 42
+　　)
+　　(memory (export "wasm_mem") 1)
+　　(table (export "wasm_table") 2 anyfunc)
+　　(global (export "wasm_global_pi") f32 (f32.const 3.14159))
+)
+```
+```js
+fetch("exports.wasm")
+    .then(res => res.arrayBuffer())
+    .then(bytes => WebAssembly.instantiate(bytes))
+    .then(results => {
+        const exports = WebAssembly.Module.exports(results.module)
+        for (let e in exports) {
+          console.log(exports[e])
+        }
+        console.log(results.instance.exports)
+        console.log(results.instance.exports.wasm_func())
+        console.log(results.instance.exports.wasm_global_pi)
+        console.log(typeof (results.instance.exports.wasm_global_pi))
+      }
+    )
+```
+
+- 导入对象 与可导出的对象类似，WebAssembly中的可导入对象包括内存、表格、函数、只读全局变量,由于导入函数必须先于内部函数定义，因此习惯上导入对象一般在module的开始处声明  
+- 与导出对象类似，使用WebAssembly.Module.imports()可以获取模块的导入对象信息
+```
+(module
+　　(import "js" "memory" (memory 1))　　　　　　　　　　　　 ;;import Memory
+　　(import "js" "table" (table 1 anyfunc))　　　　　　　　　 ;;import Table
+　　(import "js" "print_i32" (func $js_print_i32 (param i32))) ;;import Fucntion
+　　(import "js" "global_pi" (global $pi f32))　　　　　　　　;;import Global
+)
+```
+```js
+fetch("imports.wasm")
+    .then(res => res.arrayBuffer())
+    .then(bytes => WebAssembly.compile(bytes))
+    .then(module => {
+        const imports = WebAssembly.Module.imports(module)
+        for (let e in imports) {
+          console.log(imports[e])
+        }
+      }
+    )
+
+```
+
+- import 结点使用了两级名字空间的方式对外部导入的对象进行识别，第一级为模块名（即上例中的js），第二级为对象名（即上例中的memory、table等）。导入对象是在实例化时导入实例中去的，在JavaScript的环境下，如果导入对象为importObj，那么(import "m" "n"...)对应的就是importObj.m.n。例如，上述imports.wasm模块实例化时应提供的导入对象如下  
+```js
+function js_print_i32(param) {
+    console.log(param)
+  }
+
+  var memory = new WebAssembly.Memory({ initial: 1, maximum: 10 })
+  var table = new WebAssembly.Table({ element: 'anyfunc', initial: 2 })
+  var importObj = { js: { print_i32: js_print_i32, memory: memory, table: table, global_pi: 3.14 } }
+  fetchAndInstantiate("imports.wasm", importObj).then(instance =>
+    console.log(instance)
+  )
+```
+
+- 与导出函数相对应，导入的作用是让WebAssembly调用外部对象。WebAssembly代码调用导入对象时，虚拟机同样执行了参数类型转换、参数和返回值的出入栈等操作，因此导入函数的调用方法与内部函数是一致的  
+```
+;;imports.wat
+(module
+　　(import "js" "print_f32" (func $js_print_f32 (param f32) (result f32)))
+　　(import "js" "global_pi" (global $pi f32))
+　　(func (export "print_pi") (result f32)
+　　　　get_global $pi
+　　　　call $js_print_f32
+　　)
+)
+```
+
+- print_pi()函数读取了导入的只读全局变量$pi并压入栈中，然后调用了导入函数$js_print_f32，并将其返回值一并返回  
+```js
+function js_print_f32(param) {
+    console.log(param)
+    return param * 2.0
+  }
+
+  var importObj = { js: { print_f32: js_print_f32, global_pi: 3.14 } }
+  fetchAndInstantiate("imports.wasm", importObj).then(
+    function(instance) {
+      console.log(instance.exports.print_pi())
+    }
+  )
+```
