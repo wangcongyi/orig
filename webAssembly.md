@@ -444,3 +444,7 @@ function js_print_f32(param) {
     }
   )
 ```
+
+## Go 语言和 WebAssembly
+需要装 go 1.11 以上的版本  
+我现在电脑是 1.8   todo;~~~~
