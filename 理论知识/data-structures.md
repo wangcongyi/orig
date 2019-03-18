@@ -155,7 +155,10 @@
 # Graph
 ![Graph](https://www.interviewcake.com/images/svgs/graph_coloring__nodes_and_edges.svg?bust=195)
 图就像是个关系网一样，树的节点之间是一对多的关系，并存在父与子的层次划分，而图的顶点（vertex）之前是多对多的关系，并且所有  
-顶点都是平等的。顶点之间的关联关系被称为边（edges）。边有权重之分（weight）。图表非常适合
+顶点都是平等的。顶点之间的关联关系被称为边（edges）。  
+边有权重之分（weight）就有 带权图（Weighted Graph）；边也有方向之分：就有 有向图
+图表数据结构非常适合表示与其他相关事物的情况。  
+大多数图算法是 O(n*lg(n))O(n*lg(n))或者更慢
 
 
 # `以下内容更多的是关于算法，另写一篇`     
