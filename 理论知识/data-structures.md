@@ -161,9 +161,11 @@
 图表数据结构非常适合表示与其他相关事物的情况。大多数图算法是 O(n*lg(n))O(n*lg(n))或者更慢  
 
 图数据结构表示主要为 邻接矩阵、邻接表（邻接表、逆邻接表、十字链表）
-![邻接矩阵](https://mmbiz.qpic.cn/mmbiz_png/NtO5sialJZGosRUW6ToEL0P3VKYqaQiaaV0y4Ozk1W47oyL3ssuFWtDP6Z91VRLLpRvB5iazeOV42LjF7EHhjnJaQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![邻接矩阵](https://mmbiz.qpic.cn/mmbiz_png/NtO5sialJZGosRUW6ToEL0P3VKYqaQiaaV0y4Ozk1W47oyL3ssuFWtDP6Z91VRLLpRvB5iazeOV42LjF7EHhjnJaQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)  
 
-![邻接表](https://mmbiz.qpic.cn/mmbiz_png/NtO5sialJZGosRUW6ToEL0P3VKYqaQiaaVY4zMoTbJH2J4AuknyLHOGBribE1k5MReDS60l5rjtj9pKwws181aaqg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![邻接表](https://mmbiz.qpic.cn/mmbiz_png/NtO5sialJZGosRUW6ToEL0P3VKYqaQiaaVY4zMoTbJH2J4AuknyLHOGBribE1k5MReDS60l5rjtj9pKwws181aaqg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)  
+
+![十字链表](https://mmbiz.qpic.cn/mmbiz_png/NtO5sialJZGosRUW6ToEL0P3VKYqaQiaaVoKoEIaI2QZlLbXkSYm8QkGjM3V7ExPPnFc9uic0Y5tzQMAicub7qQibeQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
 
 # `以下内容更多的是关于算法，另写一篇`     
