@@ -422,4 +422,94 @@ ReactDOM.render(<Dynamic path='./App' />, document.getElementById('root'));
 registerServiceWorker();
 
 
+////////////////////////////////////////////////////
+////////////////////////////////////////////////////
+//  react v16+ 
+import React, { createRef, useEffect, useMemo, useReducer, useRef, useState } from 'react'
+import { store, view } from 'react-easy-state'
+
+const initailState = { count: 0, step: 1 }
+const reducer = (state, action) => {
+  const { count, step } = state
+  if (action.type === 'tick') return { count: count + step, step }
+  if (action.type === 'step') return { count, step: action.step }
+}
+
+const Hello = () => {
+  const [state, dispatch] = useReducer(reducer, initailState)
+  const { count, step } = state
+
+  useEffect(() => {
+    const id = setInterval(() => dispatch({ type: 'tick' }), 1000)
+
+    return () => clearInterval(id)
+
+  }, [dispatch])
+
+
+  return (
+    <>
+      <h1>{count}</h1>
+      <input value={step} onChange={e => dispatch({ type: 'step', step: Number(e.target.value) })}/>
+    </>
+  )
+}
+const Hello = () => {
+  const [renderIndex, setRenderIndex] = useState(1)
+  const refFromUseRef = useRef()
+  const refFromCreateRef = createRef()
+
+  if (!refFromUseRef.current) {
+    refFromUseRef.current = renderIndex
+  }
+
+  if (!refFromCreateRef.current) {
+    refFromCreateRef.current = renderIndex
+  }
+
+  return (
+    <>
+      Current render index: {renderIndex}
+      <br />
+      CreateRef: {refFromCreateRef.current}
+      <br />
+      UseRef: {refFromUseRef.current}
+      <br />
+      <button onClick={() => setRenderIndex(prev => prev + 1)}>re-render</button>
+    </>
+  )
+}
+const counter = store({ num: 0 })
+const increment = () => counter.num++
+export default view(() => <button onClick={increment}>{counter.num}</button>)
+
+
+const Hello = () => {
+  const [count, setCount] = useState(0)
+  const [wordIndex, setWordIndex] = useState(0)
+  const words = ['hey', 'this', 'is', 'cool']
+  const word = words[wordIndex]
+
+  const computerLetterCount = word => word.length
+
+  const letterCount = useMemo(() => computerLetterCount(word), [word])
+
+  return (
+    <>
+      <h3>Compute number of letters (slow)</h3>
+      <p>"{word}" has {letterCount} letters</p>
+      <button onClick={() => {
+        const next = wordIndex + 1 === words.length ? 0 : wordIndex + 1
+        setWordIndex(next)
+      }}>Next word
+      </button>
+      <h3>Increment a counter (fast)</h3>
+      <p>Counter: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </>
+  )
+}
+
+export default Hello
+
 
