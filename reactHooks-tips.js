@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////
 ////////////////////////////////////////////////////
 //  react v16+ 
-import React, { createRef, useEffect, useMemo, useReducer, useRef, useState } from 'react'
+import React, { memo, useMemo, useCallback, createRef, useEffect, useMemo, useReducer, useRef, useState } from 'react'
 import { store, view } from 'react-easy-state'
 
 const initailState = { count: 0, step: 1 }
@@ -92,7 +92,7 @@ export default Hello
 /////////////////////////////////////////
 /////////////////////////////////////////
 
-import React, { createContext, useContext, useEffect, useState, useRef, useReducer } from 'react'
+import React, { memo, useMemo, createContext, useContext, useEffect, useState, useRef, useReducer } from 'react'
 import axios from 'axios'
 import './css/variables.css'
 import './App.css'
@@ -422,3 +422,43 @@ const F = () => {
     </>
   )
 }
+
+const B = ({ click, children }) => {
+  console.log(`rendering button - ${children}`)
+  return <button onClick={click}>{children}</button>
+}
+
+const T = () => {
+  console.log('rendering title')
+  return <h2>useCallback Hook</h2>
+}
+const C = ({ text, count }) => {
+  console.log(`rendering ${text}`)
+  return <div>{text} - {count}</div>
+}
+const MT = memo(T)
+const MB = memo(B)
+const MC = memo(C)
+const P = () => {
+  const [age, setAge] = useState(25)
+  const [salary, setSalary] = useState(50000)
+
+  const incrementAge = useCallback(() => setAge(age + 1), [age])
+
+  const incrementSalary = useCallback(() => setSalary(salary + 1000), [salary])
+
+  return (
+    <div>
+      <MT />
+      <MC text='age' count={age} />
+      <MB click={incrementAge}>Increment Age</MB>
+      <MC text='salary' count={salary} />
+      <MB click={incrementSalary}>Increment Salary</MB>
+    </div>
+  )
+}
+
+
+
+
+
