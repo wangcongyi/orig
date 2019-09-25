@@ -76,3 +76,75 @@ btn.addEventListener('click', () => {
 // 输出结果为： L1 m1 L2 m2
 
 ```  
+
+
+
+### NodeJS 事件循环
+```js
+const fs = require('fs')
+const async = require('async_hooks')
+
+let index = 0
+
+function print(str) {
+  fs.writeFileSync(1, str + '\n')
+}
+
+function getIndex(n) {
+  return ' '.repeat(n)
+}
+
+
+async.createHook({
+  init(asyncId, type, triggerAsyncId) {
+    const cId = async.executionAsyncId()
+    print(`${getIndex(index)}${type}(${asyncId} : trigger: ${triggerAsyncId} scope: ${cId}`)
+  },
+  before(asyncId) {
+    print(`${getIndex(index)} before: ${asyncId}`)
+    index += 2
+  },
+  after(asyncId) {
+    index -= 2
+    print(`${getIndex(index)} after: ${asyncId}`)
+  },
+  destroy(asyncId) {
+    print(`${getIndex(index)} destroy: ${asyncId}`)
+  }
+}).enable()
+
+print('start')
+
+setTimeout(() => {
+  print(' -- outer: timeout1 -- ')
+  setImmediate(() => {
+    print('-- inner: setImmediate --')
+    process.nextTick(() => {
+      print('-- inner-inner: nextTick --')
+    })
+  })
+
+  setTimeout(() => {
+    print('-- inner: setTimeout --')
+  })
+
+  setImmediate(() => {
+    print('-- inner: setImmediate2 --')
+  })
+
+  process.nextTick(() => {
+    print('-- inner: nextTick --')
+  })
+})
+
+process.nextTick(() => {
+  print('-- outter: nextTick--')
+})
+
+setTimeout(() => {
+  print('--outter: timeout2')
+})
+
+print('end')
+
+```
