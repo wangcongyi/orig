@@ -236,3 +236,45 @@ module.exports = {
 ```
 
 
+
+```js
+const path = require('path')
+const ZipPlugin = require('zip-webpack-plugin')
+const timestamp = require('time-stamp')
+const { override, fixBabelImports, addPostcssPlugins, addWebpackAlias, addDecoratorsLegacy, addWebpackPlugin } = require('customize-cra')
+
+module.exports = override(
+  fixBabelImports('import', {
+    libraryName: 'antd-mobile',
+    style: 'css',
+  }),
+  addPostcssPlugins([require('postcss-px2rem-exclude')({ remUnit: 37.5, exclude: /node_modules|dist/i })]),
+  addWebpackAlias({
+    '@': path.resolve(__dirname, 'src')
+  }),
+  addWebpackPlugin(
+    new ZipPlugin({
+      path: '../build/',
+      filename: `share-nfs-jifen_${timestamp('YYYYMMDDHHmm')}`
+    })
+  ),
+  addDecoratorsLegacy()
+);
+
+
+```
+
+```js 
+setupProxy.js
+const proxy = require("http-proxy-middleware");
+
+module.exports = function(app) {
+  app.use(
+    proxy("/mall", {
+      target: "http://172.20.21.46:5601/",
+      changeOrigin: true
+    })
+  );
+};
+```
+
