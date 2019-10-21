@@ -253,12 +253,7 @@ export default connect(() => ({
 //     b: "bbbbbb",
 //   }
 
-////////////////////////   ****  import PropTypes from 'prop-types'  ****
-//   static PropTypes = {
-//     a: PropTypes.string,
-//     b: PropTypes.string,
-//   }
-//     如果是 Functional Components 
+////  ****  import PropTypes from 'prop-types'  ****
 //       Plat.propType = {
 //          a: PropTypes.string,
 //          b: PropTypes.ttring
