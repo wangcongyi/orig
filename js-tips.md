@@ -426,6 +426,23 @@ const pageScroll = () => {
   }
 ```
 
+## 对象 key 值重命名
+```js
+const renameKeys = (keysMap, obj) =>
+  Object.keys(obj).reduce(
+    (acc, key) => ({
+      ...acc,
+      ...{ [keysMap[key] || key]: obj[key] },
+    }),
+    {},
+  )
+```
+
+## 返回当前时间格式化
+```js
+const time = () => new Date(+new Date() + 8 * 3600 * 1000).toISOString().substr(0, 19).replace('T', ' ').replace(/-/g, '.')
+```
+
 
 
 
