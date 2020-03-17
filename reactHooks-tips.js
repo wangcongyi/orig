@@ -502,5 +502,25 @@ ReactDOM.render(
 );
 
 
+//  update state
+//  useState  array or object
+//  这点容易在开发的时候犯错
 
+```js
+const [theArray, setTheArray] = useState(initialArray);
+const [theObject, setTheObject] = useState(initialObject);
+
+// Push element at end of array
+setTheArray(prevArray => [...prevArray, newValue])
+
+// Push/update element at end of object
+setTheObject(prevState => ({ ...prevState, currentOrNewKey: newValue}));
+
+// Push/update element at end of array of objects
+setTheArray(prevState => [...prevState, {currentOrNewKey: newValue}]);
+
+// Push element at end of object of arrays
+setTheObject(prevState => ({...prevState, currentKey: [...prevState.currentKey, newValue]}));
+
+```
 
