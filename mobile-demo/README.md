@@ -1,5 +1,3 @@
-### 未来集市微前端
-
 #### 代码规范
 - 使用 定制化 `Airbnb react` 代码规范 详见项目 `eslint` 相关配置
 - 不准注销 `eslint` 相关配置、不准使用 `eslint-disable-next-line`
