@@ -62,4 +62,6 @@
 
 #### todo
 - 增加 WebWorkers 模块 [WebWorkers](https://github.com/GoogleChromeLabs/comlink)  
+- [react hooks 封装的 worker](https://github.com/alewin/useWorker)  
+
 - 增加 WebAssembly 模块 [WebAssembly](https://mbebenita.github.io/WasmExplorer/)
