@@ -155,6 +155,10 @@ print('end')
 
 ### async/await 
 
+`async/await` 让你的代码看起来是同步的，在某种程度上，也使得它的行为更加地同步  
+`await` 关键字会阻塞其后的代码，直到 `promise` 完成，就像执行同步操作一样  
+它确实可以允许其他任务在此期间继续运行，但您自己的代码被阻塞  
+
 ```js
 
 // async function timeTest() {
@@ -180,12 +184,9 @@ print('end')
     console.log("Time taken in milliseconds: " + timeTaken);
   })
 
-`async/await` 让你的代码看起来是同步的，在某种程度上，也使得它的行为更加地同步  
-`await` 关键字会阻塞其后的代码，直到promise完成，就像执行同步操作一样  
-它确实可以允许其他任务在此期间继续运行，但您自己的代码被阻塞  
-
-
 ```
+
+
 
 
 
