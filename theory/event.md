@@ -12,7 +12,7 @@
       MicroTask 包含了 process.nextTick, Promises, Object.observe, MutationObserver 
 
 
-```javascript
+```js
    
   function foo() {
       console.log(1);
@@ -37,6 +37,7 @@
 
 
 ```js
+
 (function test() {
     setTimeout(function() {console.log(4)}, 0);
     new Promise(function executor(resolve) {   // 创建 Promise 实例是同步的 ！！
@@ -80,7 +81,9 @@ btn.addEventListener('click', () => {
 
 
 ### NodeJS 事件循环
+
 ```js
+
 const fs = require('fs')
 const async = require('async_hooks')
 
@@ -148,3 +151,41 @@ setTimeout(() => {
 print('end')
 
 ```
+
+
+### async/await 
+
+```js
+
+// async function timeTest() {
+  //   const timeoutPromise1 = timeoutPromise(3000);
+  //   const timeoutPromise2 = timeoutPromise(3000);
+  //   const timeoutPromise3 = timeoutPromise(3000);
+  //
+  //   await timeoutPromise1;
+  //   await timeoutPromise2;
+  //   await timeoutPromise3;
+  // }
+  
+  async function timeTest() {
+    await timeoutPromise(3000);
+    await timeoutPromise(3000);
+    await timeoutPromise(3000);
+  }
+
+  let startTime = Date.now();
+  timeTest().then(() => {
+    let finishTime = Date.now();
+    let timeTaken = finishTime - startTime;
+    console.log("Time taken in milliseconds: " + timeTaken);
+  })
+
+`async/await` 让你的代码看起来是同步的，在某种程度上，也使得它的行为更加地同步  
+`await` 关键字会阻塞其后的代码，直到promise完成，就像执行同步操作一样  
+它确实可以允许其他任务在此期间继续运行，但您自己的代码被阻塞  
+
+
+```
+
+
+
