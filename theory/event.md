@@ -11,6 +11,7 @@
     > 典型的 MacroTask 包含了 setTimeout, setInterval, setImmediate, requestAnimationFrame, I/O, UI rendering 等，
       MicroTask 包含了 process.nextTick, Promises, Object.observe, MutationObserver 
 
+   [demo](https://medium.com/javascript-in-plain-english/6-interview-questions-that-combine-promise-and-settimeout-34c430fc297e)
 
 ```js
    
