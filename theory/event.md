@@ -184,6 +184,7 @@ print('end')
     let timeTaken = finishTime - startTime;
     console.log("Time taken in milliseconds: " + timeTaken);
   })
+  https://developer.mozilla.org/zh-CN/docs/learn/JavaScript/%E5%BC%82%E6%AD%A5/Async_await
 
 ```
 
