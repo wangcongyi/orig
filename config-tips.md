@@ -1,7 +1,7 @@
 * 2017-11-14 使用 webpack 3.X 版本 和 postcss；不用写postcss.config.js
 * 2018-02-07 增加 postcss-nested,postcss-cssnext （ cssnext 插件已经包含 autoprefixer 可以在配置文件中删除）
 * 2018-11-01 有篇文章很长,但十分详细的说明 [webpack v4](https://nystudio107.com/blog/an-annotated-webpack-4-config-for-frontend-web-development)
-* 2021-06-15 webpack v5 已经出来很久了，不会再更新。 推荐使用 [vite2](https://vitejs.dev/)
+* 2021-06-15 webpack v5 已经出来很久了，推荐使用 [vite2](https://vitejs.dev/)
 
 ```js
   var ex = require('extract-text-webpack-plugin');
@@ -276,5 +276,174 @@ module.exports = function(app) {
     })
   );
 };
+```
+
+
+
+
+
+
+
+
+#### webpack5
+
+// webpack.common
+```js
+
+const path = require('path')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
+module.exports = {
+  entry: path.resolve(__dirname, '../src/index.js'),
+  output: {
+    path: path.resolve(__dirname, '../dist'),
+    publicPath: '/',
+    filename: `[name]/[name].[chunkhash:8].js`,
+    chunkFilename: `statics/js/[id].[chunkhash:8].chunk.js`,
+    assetModuleFilename: 'images/[hash][ext][query]',
+  },
+  resolve: {
+    extensions: ['.js', '.jsx', '.css', '.jpg', '.png', '.jpeg', '.gif'],
+    alias: {
+      '@': path.resolve(__dirname, '../src'),
+    },
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        include: [path.resolve(__dirname, '../src')],
+        use: {
+          loader: 'babel-loader?cacheDirectory=true',
+        },
+      },
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
+      {
+        test: /\.less$/,
+        exclude: /node_modules/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader', 'postcss-loader'],
+      },
+      {
+        test: /\.(eot|ttf|woff|woff2|otf)$/,
+        type: 'asset/inline',
+      },
+      {
+        test: /\.(webp|png|svg|jpg|gif|jpe?g)$/,
+        type: 'asset',
+        parser: {
+          dataUrlCondition: {
+            maxSize: 8 * 1024,
+          },
+        },
+      },
+    ],
+  },
+  plugins: [
+    new MiniCssExtractPlugin(),
+  ],
+}
+
+
+
+```
+
+
+// webpack dev
+```js
+const path = require('path')
+const { merge } = require('webpack-merge')
+const common = require('./webpack.common')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+
+
+module.exports = merge(common,{
+  mode: 'development',
+  devtool: 'inline-source-map',
+  output: {
+    filename: '[name].js',
+    publicPath: '/',
+  },
+  devServer: {
+    contentBase: false,
+    disableHostCheck: true,
+    compress: true,
+    inline: true,
+    hot: true,
+    port: 9100,
+    quiet: false,
+    open: 'http://localhost:9100',
+    host: '0.0.0.0',
+    historyApiFallback: true,
+  },
+  plugins:[
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, '../public/index.html'),
+      inject: 'body',
+      filename: 'index.html',
+    })
+  ]
+})
+
+
+```
+
+// webpack prod
+
+
+```js
+
+const path = require('path')
+const { merge } = require('webpack-merge')
+const common = require('./webpack.common')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+
+module.exports = merge(common, {
+  devtool: 'source-map',
+  mode: 'production',
+  output: {
+    filename: '[name].[chunkhash:8].bundle.js',
+    chunkFilename: '[name].[chunkhash:8].chuck.js',
+    publicPath: './',
+  },
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new CssMinimizerPlugin(),
+      (compiler) => {
+        const TerserPlugin = require('terser-webpack-plugin')
+        new TerserPlugin({
+          parallel: true,
+          terserOptions: {
+            compress: {},
+          },
+        }).apply(compiler)
+      },
+    ],
+  },
+  plugins: [
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      title: 'QTrade',
+      template: path.resolve(__dirname, '../public/index.html'),
+      inject: 'body',
+      filename: 'index.html',
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeAttributeQuotes: true,
+        minifyCSS: true,
+        minifyJS: true,
+      },
+    }),
+  ]
+})
+
+
 ```
 
