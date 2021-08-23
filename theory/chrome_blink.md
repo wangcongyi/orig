@@ -79,3 +79,12 @@
  - `event.stopPropagation()` 除了阻止事件的冒泡 还阻止事件的继续捕获 ,简而言之就是阻止事件的进一步传播
  
  - IE下使用 `event.returnValue = false` 阻止默认事件，使用 `event.cancelBubble = true` 阻止事件冒泡
+
+
+
+
+### JavaScript modules
+
+[JS modules](https://v8.dev/features/modules#module-vs-script)
+
+![script tag](https://v8.dev/_img/modules/async-defer.svg)
