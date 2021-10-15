@@ -447,3 +447,41 @@ module.exports = merge(common, {
 
 ```
 
+
+
+webpack5  about type asset
+
+```js
+
+{
+  test: /\.css$/,
+  use: [MiniCssExtractPlugin.loader, 'css-loader'],
+},
+{
+  test: /\.less$/,
+  exclude: /node_modules/,
+  use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader', 'postcss-loader'],
+},
+{
+  test: /\.(eot|ttf|wofff|woff2|otf)$/,
+  type: 'asset/inline',
+},
+{
+  test: /\.(webp|png|svg|jpg|gif|jpe?g)$/,
+  type: 'asset',
+  parser: {
+    dataUrlCondition: {
+      maxSize: 8 * 1024,
+    }
+  }
+}
+
+```
+
+
+
+
+
+
+
+
