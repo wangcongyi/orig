@@ -479,7 +479,69 @@ webpack5  about type asset
 ```
 
 
+vite2 with antd-mobile  
+must npm install indexof?.
 
+```js
+
+import path from 'path'
+import { defineConfig } from 'vite'
+import styleImport from 'vite-plugin-style-import'
+import reactRefresh from '@vitejs/plugin-react-refresh'
+
+export default defineConfig({
+  base: '/mobile-profile/',
+  css: {
+    preprocessorOptions: {
+      less: {
+        javascriptEnabled: true,
+      },
+    },
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
+  },
+  plugins: [
+    reactRefresh(),
+    styleImport({
+      libs: [
+        {
+          libraryName: 'antd-mobile',
+          esModule: true,
+          resolveStyle: name => {
+            return `antd-mobile/es/${name}/style/css`
+          },
+        },
+      ],
+    }),
+  ],
+  server: {
+    open: true,
+    proxy: {
+      '/qtrade_ums/': {
+        target: 'https://test.qtrade.com.cn',
+        changeOrigin: true,
+        secure: false,
+      },
+      '/qtrade_bond/': {
+        target: 'https://dev.qtrade.com.cn',
+        changeOrigin: true,
+        secure: false,
+      },
+    },
+  },
+  build: {
+    assetsInlineLimit: 8192,
+    commonjsOptions: {
+      transformMixedEsModules: true,
+    },
+  },
+})
+
+
+```
 
 
 
