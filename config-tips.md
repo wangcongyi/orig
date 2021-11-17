@@ -2,6 +2,7 @@
 * 2018-02-07 增加 postcss-nested,postcss-cssnext （ cssnext 插件已经包含 autoprefixer 可以在配置文件中删除）
 * 2018-11-01 有篇文章很长,但十分详细的说明 [webpack v4](https://nystudio107.com/blog/an-annotated-webpack-4-config-for-frontend-web-development)
 * 2021-06-15 webpack v5 已经出来很久了，推荐使用 [vite2](https://vitejs.dev/)
+* 2021-11-17 使用 swc 代替 babel
 
 ```js
   var ex = require('extract-text-webpack-plugin');
@@ -543,6 +544,58 @@ export default defineConfig({
 
 ```
 
+
+```js
+// npm i @swc/cli @swc/core -D
+// .swcrc
+
+[
+  {
+    "test": ".tsx?$",
+    "jsc": {
+      "parser": {
+        "syntax": "typescript",
+        "tsx": true,
+        "decorators": false,
+        "dynamicImport": true
+      },
+      "transform": {
+        "react": {
+          "refresh": true
+        }
+      }
+    }
+  },
+  {
+    "test": ".jsx?$",
+    "jsc": {
+      "parser": {
+        "syntax": "ecmascript",
+        "jsx": true,
+        "decorators": false,
+        "dynamicImport": true
+      },
+      "transform": {
+        "react": {
+          "refresh": true
+        }
+      }
+    }
+  }
+]
+
+
+//  webpack.config.js
+
+ {
+        test: /\.jsx?$/ ,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+            //  loader: "babel-loader"
+            loader: "swc-loader"
+        }
+
+```
 
 
 
