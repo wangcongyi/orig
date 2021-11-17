@@ -545,6 +545,9 @@ export default defineConfig({
 ```
 
 
+使用 swc 代替 babel 
+安装 swc， 新建 `.swcrc` 文件 ，修改 `webpack.config.js` 里的 loader
+
 ```js
 // npm i @swc/cli @swc/core -D
 // .swcrc
@@ -588,15 +591,13 @@ export default defineConfig({
 //  webpack.config.js
 
  {
-        test: /\.jsx?$/ ,
-        exclude: /(node_modules|bower_components)/,
-        use: {
-            //  loader: "babel-loader"
-            loader: "swc-loader"
-        }
-
+    test: /\.jsx?$/ ,
+    exclude: /node_modules/,
+    use: {
+         //  loader: "babel-loader"
+         loader: "swc-loader"
+    }
 ```
-
 
 
 
