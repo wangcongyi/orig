@@ -549,7 +549,7 @@ export default defineConfig({
 安装 swc， 新建 `.swcrc` 文件 ，修改 `webpack.config.js` 里的 loader
 
 ```js
-// npm i @swc/cli @swc/core -D
+// npm i @swc/cli @swc/core swc-loader -D
 // .swcrc
 
 [
