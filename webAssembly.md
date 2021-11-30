@@ -450,6 +450,7 @@ function js_print_f32(param) {
 我现在电脑是 1.8   todo;~~~~
 
 
+## rust 语言和 WebAssembly
 ### 2021-11-30
 在 github 上找到了一个优秀的 repo  [rustwasm](https://github.com/rustwasm)  
 根据官方示例 已经成功允许起来。
