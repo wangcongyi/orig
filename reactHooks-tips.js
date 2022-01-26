@@ -593,7 +593,29 @@ const rootElement = document.getElementById('root');
 ReactDOM.render(<App />, rootElement);
 
 
+```
 
+
+***** 下面的写法避免了每个页面引入的情况
+```js
+
+import React, { memo, Suspense, lazy, useCallback } from 'react'
+
+const AsyncCompoennt = () => {
+  const [page, setPage] = useState('Default')
+
+  const Component = useCallback(
+    lazy(() => import(`./Pages/${page}`)),
+    [page]
+  )
+  
+  return (
+    <Suspense fallback={null}>
+      <Component />
+    </Suspense>
+  )
+
+}
 
 ```
 
