@@ -2,7 +2,7 @@
 * 2018-02-07 增加 postcss-nested,postcss-cssnext （ cssnext 插件已经包含 autoprefixer 可以在配置文件中删除）
 * 2018-11-01 有篇文章很长,但十分详细的说明 [webpack v4](https://nystudio107.com/blog/an-annotated-webpack-4-config-for-frontend-web-development)
 * 2021-06-15 webpack v5 已经出来很久了，推荐使用 [vite2](https://vitejs.dev/)
-* 2021-11-17 使用 swc 代替 babel
+* 2021-11-17 使用 swc 代替 babel, (2022-04-23 升级swc/core发现bug 更新配置 )
 
 ```js
   var ex = require('extract-text-webpack-plugin');
@@ -597,6 +597,55 @@ export default defineConfig({
          //  loader: "babel-loader"
          loader: "swc-loader"
     }
+```
+
+/// .swc
+```js
+
+[
+  {
+     "test": ".tsx?$",
+     "jsc": {
+         "parser": {
+           "syntax": "typescript",
+           "tsx": true,
+           "decorators": true,
+           "dynamicImport": true
+         }
+       }
+  },
+ {
+  "test": ".jsx?$",
+  "jsc": {
+    "parser": {
+      "syntax": "ecmascript",
+      "jsx": true,
+      "dynamicImport": true,
+      "privateMethod": true,
+      "functionBind": true,
+      "classPrivateProperty": true,
+      "exportDefaultFrom": true,
+      "exportNamespaceFrom": true,
+      "decorators": true,
+      "decoratorsBeforeExport": true,
+      "importMeta": true,
+      "transform": {
+       "legacyDecorator": true,
+        "react": {
+          "pragma": "React.createElement",
+          "pragmaFrag": "React.Fragment",
+          "throwIfNamespace": true,
+          "development": false,
+          "useBuiltins": false,
+           "refresh": true
+        }
+      }
+    }
+  }
+}
+]
+
+
 ```
 
 
