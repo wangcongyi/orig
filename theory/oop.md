@@ -119,3 +119,22 @@
 ps：super关键字指代父类的实例，即父类的this对象。在子类构造函数中，调用super后，才可使用this关键字，否则报错。
 ```
 
+#### __proto__和 prototype
+每一个对象 一定对应一个原型对象，并从原型对象上继承属性和方法。  
+对象 __proto__ 属性就是所对应的原型对象
+```js
+
+const o1 = { x: 1 }
+const o2 = new Object();
+
+o1.__proto__ === Object.prototype // true
+o2.__proto__ === Object.prototype // true
+
+//  对象有属性__proto__,指向该对象的构造函数的原型对象
+//  方法除了有属性__proto__,还有属性prototype，prototype指向该方法的原型对象
+```
+
+
+
+
+
