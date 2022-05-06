@@ -22,3 +22,6 @@
     - 副作用
     - 替身 react 在 reconciliation 过程中会构建一颗新fiber 树 （workInProgress tree）表示当前工作进度的树，一边和旧树进行对比，一边构建新树，
     - 我们可以叫 双缓存 或者 双缓冲，在 reconciliation 完毕之后一次性提交给浏览器进行渲染，减少内存分配和垃圾回收
+
+
+// todo;  vdom 更多意义在于 是数据驱动的、声明式的，让开发者不需要关系 dom 的操作细节， 开发模式变成了 view=f(state)
