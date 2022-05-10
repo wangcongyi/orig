@@ -1,7 +1,6 @@
 ### requestIdleCallback
 
-react 新的调度策略是异步、可中断的，其实现方式基于浏览器的 requestIdleCallback 和 requestAnimationFrame。
-
+- react 新的调度策略是异步、可中断的，其实现方式基于浏览器的 requestIdleCallback 和 requestAnimationFrame。
 - 该 API 的作用是 让浏览器在‘有空’的时候执行我们的回调，这个回调会传入一个期限，表示浏览器有多少时间供我们执行，我们最后在这个时间范围内执行完毕
 - requestIdleCallback will schedule work when there is free time at the end of a frame, or when the user is inactive.
 
