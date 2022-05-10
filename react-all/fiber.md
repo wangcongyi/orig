@@ -1,15 +1,4 @@
-#### Mental model
-react 的核心可以用 ui = fn(state) 来表示，更详细点可以用  
-  const state = reconcile(update)  
-  const UI = commit(state)  
-
-react 源码可以分为如下几个模块：
-- Scheduler (调度器)：排序优先级，让优先级高的任务先进行 reconcile  
-- Reconciler (协调器)：找出哪些节点发生了改变，并标记不同的 tag  
-- Renderer (渲染器)：将 Reconcile 中打好的 tag 节点渲染到视图上
-
-
-##### Fiber
+### Fiber
 > 动机
 
   - 在 react v16 版本之前，组件渲染的时候，从开始到完成整个过程是无法中断的。  
