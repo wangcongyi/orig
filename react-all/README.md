@@ -1,4 +1,4 @@
-### overview
+### recap
 
 - react 的核心可以用 ui = fn(state) 来表示，更详细点可以用  
   const state = reconcile(update)  
