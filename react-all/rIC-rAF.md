@@ -16,3 +16,14 @@
 - requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率
 - 与 setTimeout 相比，requestAnimationFrame 最大的优势是 由系统来决定回调函数的执行时机。
 - 定时器函数没有办法去精准地把时间定位到。
+
+
+#### 与 Event Loop  
+1. 在所选 task queue 中约定必须包含一个可运行任务，如果没有，则跳转下面的 microtasks 步骤  
+2. 让 task queue 中最老的 task 变成第一个可执行任务，然后从 task queue 删掉 
+3. 将上面的 task 设置为 event loop 中正在运行的 task， 执行  
+4. 将 event loop 中正在运行的 task 设置为 null
+5. 执行 microtasks 检查点（也即执行 微任务队列中的任务）
+6. 更新渲染
+7. 如果 event loop 中的 task queues 里没有 task 且 microtask queue 是空的，去执行 idle period （requestIdleCallback）
+8. 返回第一步
