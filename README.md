@@ -27,3 +27,5 @@
 > 2020/03/31  增加 `mobile-demo` 文件夹：整理这些年代码规范之类的东西和其他配置  
 
 > 2020/06/28  增加 `network protocol` 文件夹 整理网络协议相关理论知识
+
+> 2022/05/20  增加 `psychology of programming` 编程心理学
