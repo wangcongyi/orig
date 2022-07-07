@@ -44,3 +44,59 @@ window.getComputedStyle(document.querySelector('.element'),':before').getPropert
 [bodymovin](https://github.com/airbnb/lottie-web)
 
 
+* 不错的设计
+```css
+
+ html, body {
+          height: 100%;
+      }
+
+      body {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
+          background: #1D1F20;
+      }
+
+      div, p {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 172px;
+          height: 82px;
+          color: white;
+          background: #262D3B;
+          position: relative;
+          border-radius: 4px;
+      }
+
+      p {
+          overflow: hidden;
+      }
+
+      p::before {
+          content: '';
+          position: absolute;
+          width: 138px;
+          height: 94px;
+          background-color: rgba(239, 90, 85, 1);
+          filter: blur(40px) brightness(0.45);
+          left: 110px;
+          top: 14px;
+          border-radius: 100%;
+      }
+
+      div::after {
+          content: '';
+          position: absolute;
+          height: 103%;
+          width: 102%;
+          background: linear-gradient(120deg, rgba(239, 90, 85, .3), rgba(239, 90, 85, 0) 30%, rgba(239, 90, 85, 0) 75%, rgba(239, 90, 85, .75));
+          border-radius: 4px;
+          z-index: -1;
+      }
+
+```
+
+
