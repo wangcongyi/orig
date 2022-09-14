@@ -21,3 +21,9 @@
 - dns-prefetch 
 - prerender
 - preconnect
+
+##### 其他参考
+1. [Preload，Prefetch 和它们在 Chrome 之中的优先级](https://github.com/xitu/gold-miner/blob/master/TODO/preload-prefetch-and-priorities-in-chrome.md)
+
+##### TODO
+- 翻译中文
