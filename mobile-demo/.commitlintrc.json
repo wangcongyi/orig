@@ -1,0 +1,26 @@
+// 需要安装  "@commitlint/cli" 和 "@commitlint/config-angular",
+
+
+{
+  "extends": ["@commitlint/config-angular"],
+  "rules": {
+    "type-enum": [
+      2,
+      "always",
+      [
+        "feat",
+        "fix",
+        "docs",
+        "format",
+        "css",
+        "refactor",
+        "perf",
+        "test",
+        "chore",
+        "revert",
+        "merge"
+      ]
+    ],
+    "subject-case": [0]
+  }
+}
