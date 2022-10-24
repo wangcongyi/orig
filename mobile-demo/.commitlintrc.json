@@ -1,5 +1,11 @@
 // 需要安装  "@commitlint/cli" 和 "@commitlint/config-angular",
+// 需要安装 husky 在根项目下创建 .husky 文件夹 里 commit-msg 
+```sh
+#!/usr/bin/env sh
 
+npx --no-install commitlint --edit $1
+
+```
 
 {
   "extends": ["@commitlint/config-angular"],
