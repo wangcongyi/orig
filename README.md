@@ -28,4 +28,6 @@
 
 > 2020/06/28  增加 `network protocol` 文件夹 整理网络协议相关理论知识
 
-> 2022/05/20  增加 `psychology of programming` 编程心理学
+> 2022/05/20  增加 `psychology of programming` 编程心理学  
+
+> 2022/10/25  增加 `git` 相关笔记 调整目录结构 
