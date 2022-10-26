@@ -220,7 +220,6 @@ $(document).on('ready', function () {
 })
 ```
 
-
 ## javascript navigator.userAgent
 ```js
 function parseUA() {
@@ -318,7 +317,7 @@ function p(time = 1000) {
   })
 }
 
-p().then(({data}) => console.log(data)   // {name:'king',age:20}
+p().then(({data}) => console.log(data))   // {name:'king',age:20}
 ```
 
 ## 新设计验证码 有很好用户体验和代码，得意之作 input 只有一个 模拟四个位置的输入提醒
@@ -377,7 +376,6 @@ function getInput() {
   })
 }
 ```
-
 
 ## Better Condition
 ```js

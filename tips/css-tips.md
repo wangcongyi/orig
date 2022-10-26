@@ -3,7 +3,6 @@
 window.getComputedStyle(document.querySelector('.element'),':before').getPropertyValue('color');
 ```
 
-
 * 页面重构的时候 可以使用伪类元素的背景图  但是宽高不受限制
 ```css
 .logo:after {
@@ -14,7 +13,6 @@ window.getComputedStyle(document.querySelector('.element'),':before').getPropert
     background-size: 10px 20px;
 }
 ```
-
 
 * 折角边框样式
 ```css
@@ -30,19 +28,14 @@ window.getComputedStyle(document.querySelector('.element'),':before').getPropert
 }
 ```
 
-
 * margin 合并情况和解决方案  
 [margin collapse](https://jonathan-harrell.com/whats-the-deal-with-margin-collapse/)
-  
-    
 
 * 文本换行问题效果  
 [codepen](https://codepen.io/chriscoyier/pen/qoLLpN)
-  
-  
+   
 * AE + bodymovin 做动画非常好的解决方案~  但使用过程中貌似 camera 只能有一个。  
 [bodymovin](https://github.com/airbnb/lottie-web)
-
 
 * 不错的设计
 ```css
@@ -99,4 +92,72 @@ window.getComputedStyle(document.querySelector('.element'),':before').getPropert
 
 ```
 
+* 不错的思路
+```css
+
+     body {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+      }
+
+      *, *::before, *::after {
+          box-sizing: border-box;
+      }
+
+
+      @keyframes rotate {
+          100% {
+              transform: rotate(1turn);
+          }
+      }
+      .rainbow {
+          position: relative;
+          z-index: 0;
+          width: 400px;
+          height: 300px;
+          border-radius: 10px;
+          overflow: hidden;
+          padding: 2rem;
+      }
+      .rainbow::before {
+          content: "";
+          position: absolute;
+          z-index: -2;
+          left: -50%;
+          top: -50%;
+          width: 200%;
+          height: 200%;
+          background-color: #399953;
+          background-repeat: no-repeat;
+          background-size: 50% 50%, 50% 50%;
+          background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+          background-image: linear-gradient(#399953, #399953), linear-gradient(#fbb300, #fbb300), linear-gradient(#d53e33, #d53e33), linear-gradient(#377af5, #377af5);
+          animation: rotate 4s linear infinite;
+      }
+      .rainbow::after {
+          content: "";
+          position: absolute;
+          z-index: -1;
+          left: 6px;
+          top: 6px;
+          width: calc(100% - 12px);
+          height: calc(100% - 12px);
+          background: white;
+          border-radius: 5px;
+          animation: opacityChange 3s infinite alternate;
+      }
+
+
+      @keyframes opacityChange {
+          50% {
+              opacity: 1;
+          }
+          100% {
+              opacity: 0.5;
+          }
+      }
+
+```
 
