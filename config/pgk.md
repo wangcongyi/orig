@@ -1,6 +1,3 @@
-#### [从 package.json 来聊聊如何管理一款优秀的 Npm 包](https://zhuanlan.zhihu.com/p/548202395)
-
-
 ### dependencies 的区别
 - dependencies     生产和开发都会用到的依赖，最后会被打包到项目中  
 - devDependencies  只在开发环境中使用的依赖，最后不会被打包到项目中
@@ -13,3 +10,9 @@
 本质上package-lock.json文件是为了锁版本，在package.json中指定的子npm包  
 比如：react: "^16.0.0"，在实际安装中，只要高于react的版本都满足package.json的要求。  
 这样就使得根据同一个package.json文件，两次安装的子依赖版本不能保证一致
+
+
+### exports
+[从 package.json 来聊聊如何管理一款优秀的 Npm 包](https://zhuanlan.zhihu.com/p/548202395)  
+在引入的 Npm 包的 pck 中如果存在 exports 关键字时，构建配置的 resolve.mainFields 是无效的。  
+我们需要通过 resolve.conditionNames 字段来定义对应的环境。[more](https://webpack.js.org/configuration/resolve/#resolveconditionnames)
