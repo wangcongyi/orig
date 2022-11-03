@@ -10,4 +10,4 @@
   - Renderer (渲染器)：将 Reconcile 中打好的 tag 节点渲染到视图上
 
 - 无论 `props` 有没有用到，只要是传入都会再次执行，即便是用了 `React.memo` 
-  - 我在 react v17.0.2 用 memo 第一个参数强制返回 true 还是有效的
+  1. 用 memo 第二个参数强制返回 true 还是有效的, 但 props 一直都是第一次的。[more](https://github.com/wangcongyi/test/blob/master/react-all/re-render.md) 
