@@ -134,6 +134,10 @@ o2.__proto__ === Object.prototype // true
 
 //  对象有属性__proto__,指向该对象的构造函数的原型对象
 //  方法除了有属性__proto__,还有属性prototype，prototype指向该方法的原型对象
+
+
+// __proto__是每个对象都有的一个属性，而prototype是函数才会有的属性。
+// __proto__指向的是当前对象的原型对象，而prototype指向的，是以当前函数作为构造函数构造出来的对象的原型对象。
 ```
 
 
