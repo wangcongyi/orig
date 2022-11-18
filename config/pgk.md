@@ -14,5 +14,5 @@
 
 ### exports
 [从 package.json 来聊聊如何管理一款优秀的 Npm 包](https://zhuanlan.zhihu.com/p/548202395)  
-在引入的 Npm 包的 pck 中如果存在 exports 关键字时，构建配置的 resolve.mainFields 是无效的。  
+在引入的 Npm 包的 pkg 中如果存在 exports 关键字时，构建配置的 resolve.mainFields 是无效的。  
 我们需要通过 resolve.conditionNames 字段来定义对应的环境。[more](https://webpack.js.org/configuration/resolve/#resolveconditionnames)
