@@ -2,7 +2,7 @@
 HTTP3.0是一种新的HTTP协议，也称为HTTP over QUIC。它是基于QUIC（Quick UDP Internet Connections）协议的，QUIC是一种新的传输协议，由Google开发。  
 HTTP3.0使用QUIC协议来传输数据，而不是使用TCP协议。这使得HTTP3.0更加快速、安全和可靠。  
 HTTP3.0的目标是提高Web应用程序的性能和安全性，减少延迟和数据包丢失。它还支持多路复用和流量控制，可以对网络中的拥塞做出快速响应。  
-HTTP3.0的广泛采用可能会改变互联网的基础架构和Web应用程序的开发方式。
+
 
 QUIC（Quick UDP Internet Connections）是一个基于UDP协议的网络传输协议，由Google公司开发。它旨在减少网络延迟和提高网络安全性。  
 QUIC协议将TLS（Transport Layer Security）协议和HTTP/2协议整合在一起，通过将加密、多路复用、快速连接建立和可靠性等功能集成到一个协议中，从而提高了网络传输的效率和安全性。  
