@@ -66,7 +66,8 @@
     
 
 
-
+### - a 标签 target = '\_blank'
+添加 noopener noreferrer 是为了防止恶意网站通过 window.opener 访问到打开的新窗口的 window 对象，从而进行恶意操作。具体来说，noopener 属性表示打开的新窗口不应该与原始页面共享 window.opener 属性，而 noreferrer 属性表示不应该在 HTTP 请求头中发送 Referer 字段，以防止泄露原始页面的信息。这两个属性的组合可以提高安全性，防止一些恶意攻击。
 
 
 
