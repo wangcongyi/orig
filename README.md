@@ -27,3 +27,5 @@
 > 2022/05/20  增加 `psychology of programming` 编程心理学  
 
 > 2022/10/25  增加 `git` 相关笔记 调整目录结构 
+
+> 2023/04/10  增加 `programming philosophy` 存放对编程哲学、心理学和作为 leader 的思考
