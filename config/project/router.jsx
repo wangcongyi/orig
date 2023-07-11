@@ -1,16 +1,8 @@
 import React, { memo, useState, Suspense, lazy, useEffect, useCallback } from 'react'
 
-import { useUserInfo } from '@/services/auth-service'
-import http from '@/utils/http'
-import busEventer from '@/utils/eventbus'
-import dataReportTrace from '@/pages/FS/Organization/helper/orgDataReport.js'
-
 import { Menu, SideMenu } from './constant/menu'
 
-import './index.less'
-
 const Manage = () => {
-  const auth = useUserInfo()?.privilegeCodes
   const [navIndex, setNavIndex] = useState(0)
   const [sideIndex, setSideIndex] = useState(0)
   const [page, setPage] = useState('Default')
@@ -52,28 +44,6 @@ const Manage = () => {
       }
     }
   }, [auth])
-
-  useEffect(() => {
-    busEventer.on('updateOrgBase', updateOrgBase)
-    http.get('/qtrade_shop/api/shop/organization/manage/shop_organization/get.do').then(res => {
-      if (!res.data.code) {
-        const { simpleName, imageUrl } = res.$data
-        setOrgName(simpleName)
-        setOrgImg(imageUrl)
-        dataReportTrace(
-          {
-            eventCode: 'shop-management-visit',
-            eventName: '管理后台被打开访问',
-          },
-          false
-        )
-      }
-    })
-
-    return () => {
-      busEventer.removeListener('updateOrgBase', updateOrgBase)
-    }
-  }, [])
 
   return (
     <section className="fs-manage-organization">
