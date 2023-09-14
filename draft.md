@@ -1,5 +1,4 @@
 - [ ] [http3](https://www.smashingmagazine.com/2021/08/http3-core-concepts-part1/)
-- [ ] [各流派 React 状态管理对比和原理实现](https://zhuanlan.zhihu.com/p/394106764)
 - [ ] [62张图教你干趴 Docker](https://zhuanlan.zhihu.com/p/378907027)
 - [ ] [Algorithms and Data Structures Tutorial](https://www.youtube.com/watch?v=8hly31xKli0)
 - [ ] [Using WebAssembly (created in Rust) for Fast React Components](https://www.joshfinnie.com/blog/using-webassembly-created-in-rust-for-fast-react-components/)
