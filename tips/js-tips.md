@@ -441,6 +441,21 @@ const renameKeys = (keysMap, obj) =>
 const time = () => new Date(+new Date() + 8 * 3600 * 1000).toISOString().substr(0, 19).replace('T', ' ').replace(/-/g, '.')
 ```
 
+## 数组转CSV
+```js
+const arrayToCSV = (arr, delimiter = ",") =>
+  arr
+    .map((row) => row.map((value) => `"${value}"`).join(delimiter))
+    .join("\n");
+
+// Example
+arrayToCSV([
+  ["one", "two"],
+  ["three", "four"],
+]);
+// '"one","two"\n"three","four"'
+```
+
 
 
 
