@@ -161,3 +161,25 @@ window.getComputedStyle(document.querySelector('.element'),':before').getPropert
 
 ```
 
+* 使用 CSS 自定义高亮（range 对象， Highlight 对象）
+
+```html
+<style>
+::highlight(rangeA) {
+  background-color: rgb(255 0 0 / 0.5) /* red */
+}
+</style>
+
+<pre><code>this is my highlighted code</code></pre>
+
+<script>
+  const textNode = document.querySelector('code').firstChild
+  const highlightA = new Highlight()
+  const rangeA = new Range()
+  rangeA.setStart(textNode, 0)
+  rangeA.setEnd(textNode, 15)
+  highlightA.add(rangeA)
+  CSS.highlights.set('rangeA', highlightA)
+</script>
+
+```
