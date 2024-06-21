@@ -162,7 +162,7 @@ window.getComputedStyle(document.querySelector('.element'),':before').getPropert
 ```
 
 * 使用 CSS 自定义高亮（range 对象， Highlight 对象）
-
+[Highlight](https://developer.mozilla.org/zh-CN/docs/Web/API/Highlight)
 ```html
 <style>
 ::highlight(rangeA) {
