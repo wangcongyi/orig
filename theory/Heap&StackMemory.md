@@ -29,4 +29,6 @@ Additionally, the isize and usize types depend on the kind of computer your prog
 64 bits if you’re on a 64-bit architecture and 32 bits if you’re on a 32-bit architecture.
 ```
 
+![image](https://github.com/user-attachments/assets/e93a3453-6dff-405a-86b1-52d142385ad0)
+
 
