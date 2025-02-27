@@ -29,6 +29,12 @@ Additionally, the isize and usize types depend on the kind of computer your prog
 64 bits if you’re on a 64-bit architecture and 32 bits if you’re on a 32-bit architecture.
 ```
 
+Stack 栈内存  
+Heap  堆内存  
+![image](https://github.com/user-attachments/assets/01e51339-3a0d-4f7e-8ea5-dc362c042279)
+
+
+
 ![image](https://github.com/user-attachments/assets/e93a3453-6dff-405a-86b1-52d142385ad0)
 
 
